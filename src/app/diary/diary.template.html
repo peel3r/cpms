@@ -1,0 +1,17 @@
+<div class="row center-xs article">
+  <div class="row articles">
+    <!--<article-creator (createArticle)="onCreateArticle($event)"></article-creator>-->
+  </div>
+
+  <div class="col-xs-12">
+    <div>
+      <article-card
+        class="col-xs-12 start-xs"
+        [article]="article"
+        *ngFor="let article of articles"
+      >
+      </article-card>
+
+    </div>
+  </div>
+</div>
