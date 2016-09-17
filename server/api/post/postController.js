@@ -1,73 +1,73 @@
-var Diary = require('./diaryModel');
+var Post = require('./postModel');
 var _ = require('lodash');
 var logger = require('../../util/logger');
 
 exports.params = function(req, res, next, id) {
-    Diary.findById(id)
-        .populate('author', 'username')
-        .exec()
-        .then(function(diary) {
-            if (!diary) {
-                next(new Error('No diary with that id'));
-            } else {
-                req.diary = diary;
-                next();
-            }
-        }, function(err) {
-            next(err);
-        });
+  Post.findById(id)
+    .populate('author', 'username')
+    .exec()
+    .then(function(post) {
+      if (!post) {
+        next(new Error('No post with that id'));
+      } else {
+        req.post = post;
+        next();
+      }
+    }, function(err) {
+      next(err);
+    });
 };
 
 exports.get = function(req, res, next) {
-    Diary.find({})
-        .populate('author categories')
-        .exec()
-        .then(function(diaries){
-            res.json(diaries);
-        }, function(err){
-            next(err);
-        });
+  Post.find({})
+    .populate('author categories')
+    .exec()
+    .then(function(posts){
+      res.json(posts);
+    }, function(err){
+      next(err);
+    });
 };
 
 exports.getOne = function(req, res, next) {
-    var diary = req.diary;
-    res.json(diary);
+  var post = req.post;
+  res.json(post);
 };
 
 exports.put = function(req, res, next) {
-    var diary = req.diary;
+  var post = req.post;
 
-    var update = req.body;
+  var update = req.body;
 
-    _.merge(diary, update);
+  _.merge(post, update);
 
-    diary.save(function(err, saved) {
-        if (err) {
-            next(err);
-        } else {
-            res.json(saved);
-        }
-    })
+  post.save(function(err, saved) {
+    if (err) {
+      next(err);
+    } else {
+      res.json(saved);
+    }
+  })
 };
 
 exports.post = function(req, res, next) {
-    var newdiary = req.body;
-    newdiary.author = req.user._id;
-    Diary.create(newdiary)
-        .then(function(diary) {
-            res.json(diary);
-        }, function(err) {
-            logger.error(err);
-            next(err);
-        });
+  var newpost = req.body;
+  newpost.author = req.user._id;
+  Post.create(newpost)
+    .then(function(post) {
+      res.json(post);
+    }, function(err) {
+      logger.error(err);
+      next(err);
+    });
 };
 
 exports.delete = function(req, res, next) {
-    req.diary.remove(function(err, removed) {
-        if (err) {
-            next(err);
-        } else {
-            res.json(removed);
-        }
-    });
+  req.post.remove(function(err, removed) {
+    if (err) {
+      next(err);
+    } else {
+      res.json(removed);
+    }
+  });
 };

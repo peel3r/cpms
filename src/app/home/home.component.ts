@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component , Input} from '@angular/core';
 
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import {Article} from '../article/article.component'
 
 @Component({
   // The selector is what angular internally uses
@@ -11,7 +12,8 @@ import { XLarge } from './x-large';
   selector: 'home',  // <home></home>
   // We need to tell Angular's Dependency Injection which providers are in our app.
   providers: [
-    Title
+    Title,
+    Article
   ],
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [ './home.style.css' ],

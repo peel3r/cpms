@@ -3,19 +3,19 @@ import { ApiService } from './api';
 import 'rxjs/Rx';
 
 @Injectable()
-export class ArticleService {
-  path: string = '/api/posts';
+export class DiaryService {
+  path: string = '/api/diaries';
   constructor(private apiService: ApiService) {}
 
-  createArticle(article) {
-    return this.apiService.post(this.path, article)
+  createDiary(diary) {
+    return this.apiService.post(this.path, diary)
   }
 
-  getArticles() {
+  getDiaries() {
     return this.apiService.get(this.path)
   }
 
-  completeArticle(article) {
-    return this.apiService.delete(`${this.path}/${article.id}`)
+  completeDiary(diary) {
+    return this.apiService.delete(`${this.path}/${diary.id}`)
   }
 }

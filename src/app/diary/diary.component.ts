@@ -1,25 +1,25 @@
 import {Component} from '@angular/core';
 import { AppState } from '../app.service';
-import {ArticleService} from '../services'
+import {DiaryService} from '../services'
 
 @Component({
-  selector: 'article',
-  styleUrls: ['./article.style.css'],
-  templateUrl: './article.template.html'
+  selector: 'diary',
+  styleUrls: ['./diary.style.css'],
+  templateUrl: './diary.template.html'
 
 })
 
-export class Article {
-  articles = [];
+export class Diary {
+  diaries = [];
 
-  constructor(public appState: AppState, private articleService: ArticleService) {
-    this.articleService.getArticles()
-      .subscribe(res => this.articles = res);
+  constructor(public appState: AppState, private diaryService: DiaryService) {
+    this.diaryService.getDiaries()
+      .subscribe(res => this.diaries = res);
   }
 
-  onCreateArticle(article) {
-    this.articleService.createArticle(article)
-      .subscribe(article => this.articles.push(article));
+  onCreateDiary(diary) {
+    this.diaryService.createDiary(diary)
+      .subscribe(diary => this.diaries.push(diary));
   }
 
   // Set our default values
@@ -28,7 +28,7 @@ export class Article {
 
 
   ngOnInit() {
-    console.log('hello `Article` component');
+    console.log('hello `Diary` component');
     // this.title.getData().subscribe(data => this.data = data);
   }
 

@@ -20,10 +20,10 @@ console.log('`About` component loaded asynchronously');
     </div>
     <div>
       <h3>
-        patrick@AngularClass.com
+        
       </h3>
     </div>
-    <pre>this.localState = {{ localState | json }}</pre>
+    <!--<pre>this.localState = {{ localState | json }}</pre>-->
   `
 })
 export class About {
@@ -51,15 +51,15 @@ export class About {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
     // remember that 'es6-promise-loader' is a promise
-    setTimeout(() => {
-
-      System.import('../../assets/mock-data/mock-data.json')
-        .then(json => {
-          console.log('async mockData', json);
-          this.localState = json;
-        });
-
-    });
+    // setTimeout(() => {
+    //
+    //   System.import('../../assets/mock-data/mock-data.json')
+    //     .then(json => {
+    //       console.log('async mockData', json);
+    //       this.localState = json;
+    //     });
+    //
+    // });
   }
 
 }

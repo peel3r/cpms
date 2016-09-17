@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+
+import { MdButtonModule } from '@angular2-material/button';
+import { MdCardModule } from '@angular2-material/card';
+
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 /*
@@ -18,11 +22,22 @@ import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
-
+import {AppBar} from "./ui/app-bar";
+import {Article} from "./article/article.component";
+import {ArticleCard} from "./article/article-card.component";
+import {ArticleCreator} from "./article/article-creator";
+import * as services from './services';
+import {Auth} from "./auth/auth";
+import {AuthService} from "./services/auth";
+import {NewArticle} from "./article/new-article.component";
+import {Diary} from "./diary/diary.component";
+import {DiaryCard} from "./diary/diary-card.component";
+import {DiaryCreator} from "./diary/diary-creator";
+import {NewDiary} from "./diary/new-diary.component";
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
 ];
 
 type StoreType = {
@@ -30,6 +45,7 @@ type StoreType = {
   restoreInputValues: () => void,
   disposeOldHosts: () => void
 };
+const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -41,17 +57,31 @@ type StoreType = {
     About,
     Home,
     NoContent,
-    XLarge
+    XLarge,
+    AppBar,
+    Article,
+    ArticleCard,
+    ArticleCreator,
+    NewArticle,
+    Diary,
+    DiaryCard,
+    DiaryCreator,
+    NewDiary,
+    Auth
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
+    [MdButtonModule, MdCardModule],
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
+
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    ...mapValuesToArray(services),
+    AuthService
   ]
 })
 export class AppModule {

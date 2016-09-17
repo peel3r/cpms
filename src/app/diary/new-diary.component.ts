@@ -1,24 +1,24 @@
 import {Component} from '@angular/core';
-import {ArticleService} from '../services'
+import {DiaryService} from '../services'
 
 @Component({
-  selector: 'new-article',
-  styleUrls: ['./article.style.css'],
+  selector: 'new-diary',
+  styleUrls: ['./diary.style.css'],
   template: `
-    <article-creator (createArticle)="onCreateArticle($event)"></article-creator>
+    <diary-creator (createDiary)="onCreateDiary($event)"></diary-creator>
 `
 })
 
-export class NewArticle {
-  articles = [];
+export class NewDiary {
+  diaries = [];
 
-  constructor(private articleService: ArticleService) {
+  constructor(private diaryService: DiaryService) {
 
   }
 
-  onCreateArticle(article) {
-    this.articleService.createArticle(article)
-      .subscribe(article => this.articles.push(article));
+  onCreateDiary(diary) {
+    this.diaryService.createDiary(diary)
+      .subscribe(diary => this.diaries.push(diary));
   }
 
 }

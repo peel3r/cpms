@@ -1,6 +1,8 @@
 var User = require('../api/user/userModel');
 var Diary = require('../api/diary/diaryModel');
 var Category = require('../api/category/categoryModel');
+var Post = require('../api/post/postModel');
+
 var _ = require('lodash');
 var logger = require('./logger');
 
@@ -24,6 +26,12 @@ var diaries = [
     {title: 'brain fog again ', text: 'today have problems to concentrate', painLevel: 3, mood: 'very low'}
 ];
 
+var posts = [
+  {title: 'Learn angular 2 today', value: 'Angular to is so dope'},
+  {title: '10 reasons you should love IE7', value: 'IE7 is so amazing'},
+  {title: 'Why we switched to Go', value: 'go is dope'}
+];
+
 var createDoc = function(model, doc) {
     return new Promise(function(resolve, reject) {
         new model(doc).save(function(err, saved) {
@@ -34,7 +42,7 @@ var createDoc = function(model, doc) {
 
 var cleanDB = function() {
     logger.log('... cleaning the DB');
-    var cleanPromises = [User , Category, Diary]
+    var cleanPromises = [User , Category, Diary,Post]
         .map(function(model) {
             return model.remove().exec();
         });
@@ -86,14 +94,44 @@ var createDiaries = function(data) {
                 return addCategory(diary, data.categories[i])
             }));
         })
-        .then(function() {
-            return 'Seeded DB with 3 Diaries, 3 Users, 3 Categories';
-        });
+        // .then(function() {
+        //     return 'Seeded DB with 3 Diaries, 3 Users, 3 Categories';
+        // });
+
+
+};
+
+var createPosts = function(data) {
+  var addCategory = function(post, category) {
+    post.categories.push(category);
+
+    return new Promise(function(resolve, reject) {
+      post.save(function(err, saved) {
+        return err ? reject(err) : resolve(saved)
+      });
+    });
+  };
+
+  var newPosts = posts.map(function(post, i) {
+    post.author = data.users[i]._id;
+    return createDoc(Post, post);
+  });
+
+  return Promise.all(newPosts)
+    .then(function(savedPosts) {
+      return Promise.all(savedPosts.map(function(post, i){
+        return addCategory(post, data.categories[i])
+      }));
+    })
+    .then(function() {
+      return 'Seeded DB with 3 Posts, 3 Users, 3 Categories';
+    });
 };
 
 cleanDB()
     .then(createUsers)
     .then(createCategories)
     .then(createDiaries)
+    .then(createPosts)
     .then(logger.log.bind(logger))
     .catch(logger.log.bind(logger));

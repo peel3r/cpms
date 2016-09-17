@@ -1,15 +1,17 @@
 <div class="row center-xs article">
-  <div class="col-xs-6 creator">
-    note creator here
+  <div class="row articles">
+    <!--<article-creator (createArticle)="onCreateArticle($event)"></article-creator>-->
   </div>
-  <div class="article col-xs-8">
-    <div class="row between-xs">
-      article there
-      <!--<note-card-->
-        <!--class="col-xs-4"-->
-        <!--[note]="note"-->
-      <!--&gt;-->
-      <!--</note-card>-->
+
+  <div class="col-xs-12">
+    <div>
+      <article-card
+        class="col-xs-12 start-xs"
+        [article]="article"
+        *ngFor="let article of articles"
+      >
+      </article-card>
+
     </div>
   </div>
 </div>

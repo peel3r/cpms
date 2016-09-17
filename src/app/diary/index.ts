@@ -1,5 +1,5 @@
-export {Article} from './article.component';
-export {ArticleCard} from './article-card.component';
-export {ArticleCreator} from './article-creator';
-export {NewArticle} from './new-article.component';
+export {Diary} from './diary.component';
+export {DiaryCard} from './diary-card.component';
+export {DiaryCreator} from './diary-creator';
+export {NewDiary} from './new-diary.component';
 

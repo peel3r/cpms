@@ -1,7 +1,7 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'article-creator',
+  selector: 'diary-creator',
   styles: [` 
   .note-creator {
       padding: 20px;
@@ -18,19 +18,19 @@ import {Component, Output, EventEmitter} from '@angular/core';
   `],
   template: `
   <div class="note-creator shadow-2">
-      <form class="row" (submit)="onCreateArticle()">
+      <form class="row" (submit)="onCreateDiary()">
         <input
           type="text"
-          [(ngModel)]="newArticle.title"
-          name="newArticleTitle"
+          [(ngModel)]="newDiary.title"
+          name="newDiaryTitle"
           placeholder="Title"
           class="col-xs-10 title"
         >
         <input
           type="text"
-          [(ngModel)]="newArticle.text"
-          name="newArticleValue"
-          placeholder="Write new article"
+          [(ngModel)]="newDiary.text"
+          name="newDiaryValue"
+          placeholder="Write new Diary"
           class="col-xs-10"
         >
         <div class="actions col-xs-12 row between-xs">
@@ -47,23 +47,23 @@ import {Component, Output, EventEmitter} from '@angular/core';
 
 })
 
-export class ArticleCreator {
-  @Output() createArticle = new EventEmitter();
-  newArticle = {
+export class DiaryCreator {
+  @Output() createDiary = new EventEmitter();
+  newDiary = {
     title: '',
     text: ''
   };
 
-  onCreateArticle() {
-    const {title, text} = this.newArticle;
+  onCreateDiary() {
+    const {title, text} = this.newDiary;
 
     if (title && text) {
-      this.createArticle.next({title, text});
+      this.createDiary.next({title, text});
       this.reset();
     }
   }
   reset() {
-    this.newArticle = {
+    this.newDiary = {
       title: '',
       text: ''
     };

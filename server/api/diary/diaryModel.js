@@ -15,17 +15,17 @@ var DiarySchema = new Schema({
 
     painLevel: {
         type: Number,
-        required: true
+        required: false
     },
 
     mood: {
         type: String,
-        required: true
+        required: false
     },
 
     author: {type: Schema.Types.ObjectId, ref: 'user'},
 
-    categories: [{type: Schema.Types.ObjectId, ref: 'category'}]
+    // categories: [{type: Schema.Types.ObjectId, ref: 'category'}]
 });
 
 module.exports = mongoose.model('diary', DiarySchema);

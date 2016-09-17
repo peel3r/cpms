@@ -1,17 +1,47 @@
-<div class="row center-xs article">
-  <div class="row articles">
-    <!--<article-creator (createArticle)="onCreateArticle($event)"></article-creator>-->
-  </div>
+<div class="card-container">
 
-  <div class="col-xs-12">
-    <div>
-      <article-card
-        class="col-xs-12 start-xs"
-        [article]="article"
-        *ngFor="let article of articles"
-      >
-      </article-card>
+
+  <div class="row center-xs">
+    <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-6">
+      <div class="box home-wrapper shadow-3">
+        <h1 x-large class="sample-content start-xs">New Diary</h1>
+
+        <diary-creator (createDiary)="onCreateDiary($event)"></diary-creator>
+
+
+      </div>
+    </div>
+    <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+      <div class="box home-wrapper shadow-3">
+        <h1 x-large class="sample-content start-xs">Pain Records</h1>
+
+        <div class="col-xs-12">
+          <div>
+            <diary-card
+              class="col-xs-12 start-xs"
+              [diary]="diary"
+              *ngFor="let diary of diaries"
+            >
+            </diary-card>
+          </div>
+        </div>
+
+      </div>
 
     </div>
+
   </div>
+  <div>
+  </div>
+
 </div>
+
+
+
+
