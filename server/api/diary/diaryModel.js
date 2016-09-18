@@ -13,17 +13,18 @@ var DiarySchema = new Schema({
         required: true
     },
 
-    painLevel: {
-        type: Number,
-        required: false
-    },
-
-    mood: {
+    overAllPainLevel: {
         type: String,
         required: false
     },
 
+    moodLevel: {
+        type: Number,
+        required: false
+    },
+
     author: {type: Schema.Types.ObjectId, ref: 'user'},
+    pain: {type: Schema.Types.ObjectId, ref: 'pain'}
 
     // categories: [{type: Schema.Types.ObjectId, ref: 'category'}]
 });

@@ -7,10 +7,7 @@ var CategorySchema = new Schema({
         required: true,
         unique: true
     },
-    intensity: {
-        type: String,
-        requiered: false
-    },
+
     date: { type: Date, default: Date.now }
 });
 
