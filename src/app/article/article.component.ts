@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import { AppState } from '../app.service';
 import {ArticleService} from '../services'
+import {Store} from "../store";
 
 @Component({
   selector: 'article',
@@ -12,14 +13,26 @@ import {ArticleService} from '../services'
 export class Article {
   articles = [];
 
-  constructor(public appState: AppState, private articleService: ArticleService) {
+  constructor(
+    public appState: AppState,
+    private articleService: ArticleService,
+    private store: Store
+  ) {
+    this.store.changes.pluck('articles')
+      .subscribe((articles: any) => this.articles = articles)
+
     this.articleService.getArticles()
-      .subscribe(res => this.articles = res);
+      .subscribe();
   }
 
   onCreateArticle(article) {
     this.articleService.createArticle(article)
-      .subscribe(article => this.articles.push(article));
+      .subscribe();
+  }
+
+  onArticleDeleted(article){
+    this.articleService.completeArticle(article)
+      .subscribe();
   }
 
   // Set our default values

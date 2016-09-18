@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 
 import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
+import { MdSliderModule } from '@angular2-material/slider';
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-
+import 'hammerjs'
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -34,6 +35,15 @@ import {Diary} from "./diary/diary.component";
 import {DiaryCard} from "./diary/diary-card.component";
 import {DiaryCreator} from "./diary/diary-creator";
 import {NewDiary} from "./diary/new-diary.component";
+import {MdProgressCircle} from "@angular2-material/progress-circle";
+import {MdProgressCircleModule} from "@angular2-material/progress-circle";
+import {MdCheckboxModule} from "@angular2-material/checkbox";
+import {MdInputModule} from "@angular2-material/input";
+import {MdRadioModule} from "@angular2-material/radio";
+import {MdSlideToggleModule} from "@angular2-material/slide-toggle";
+import { MdUniqueSelectionDispatcher } from '@angular2-material/core';
+import {Store} from "./store";
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -73,15 +83,26 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     BrowserModule,
     FormsModule,
     HttpModule,
-    [MdButtonModule, MdCardModule],
+    [
+      MdButtonModule,
+      MdCardModule,
+      MdSliderModule,
+      MdProgressCircleModule,
+      MdCheckboxModule,
+      MdInputModule,
+      MdRadioModule,
+      MdSlideToggleModule
+    ],
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
+    Store,
     ...mapValuesToArray(services),
-    AuthService
+    AuthService,
+    [MdUniqueSelectionDispatcher]
   ]
 })
 export class AppModule {

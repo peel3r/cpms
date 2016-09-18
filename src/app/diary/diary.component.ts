@@ -23,7 +23,7 @@ export class Diary {
   }
 
   // Set our default values
-  localState = { value: '' };
+  // localState = { value: '' };
   // TypeScript public modifiers
 
 
@@ -32,9 +32,9 @@ export class Diary {
     // this.title.getData().subscribe(data => this.data = data);
   }
 
-  submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
-  }
+  // submitState(value: string) {
+  //   console.log('submitState', value);
+  //   this.appState.set('value', value);
+  //   this.localState.value = '';
+  // }
 }
