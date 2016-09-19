@@ -4,7 +4,7 @@ import {AuthService} from '../services'
   selector: 'app-bar',
   styles: [`
   .app-bar {
-  height: 65px;
+  height: 140px;
   padding: 5px 30px;
   background-color: #00BCD4;
 }
@@ -21,52 +21,7 @@ import {AuthService} from '../services'
   cursor: pointer; 
 }
 `],
-  template:`
-    <header class="app-bar row middle-xs">
-  <span [routerLink]=" ['']" 
-  class="logo col-xs-6"
-  >
-      Chronic Pain App
-  
-  </span> 
-  <nav class="col-xs-6">
-    <div class="row middle-xs between-xs">
-      <button 
-      md-raised-button 
-      [routerLink]=" ['./articles']"
-      class="shadow-1"
-      >      
-      {{library}}
-      
-      </button>
-      <button 
-      md-raised-button
-       class="shadow-1"
-      >
-      Steps
-      
-      </button>
-      <button 
-      md-raised-button 
-      [routerLink]=" ['./diaries']"
-      class="shadow-1"
-      >      
-      Pain Manager
-      
-      </button>
-      <button 
-      class="shadow-1"
-      md-raised-button 
-      (click)="changeMode()"
-      color="warn"
-      >      
-      {{mode}}
-      
-      </button>
-    </div>
-  </nav>
-</header>
-`
+  templateUrl: './app-bar.template.html'
 })
 
 export class AppBar {
