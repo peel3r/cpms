@@ -51,6 +51,7 @@ exports.put = function(req, res, next) {
 };
 
 exports.post = function(req, res, next) {
+  console.log(req);
     var newdiary = req.body;
     newdiary.author = req.user._id;
     Diary.create(newdiary)
