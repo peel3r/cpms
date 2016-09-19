@@ -27,9 +27,9 @@ var diaries = [
 ];
 
 var posts = [
-  {title: 'Learn angular 2 today', value: 'Angular to is so dope'},
-  {title: '10 reasons you should love IE7', value: 'IE7 is so amazing'},
-  {title: 'Why we switched to Go', value: 'go is dope'}
+  {title: 'Learn angular 2 today', text: 'Angular to is so dope'},
+  {title: '10 reasons you should love IE7', text: 'IE7 is so amazing'},
+  {title: 'Why we switched to Go', text: 'go is dope'}
 ];
 
 var createDoc = function(model, doc) {
@@ -73,34 +73,31 @@ var createCategories = function(data) {
 };
 
 var createDiaries = function(data) {
-    var addCategory = function(diary, category) {
-        diary.categories.push(category);
+  var addCategory = function(diary, category) {
+    diary.categories.push(category);
 
-        return new Promise(function(resolve, reject) {
-            diary.save(function(err, saved) {
-                return err ? reject(err) : resolve(saved)
-            });
-        });
-    };
-
-    var newDiaries = diaries.map(function(diary, i) {
-        diary.author = data.users[i]._id;
-        return createDoc(Diary, diary);
+    return new Promise(function(resolve, reject) {
+      diary.save(function(err, saved) {
+        return err ? reject(err) : resolve(saved)
+      });
     });
+  };
 
-    return Promise.all(newDiaries)
-        .then(function(savedDiaries) {
-            return Promise.all(savedDiaries.map(function(diary, i){
-                return addCategory(diary, data.categories[i])
-            }));
-        })
-        // .then(function() {
-        //     return 'Seeded DB with 3 Diaries, 3 Users, 3 Categories';
-        // });
+  var newDiaries = diaries.map(function(diary, i) {
+    diary.author = data.users[i]._id;
+    return createDoc(Diary, diary);
+  });
 
-
+  return Promise.all(newDiaries)
+    .then(function(savedDiaries) {
+      return Promise.all(savedDiaries.map(function(diary, i){
+        return addCategory(diary, data.categories[i])
+      }));
+    })
+    .then(function() {
+      return 'Seeded DB with 3 diaries, 3 Users, 3 Categories';
+    });
 };
-
 var createPosts = function(data) {
   var addCategory = function(post, category) {
     post.categories.push(category);
@@ -132,6 +129,6 @@ cleanDB()
     .then(createUsers)
     .then(createCategories)
     .then(createDiaries)
-    .then(createPosts)
+    // .then(createPosts)
     .then(logger.log.bind(logger))
     .catch(logger.log.bind(logger));

@@ -12,7 +12,10 @@ import {Component, Input} from '@angular/core';
    </md-card-header>
    <!--<img md-card-image src="http://i.imgur.com/OGZu3VX.png">-->
    <md-card-content>
+   <p>{{diary.overAllPainLevel}}</p>
       <p>{{diary.text}}</p>
+      <p>written by: {{diary.author.username  }}</p>
+      <!--<p>pain category: {{diary.categories[0].name }}</p>-->
          <!--<md-card-actions>-->
         <!--<button md-button>LIKE</button>-->
         <!--<button md-button>SHARE</button>-->
