@@ -1,0 +1,56 @@
+<div class="row app-bar center-xs">
+  <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-5">
+    <div>
+        <span [routerLink]=" ['']"
+              class="logo "
+        >
+      Chronic Pain Management System
+
+        </span>
+    </div>
+  </div>
+  <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-5">
+    <div >
+      <div class="row middle-xs between-xs">
+        <button
+          md-raised-button
+          [routerLink]=" ['./articles']"
+          class="shadow-1"
+        >
+          {{library}}
+
+        </button>
+        <button
+          md-raised-button
+          class="shadow-1"
+        >
+          Steps
+
+        </button>
+        <button
+          md-raised-button
+          [routerLink]=" ['./diaries']"
+          class="shadow-1"
+        >
+          Pain Manager
+
+        </button>
+        <button
+          class="shadow-1"
+          md-raised-button
+          (click)="changeMode()"
+          color="warn"
+        >
+          {{mode}}
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
