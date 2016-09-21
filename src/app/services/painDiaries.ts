@@ -22,6 +22,13 @@ export class DiaryService {
 
   }
 
+  getDiary(id) {
+    console.log('path', this.path)
+    return this.getDiaries()
+      .map(diaries => diaries.find(d=> d._id == id))
+
+  }
+
   completeDiary(diary) {
     return this.apiService.delete(`${this.path}/${diary.id}`)
       .do(res => this.storeHelper.findAndDelete('diaries', res.id))

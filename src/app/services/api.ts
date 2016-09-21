@@ -47,6 +47,7 @@ export class ApiService {
       .map(this.getJson)
   }
 
+
   delete(path): Observable<any> {
     return this.http.delete(
       `${this.api_url}${path}`,

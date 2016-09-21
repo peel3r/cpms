@@ -25,4 +25,5 @@ import {Component, Input} from '@angular/core';
 
 export class ArticleCard {
   @Input() article = {}
+
 }

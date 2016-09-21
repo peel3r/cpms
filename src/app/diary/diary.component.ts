@@ -11,30 +11,30 @@ import {DiaryService} from '../services'
 
 export class Diary {
   diaries = [];
-
-  constructor(public appState: AppState, private diaryService: DiaryService) {
+  date = Date.now()
+  painLevelCount = []
+  constructor( private diaryService: DiaryService) {
+    // this.diaryService.getDiaries()
+    //   .subscribe(res => this.diaries = res)
     this.diaryService.getDiaries()
-      .subscribe(res => this.diaries = res);
+      .subscribe(
+        res => {
+          this.diaries = res,
+          // this.painLevelCount = res[0]['_id']
+            this.painLevelCount = res
+
+
+ }
+        )
+
+
   }
+
 
   onCreateDiary(diary) {
     this.diaryService.createDiary(diary)
       .subscribe(diary => this.diaries.push(diary));
   }
 
-  // Set our default values
-  // localState = { value: '' };
-  // TypeScript public modifiers
 
-
-  ngOnInit() {
-    console.log('hello `Diary` component');
-    // this.title.getData().subscribe(data => this.data = data);
-  }
-
-  // submitState(value: string) {
-  //   console.log('submitState', value);
-  //   this.appState.set('value', value);
-  //   this.localState.value = '';
-  // }
 }

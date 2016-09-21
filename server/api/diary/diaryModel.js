@@ -3,6 +3,9 @@ var Schema = mongoose.Schema;
 
 var DiarySchema = new Schema({
 
+  date: { type: Date, default: Date.now },
+
+
   title: {
     type: String,
     required: true,
@@ -11,7 +14,7 @@ var DiarySchema = new Schema({
 
   text: {
     type: String,
-    required: true
+    required: false
   },
 
   // Overall Pain Fatigue

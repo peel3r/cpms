@@ -13,6 +13,7 @@ import {Article} from "./article/article.component";
 import {NewArticle} from "./article/new-article.component";
 import {Diary} from "./diary/diary.component";
 import {NewDiary} from "./diary/new-diary.component";
+import {DiaryShow} from "./diary/diary-show.component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -26,7 +27,8 @@ export const ROUTES: Routes = [
   { path: 'articles/new', component: NewArticle , canActivate:[AuthService]},
 
   { path: 'diaries',  component: Diary , canActivate:[AuthService]},
-  { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
+  // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
+  { path: 'diaries/:id', component: DiaryShow , canActivate:[AuthService]},
 
   { path: '**',    component: NoContent },
 

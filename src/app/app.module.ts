@@ -43,6 +43,7 @@ import {MdRadioModule} from "@angular2-material/radio";
 import {MdSlideToggleModule} from "@angular2-material/slide-toggle";
 import { MdUniqueSelectionDispatcher } from '@angular2-material/core';
 import {Store} from "./store";
+import {DiaryShow} from "./diary/diary-show.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -60,6 +61,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
+
+
 @NgModule({
   bootstrap: [ App ],
   declarations: [
@@ -77,7 +80,9 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     DiaryCard,
     DiaryCreator,
     NewDiary,
-    Auth
+    Auth,
+    DiaryShow
+
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -93,8 +98,12 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdRadioModule,
       MdSlideToggleModule
     ],
+
+
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
+
+
 
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
@@ -102,7 +111,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Store,
     ...mapValuesToArray(services),
     AuthService,
-    [MdUniqueSelectionDispatcher]
+    [MdUniqueSelectionDispatcher],
+
   ]
 })
 export class AppModule {
