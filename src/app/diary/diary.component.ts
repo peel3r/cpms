@@ -14,20 +14,8 @@ export class Diary {
   date = Date.now()
   painLevelCount = []
   constructor( private diaryService: DiaryService) {
-    // this.diaryService.getDiaries()
-    //   .subscribe(res => this.diaries = res)
     this.diaryService.getDiaries()
-      .subscribe(
-        res => {
-          this.diaries = res,
-          // this.painLevelCount = res[0]['_id']
-            this.painLevelCount = res
-
-
- }
-        )
-
-
+      .subscribe(res => this.diaries = res)
   }
 
 

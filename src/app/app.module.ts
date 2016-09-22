@@ -44,6 +44,8 @@ import {MdSlideToggleModule} from "@angular2-material/slide-toggle";
 import { MdUniqueSelectionDispatcher } from '@angular2-material/core';
 import {Store} from "./store";
 import {DiaryShow} from "./diary/diary-show.component";
+import {BarChartDemoComponent} from "./diary/charts/chart.component";
+import {ChartsModule} from "ng2-charts";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -81,7 +83,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     DiaryCreator,
     NewDiary,
     Auth,
-    DiaryShow
+    DiaryShow,
+    BarChartDemoComponent
 
   ],
   imports: [ // import Angular's modules
@@ -99,7 +102,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdSlideToggleModule
     ],
 
-
+    ChartsModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 

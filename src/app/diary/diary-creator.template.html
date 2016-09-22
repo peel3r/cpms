@@ -73,7 +73,7 @@
 
               [(ngModel)]="newDiary.shoulderGirdleLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -82,7 +82,7 @@
       <div class="row">
         <div class="col-xs">
           <div class="box">
-            <p>Shoulder Gridle Right</p>
+            <p>Shoulder Girdle Right</p>
           </div>
         </div>
         <div class="col-xs">
@@ -91,7 +91,7 @@
               tick-interval="1"
               step="1" max="10"
               #slider4
-              [(ngModel)]="newDiary.shoulderGridleRight" name="first"
+              [(ngModel)]="newDiary.shoulderGirdleRight" name="first"
             ></md-slider>
             {{slider4.value}}
           </div>
@@ -101,9 +101,11 @@
             <br>
             <select
 
-              [(ngModel)]="newDiary.shoulderGridleRightDesc" name="first"
+              [(ngModel)]="newDiary.shoulderGirdleRightDesc"
+              name="first"
+
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -133,7 +135,7 @@
 
               [(ngModel)]="newDiary.upperArmLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -163,7 +165,7 @@
 
               [(ngModel)]="newDiary.upperArmRightDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -193,7 +195,7 @@
 
               [(ngModel)]="newDiary.lowerArmLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -223,7 +225,7 @@
 
               [(ngModel)]="newDiary.lowerArmRightDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -253,7 +255,7 @@
 
               [(ngModel)]="newDiary.hipLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -283,7 +285,7 @@
 
               [(ngModel)]="newDiary.hipRightDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -313,7 +315,7 @@
 
               [(ngModel)]="newDiary.upperLegLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -343,7 +345,7 @@
 
               [(ngModel)]="newDiary.upperLegRightDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -373,7 +375,7 @@
 
               [(ngModel)]="newDiary.lowerLegLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -403,7 +405,7 @@
 
               [(ngModel)]="newDiary.lowerLegRightDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -433,7 +435,7 @@
 
               [(ngModel)]="newDiary.jawLeftDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -463,7 +465,7 @@
 
               [(ngModel)]="newDiary.jawRightDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -493,7 +495,7 @@
 
               [(ngModel)]="newDiary.chestDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -523,7 +525,7 @@
 
               [(ngModel)]="newDiary.upperBackDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -553,7 +555,7 @@
 
               [(ngModel)]="newDiary.lowerBackDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -583,7 +585,7 @@
 
               [(ngModel)]="newDiary.neckDesc" name="first"
             >
-              <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+              <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
@@ -613,38 +615,13 @@
 
               [(ngModel)]="newDiary.abdomenDesc" name="first"
             >
-              <option  *ngFor="let p of powers"  [value]="p">{{p}}</option>
+              <option  *ngFor="let p of powers"  [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
       </div>
       <hr>
     </div>
-
-
-
-
-
-
-
-
-
-
-    <!--<md-spinner></md-spinner>-->
-    <!--<md-checkbox [(ngModel)]="isChecked"-->
-    <!--name="cb"-->
-    <!--(change)="isIndeterminate = false"-->
-    <!--[indeterminate]="isIndeterminate"-->
-    <!--[disabled]="isDisabled"-->
-    <!--[align]="alignment">-->
-
-    <!--</md-checkbox><strong>{{printResult()}}</strong>-->
-    <!--<md-input></md-input>-->
-    <!--<md-slide-toggle></md-slide-toggle>-->
-    <!--<md-radio-group>-->
-    <!--<md-radio-button value="option_1">1</md-radio-button>-->
-    <!--<md-radio-button value="option_2">2</md-radio-button>-->
-    <!--</md-radio-group>-->
 
     <input
       type="text"

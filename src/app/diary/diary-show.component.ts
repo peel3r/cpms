@@ -5,52 +5,14 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'diary-show',
-  template: `
-<div class="note-creator shadow-2">
-    <div class="row shadow-3">
-      <div class="col-xs">
-        <div class="box">
-          Overall Pain
-          <md-slider
-          disabled
-            tick-interval="1"
-            step="1" max="10"
-            #slider1
-            [(ngModel)]="diary.overAllPainLevel" name="first"
-          ></md-slider>
-          {{slider1.value}}
-        </div>
-      </div>
-      <div class="col-xs">
-        <div class="box">
-          Overall Fatigue
-          <md-slider
-          disabled
-            tick-interval="1"
-            step="1" max="10"
-            #sliderx
-            [(ngModel)]="diary.overAllMoodLevel" name="first"
-          ></md-slider>
-          {{sliderx.value}}
-        </div>
-      </div>
-    </div>
-    <button
-          md-raised-button
-          (click)='onBack()'
-          class="shadow-1"
-        >
-          Back
-
-        </button>
-    </div>
-   
-`
+  styleUrls: ['../diary/diary.style.css'],
+  templateUrl: 'diary-show.template.html'
 })
 
 export class DiaryShow {
   @Input() diary = {}
   id: string
+
 
   powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
 

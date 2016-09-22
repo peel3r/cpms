@@ -307,3 +307,37 @@ pre {
   border-radius: 5px
 }
 .chart {display: block; width: 100%;}
+
+
+.note-card {
+  padding: 15px;
+  border-radius: 2px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+  background: white;
+}
+
+.home-wrapper {
+  padding: 15px;
+  border-radius: 2px;
+  width: 100%;
+  height:100%;
+  position: relative;
+  margin-bottom: 20px;
+  background: white;
+}
+
+
+.note-creator {
+  padding: 20px;
+  background-color: white;
+  border-radius: 3px;
+}
+.title {
+  font-weight: bold;
+  color: rgba(0,0,0,0.8);
+}
+.full {
+  height: 100px;
+}
