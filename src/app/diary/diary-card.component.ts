@@ -5,9 +5,6 @@ import {Component, Input} from '@angular/core';
 
   template: `
 
-
- 
- 
 <div class="card-container row shadow-3">
 <div class="col-xs-4">
 {{diary.date | date:'dd/MMM/yyyy'}}  <br>  
@@ -39,15 +36,6 @@ import {Component, Input} from '@angular/core';
             #slider1
           ></md-slider>
           {{diary.overAllMoodLevel}}</div>
-      <!--<p>pain category: {{diary.categories[0].name }}</p>-->
-         <!--<md-card-actions>-->
-        <!--<button md-button>LIKE</button>-->
-        <!--<button md-button>SHARE</button>-->
-   <!--</md-card-actions>-->
-
- 
-
-
  </div>
 
 `

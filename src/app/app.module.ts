@@ -46,6 +46,9 @@ import {Store} from "./store";
 import {DiaryShow} from "./diary/diary-show.component";
 import {BarChartDemoComponent} from "./diary/charts/chart.component";
 import {ChartsModule} from "ng2-charts";
+import { PaiPolarChartComponent} from "./diary/charts/arms-chart.component";
+import {LegsChartComponent} from "./diary/charts/legs-chart.component";
+import {ShouldersChartComponent} from "./diary/charts/shoulders-chart.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -84,8 +87,10 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     NewDiary,
     Auth,
     DiaryShow,
-    BarChartDemoComponent
-
+    BarChartDemoComponent,
+    PaiPolarChartComponent,
+    LegsChartComponent,
+    ShouldersChartComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

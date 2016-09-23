@@ -1,5 +1,28 @@
+# about
+this is a future pain management system where user can come and log his pain records
+user can see charts displaying pain mood and cogintive performence 
 
+**to do**
 
+show pain log
+-------------
+add overall pain and fatigue levels
+add previous diaries and pagination and arrange from newest to oldest
+add date as a title and username
+
+log pain view
+-------------
+add scroller to show one question at the time
+add fatigue and cognitive questions
+
+charts dashboard
+----------------
+dashboard with charts for all symptoms and pains
+
+implement per user pain log
+---------------------------
+**routes as**
+profile/user_id/diaries/diary_id
 
 # Angular2 Webpack Starter 
 

@@ -12,7 +12,8 @@ import {ActivatedRoute} from "@angular/router";
 export class DiaryShow {
   @Input() diary = {}
   id: string
-
+  painLevelCount:string
+  moodLevelCount: string
 
   powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
 
