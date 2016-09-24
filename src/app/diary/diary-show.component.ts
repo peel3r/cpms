@@ -26,11 +26,7 @@ export class DiaryShow {
       .subscribe(res => this.diary = res);
   }
 
-
   onBack(): void {
     this.router.navigate(['/diaries']);
   }
-
-
-
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , Input} from '@angular/core';
 // import { FORM_DIRECTIVES } from '@angular/forms';
 import { AuthService } from '../services/auth';
 import { Router } from '@angular/router';
@@ -99,7 +99,9 @@ export class Auth {
   route: string = 'auth/signin';
   linkText: string = 'Don\'t have an account?';
 
-  constructor(private auth: AuthService, private router: Router) {}
+
+  constructor(private auth: AuthService, private router: Router) {
+  }
 
   changeMode() {
     if (this.route === 'auth/signin') {
@@ -115,6 +117,6 @@ export class Auth {
 
   authenticate() {
     this.auth.authenticate(this.route, this.user)
-      .subscribe(() => this.router.navigate(['']))
+  .subscribe()
   }
 }

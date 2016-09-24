@@ -1,10 +1,19 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Injectable } from '@angular/core';
 import 'rxjs/Rx';
+import {UserList} from "./user/user-list.module";
 
 export interface Article {
   title: string,
   text: string,
+  id?: string | number,
+  createdAt?: string,
+  updatedAt?: string,
+  userId?: string
+}
+
+export interface UserList {
+  name: string,
   id?: string | number,
   createdAt?: string,
   updatedAt?: string,
@@ -65,11 +74,13 @@ export interface Diary {
 export interface State {
   articles: Array<Article>,
   diaries: Array<Diary>
+  users: Array<UserList>
 }
 
 const defaultState = {
   articles: [],
-  diaries: []
+  diaries: [],
+  users: []
 }
 
 const _store = new BehaviorSubject<State>(defaultState);

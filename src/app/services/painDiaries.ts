@@ -20,6 +20,15 @@ export class DiaryService {
     return this.apiService.get(this.path)
       .do(res => this.storeHelper.update('diaries', res.data))
 
+
+  }
+
+  getUserDiaries(user) {
+    return this.apiService.get(this.path)
+      .do(res => this.storeHelper.update('diaries', res.data))
+      .map
+
+
   }
 
   getDiary(id) {

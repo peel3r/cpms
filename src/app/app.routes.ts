@@ -14,6 +14,8 @@ import {NewArticle} from "./article/new-article.component";
 import {Diary} from "./diary/diary.component";
 import {NewDiary} from "./diary/new-diary.component";
 import {DiaryShow} from "./diary/diary-show.component";
+import {UserList} from "./user/user-list.module";
+import {UserShow} from "./user/user-show.module";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -22,13 +24,16 @@ export const ROUTES: Routes = [
   {
     path: 'detail', loadChildren: () => System.import('./+detail')
   },
-  { path: 'auth', component: Auth },
   { path: 'articles',  component: Article , canActivate:[AuthService]},
   { path: 'articles/new', component: NewArticle , canActivate:[AuthService]},
 
+  { path: 'auth', component: Auth },
+  { path: 'users',  component: UserList , canActivate:[AuthService]},
+  { path: 'users/:id', component: UserShow , canActivate:[AuthService]},
+
   { path: 'diaries',  component: Diary , canActivate:[AuthService]},
-  // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
   { path: 'diaries/:id', component: DiaryShow , canActivate:[AuthService]},
+  // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
 
   { path: '**',    component: NoContent },
 

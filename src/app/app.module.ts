@@ -49,6 +49,8 @@ import {ChartsModule} from "ng2-charts";
 import { PaiPolarChartComponent} from "./diary/charts/arms-chart.component";
 import {LegsChartComponent} from "./diary/charts/legs-chart.component";
 import {ShouldersChartComponent} from "./diary/charts/shoulders-chart.component";
+import {UserList} from "./user/user-list.module";
+import {UserShow} from "./user/user-show.module";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -63,9 +65,7 @@ type StoreType = {
 };
 const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
 
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
+
 
 
 @NgModule({
@@ -90,7 +90,9 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     BarChartDemoComponent,
     PaiPolarChartComponent,
     LegsChartComponent,
-    ShouldersChartComponent
+    ShouldersChartComponent,
+    UserList,
+    UserShow
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -108,6 +110,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     ],
 
     ChartsModule,
+
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
@@ -119,6 +122,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Store,
     ...mapValuesToArray(services),
     AuthService,
+
     [MdUniqueSelectionDispatcher],
 
   ]
