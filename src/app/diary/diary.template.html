@@ -1,5 +1,5 @@
 <div  class="card-container">
-
+  {{user_name}}
   <div class="row center-xs">
     <div class="col-xs-12
                 col-sm-8
@@ -23,13 +23,15 @@
         <div class="col-xs-12">
           <div>
             <bar-chart-demo></bar-chart-demo>
+
             <diary-card
               class="col-xs-12 start-xs"
               [diary]="diary"
+
               *ngFor="let diary of diaries"
             >
-            </diary-card>
 
+            </diary-card>
           </div>
         </div>
       </div>

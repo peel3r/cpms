@@ -12,6 +12,8 @@ import {DiaryService} from '../services'
 export class Diary {
   diaries = [];
   date = Date.now()
+  user_name = window.localStorage.getItem('cpms_user_name')
+
   painLevelCount = []
   constructor( private diaryService: DiaryService) {
     this.diaryService.getDiaries()

@@ -27,6 +27,10 @@ import {AuthService} from '../services'
 export class AppBar {
   mode: string;
   library: string = ''
+  user_id = window.localStorage.getItem('cpms_user_id')
+  user_name = window.localStorage.getItem('cpms_user_name')
+
+
   constructor(private authService: AuthService){}
 
   ngDoCheck() {

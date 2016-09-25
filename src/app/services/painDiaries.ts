@@ -32,7 +32,6 @@ export class DiaryService {
   }
 
   getDiary(id) {
-    console.log('path', this.path)
     return this.getDiaries()
       .map(diaries => diaries.find(d=> d._id == id))
 

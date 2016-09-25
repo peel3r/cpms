@@ -1,6 +1,7 @@
 import {Component, OnInit,Input} from '@angular/core';
 import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../services/users";
 
 @Component({
   selector: 'diary-show',
@@ -11,20 +12,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 
 export class UserShow {
-  // @Input() user = {}
-  // id: string
+    user = []
+  id: string
+
+  user_id = window.localStorage.getItem('cpms_user_id')
 
 
+  constructor(  private route: ActivatedRoute, private router: Router, private userService: UserService) {
 
-  constructor(  private route: ActivatedRoute, private router: Router) {
+    route.params.subscribe(params => { this.id = params['id']; });
 
-    // route.params.subscribe(params => { this.id = params['id']; });
-    //
-    // this.userService.getUser(this.id)
-    //   .subscribe(res => this.user = res);
+    this.userService.getUser(this.id)
+      .subscribe(res => this.user = res);
   }
-  //
-  // onBack(): void {
-  //   this.router.navigate(['/users']);
-  // }
+
+  onBack(): void {
+    this.router.navigate(['/users']);
+  }
 }

@@ -22,6 +22,12 @@ export class UserService {
       .do(res => this.storeHelper.update('users', res))
   }
 
+  getUser(id) {
+    return this.getUsers()
+      .map(users => users.find(d=> d._id == id))
+
+  }
+
   deleteUser(user) {
     return this.apiService.delete(`${this.path}/${user.id}`)
       .do(res => this.storeHelper.findAndDelete('users', res.id))
