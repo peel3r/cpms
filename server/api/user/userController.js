@@ -56,10 +56,13 @@ exports.post = function(req, res, next) {
     var newUser = new User(req.body);
 
     newUser.save(function(err, user) {
-        if(err) { return next(err);}
+        if(err) {
+
+          return next(err);
+        }
 
         var token = signToken(user._id);
-        res.json({token: token});
+        res.json({token: token, user_id: user._id, user_name: user.username});
     });
 };
 

@@ -8,5 +8,5 @@ exports.signin = function(req, res, next) {
     // and send it back for the client to consume
     var token = signToken(req.user._id);
     var status = verifyUser(req.status)
-    res.json({token: token, status: status, user_id: req.user._id});
+    res.json({token: token, status: status, user_id: req.user._id, error_message: res.statusMessage, username: req.user.username});
 };

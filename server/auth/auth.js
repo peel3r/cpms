@@ -52,7 +52,9 @@ exports.verifyUser = function() {
         // if no username or password then send
         if (!username || !password) {
             res.status(400).send('You need a username and password');
-            return;
+          console.log(res)
+
+          return;
         }
 
         // look user up in the DB so we can check
@@ -60,7 +62,9 @@ exports.verifyUser = function() {
         User.findOne({username: username})
             .then(function(user) {
                 if (!user) {
-                    res.status(401).send('No user with the given username');
+                  console.log(res)
+
+                  res.status(401).send('No user with the given username');
                 } else {
                     // checking the passowords here
                     if (!user.authenticate(password)) {
