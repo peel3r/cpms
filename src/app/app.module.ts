@@ -51,6 +51,8 @@ import {LegsChartComponent} from "./diary/charts/legs-chart.component";
 import {ShouldersChartComponent} from "./diary/charts/shoulders-chart.component";
 import {UserList} from "./user/user-list.module";
 import {UserShow} from "./user/user-show.module";
+import {ToastModule} from "ng2-toastr";
+import {MdProgressBarModule} from "@angular2-material/progress-bar";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -106,10 +108,12 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdCheckboxModule,
       MdInputModule,
       MdRadioModule,
-      MdSlideToggleModule
+      MdSlideToggleModule,
+      MdProgressBarModule
     ],
 
     ChartsModule,
+    ToastModule,
 
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],

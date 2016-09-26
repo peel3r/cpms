@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import { AppState } from '../app.service';
 import {DiaryService} from '../services'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'diary',
@@ -13,18 +13,26 @@ export class Diary {
   diaries = [];
   date = Date.now()
   user_name = window.localStorage.getItem('cpms_user_name')
+  user_id = window.localStorage.getItem('cpms_user_id')
+
 
   painLevelCount = []
-  constructor( private diaryService: DiaryService) {
-    this.diaryService.getDiaries()
-      .subscribe(res => this.diaries = res)
+  constructor( private diaryService: DiaryService, private router: Router ) {
+    this.diaryService.getUserDiaries(this.user_id)
+      .subscribe(
+        res => {this.diaries = res})
   }
 
+  toUserProfile(): void {
+    this.router.navigate(['','users', this.user_id]);
+  }
 
   onCreateDiary(diary) {
     this.diaryService.createDiary(diary)
       .subscribe(diary => this.diaries.push(diary));
   }
+
+
 
 
 }

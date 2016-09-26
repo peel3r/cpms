@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../services'
+import {ToastsManager} from "ng2-toastr";
+import {DiaryService} from "../services/painDiaries";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-bar',
   styles: [`
@@ -31,9 +34,21 @@ export class AppBar {
   user_name = window.localStorage.getItem('cpms_user_name')
 
 
-  constructor(private authService: AuthService){}
+
+  constructor(
+                private authService: AuthService,
+                private router: Router,
+                private diaryService: DiaryService,
+                public toastr: ToastsManager){
+
+  }
+
+  showSuccess() {
+    this.toastr.success('Successfully logged out');
+  }
 
   ngDoCheck() {
+
     if (localStorage.getItem('retain_token')) {
       this.mode = 'signout'
       this.library = 'Library'

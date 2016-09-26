@@ -2,6 +2,8 @@ import {Component, Output, EventEmitter} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
 import {DiaryService} from "../services/painDiaries";
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
+
 
 @Component({
   selector: 'diary-creator',
@@ -24,23 +26,18 @@ import {DiaryService} from "../services/painDiaries";
 })
 
 export class DiaryCreator {
-
+diaries = []
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private diaryService: DiaryService) {
-  }
+              private diaryService: DiaryService,
+              public toastr: ToastsManager
+  ) {}
 
   powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
 
-  // check box-start
-
-  // isChecked: boolean = false;
-
-  // printResult() {
-  //   return this.isChecked ? 'Yes' : '';
-  // }
-
-  // checkbox-end
+  showSuccess() {
+    this.toastr.success('Log submitted!');
+  }
 
   @Output() createDiary = new EventEmitter();
   newDiary = {
@@ -185,9 +182,8 @@ console.log('new diary', this.newDiary)
       });
       this.reset();
     }
-
-
   }
+
   reset() {
     this.newDiary = {
       title: '',

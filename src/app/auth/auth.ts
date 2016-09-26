@@ -2,6 +2,7 @@ import { Component , Input} from '@angular/core';
 // import { FORM_DIRECTIVES } from '@angular/forms';
 import { AuthService } from '../services/auth';
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'auth-container',
@@ -46,6 +47,7 @@ import { Router } from '@angular/router';
   `],
   template: `
     <div class="auth row center-xs middle-xs">
+    
       <form class="col-xs-6 shadow-2" (ngSubmit)="authenticate()" #authForm="ngForm">
         <div class="inputs row center-xs middle-xs">
           <h3 class="col-xs-8 title">
@@ -76,6 +78,7 @@ import { Router } from '@angular/router';
               <button
                 [disabled]="!authForm.form.valid"
                 type="submit"
+  
                 class="btn-light"
               >
                 {{ button }}
@@ -95,12 +98,15 @@ export class Auth {
     password: '',
     username: ''
   };
+  errorMessage:string;
+
+
   button: string  = 'signin'
   route: string = 'auth/signin';
   linkText: string = 'Don\'t have an account?';
 
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router,public toastr: ToastsManager) {
   }
 
   changeMode() {
@@ -117,6 +123,12 @@ export class Auth {
 
   authenticate() {
     this.auth.authenticate(this.route, this.user)
-  .subscribe()
+  .subscribe(
+    res => res,
+
+    err => this.toastr.success(err))
+
   }
+
+
 }

@@ -20,21 +20,6 @@
       <div class="row middle-xs between-xs">
         <button
           md-raised-button
-          [routerLink]=" ['','users', user_id]"
-          class="shadow-1"
-        >
-          {{user_name}}
-
-        </button>
-        <button
-          md-raised-button
-          class="shadow-1"
-        >
-          Steps
-
-        </button>
-        <button
-          md-raised-button
           [routerLink]=" ['./diaries']"
           class="shadow-1"
         >
@@ -43,6 +28,8 @@
         </button>
         <button
           class="shadow-1"
+          (click)="showSuccess()"
+
           md-raised-button
           (click)="changeMode()"
           color="warn"
@@ -50,6 +37,7 @@
           {{mode}}
 
         </button>
+
       </div>
     </div>
   </div>

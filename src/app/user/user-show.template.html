@@ -1,16 +1,67 @@
-<div class="col-xs-12
+<div class="card-container">
+
+  <div class="row center-xs">
+    <div class="col-xs-12
                 col-sm-8
                 col-md-6
-                col-lg-6">
+                col-lg-5">
+      <div class="box home-wrapper shadow-3 start-xs">
+        <button
+          md-raised-button
+          [routerLink]=" ['','diaries']"
+          class="shadow-1"
+        >
+          Pain Log
 
-    <h1>Hi <em>{{user.username}} </em>!</h1>
-  <h1>Hi <em>{{user_id}} </em>!</h1>
-  <button
-    md-raised-button
-    [routerLink]=" ['','diaries']"
-    class="shadow-1"
-  >
-    Log your Pain
+        </button>
+        <button
+          md-raised-button
+          [routerLink]=" ['','users']"
+          class="shadow-1"
+        >
+          User List
 
-  </button>
+        </button>
+        <hr>
+        <h1 x-large class="sample-content start-xs">Profile</h1>
+
+        <h1><em>{{user.username}} </em>!</h1>
+
+
+      </div>
+    </div>
+    <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-5">
+      <div class="box home-wrapper shadow-3">
+        <h1 x-large class="sample-content start-xs">Charts</h1>
+
+        <div class=" shadow-3">
+          <bar-chart-demo></bar-chart-demo>
+
+          <h2>Neck and Shoulders</h2>
+          <shoulders-chart></shoulders-chart>
+          <h2>Legs</h2>
+          <legs-chart></legs-chart>
+          <h2>Arms</h2>
+          <arms-chart></arms-chart>
+          Log charts
+          <bar-chart-demo></bar-chart-demo>
+
+        </div>
+        <button
+          color="accent"
+          md-raised-button
+          (click)='onBack()'
+          class="shadow-1"
+        >
+          Back
+
+        </button>
+      </div>
+
+    </div>
+
   </div>
+</div>

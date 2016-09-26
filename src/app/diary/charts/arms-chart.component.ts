@@ -27,6 +27,7 @@ export class PaiPolarChartComponent {
   upperBack             = []
   lowerBack             = []
   dateCount=[]
+  user_id = window.localStorage.getItem('cpms_user_id')
 
 
   constructor( private diaryService: DiaryService) {
@@ -36,7 +37,7 @@ export class PaiPolarChartComponent {
   }
 
   ngOnInit() {
-    this.diaryService.getDiaries()
+    this.diaryService.getUserDiaries(this.user_id)
       .map((tasks: Array<any>) => {
 
         if (tasks) {

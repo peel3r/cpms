@@ -11,6 +11,8 @@ export class BarChartDemoComponent {
   painLevelCount: Array<any> = []
   moodLevelCount = []
   dateCount = []
+  user_id = window.localStorage.getItem('cpms_user_id')
+
 
   constructor(private diaryService: DiaryService) {
     setTimeout(() => {
@@ -19,7 +21,7 @@ export class BarChartDemoComponent {
   }
 
   ngOnInit() {
-    this.diaryService.getDiaries()
+    this.diaryService.getUserDiaries(this.user_id)
       .map((tasks: Array<any>) => {
 
         if (tasks) {

@@ -5,9 +5,7 @@ import {UserService} from "../services/users";
 
 @Component({
   selector: 'diary-show',
-  styleUrls: [`
-
-`],
+  styleUrls: [ '../home/home.style.css' ],
   templateUrl: 'user-show.template.html'
 })
 

@@ -1,10 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, EventEmitter,Output} from '@angular/core';
 
 @Component({
   selector: 'diary-card',
 
   template: `
-<div *ngIf="diary.author.username == user_name">
 <div class="card-container row shadow-3">
 <div class="col-xs-4">
 {{diary.date | date:'dd/MMM/yyyy'}}  <br>  
@@ -16,10 +15,10 @@ import {Component, Input} from '@angular/core';
         >
           More
 
-        </button>
-
+        </button>  
 
 </div>
+
 
    <div class="col-xs-4">Pain: <br><md-slider
    value="{{diary.overAllPainLevel}}"
@@ -38,12 +37,19 @@ import {Component, Input} from '@angular/core';
           ></md-slider>
           {{diary.overAllMoodLevel}}</div>
  </div>
-</div>
+
 `
 })
 
 export class DiaryCard {
+
   @Input() diary = {}
   user_name = window.localStorage.getItem('cpms_user_name')
+  // showDiary: boolean = false;
+
+
+  // toggle(){
+  //   this.showDiary = !this.showDiary;
+  // }
 
 }

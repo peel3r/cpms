@@ -19,14 +19,11 @@ export class DiaryService {
   getDiaries() {
     return this.apiService.get(this.path)
       .do(res => this.storeHelper.update('diaries', res.data))
-
-
   }
 
-  getUserDiaries(user) {
-    return this.apiService.get(this.path)
-      .do(res => this.storeHelper.update('diaries', res.data))
-      .map
+  getUserDiaries(user_id) {
+    return this.getDiaries()
+      .map(diaries => diaries.filter(d=> d.author._id == user_id))
 
 
   }

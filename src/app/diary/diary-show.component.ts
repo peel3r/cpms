@@ -12,18 +12,29 @@ import {ActivatedRoute} from "@angular/router";
 export class DiaryShow {
   @Input() diary = {}
   id: string
-  painLevelCount:string
-  moodLevelCount: string
+  painLevelCount:string;
+  moodLevelCount: string;
+  diaries = []
+  user_id = window.localStorage.getItem('cpms_user_id')
 
   powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
+
+
 
 
   constructor( private diaryService: DiaryService, private route: ActivatedRoute, private router: Router) {
 
     route.params.subscribe(params => { this.id = params['id']; });
+  this.diaryService.getDiaries()
+    .subscribe(
+      res => {this.diaries = res})
 
     this.diaryService.getDiary(this.id)
       .subscribe(res => this.diary = res);
+  }
+
+  toUserProfile(): void {
+    this.router.navigate(['','users', this.user_id]);
   }
 
   onBack(): void {

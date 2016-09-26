@@ -13,7 +13,6 @@ export class AuthService implements CanActivate {
   USER_NAME: string = 'cpms_user_name'
 
 
-
   id:string
   constructor(
     // private storeHelper: StoreHelper,

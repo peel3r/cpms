@@ -3,9 +3,7 @@ import {UserService} from '../services'
 
 @Component({
   selector: 'user',
-  styles: [`
-
-`],
+  styleUrls: ['../diary/diary.style.css'],
   templateUrl: './user-list.template.html'
 
 })
