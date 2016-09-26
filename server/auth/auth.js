@@ -52,7 +52,6 @@ exports.verifyUser = function() {
         // if no username or password then send
         if (!username || !password) {
             res.status(400).send('You need a username and password');
-          console.log(res)
 
           return;
         }
@@ -70,12 +69,13 @@ exports.verifyUser = function() {
                     if (!user.authenticate(password)) {
                         res.status(401).send('Wrong password');
                     } else {
-                        // if everything is good,
-                        // then attach to req.user
-                        // and call next so the controller
-                        // can sign a token from the req.user._id
-                        req.user = user;
-                        next();
+                      // if everything is good,
+                      // then attach to req.user
+                      // and call next so the controller
+                      // can sign a token from the req.user._id
+                      req.user = user
+
+                      next();
                     }
                 }
             }, function(err) {
