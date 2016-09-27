@@ -26,12 +26,21 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 })
 
 export class DiaryCreator {
-diaries = []
+
+  diaries = []
+  submitted: boolean  = false
+
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private diaryService: DiaryService,
               public toastr: ToastsManager
   ) {}
+
+  toggle() {
+    this.submitted = !this.submitted;
+  }
+
 
   powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
 

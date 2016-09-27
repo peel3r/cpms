@@ -1,4 +1,4 @@
-
+<md-progress-bar *ngIf="onLeave" mode="indeterminate" color="primary"></md-progress-bar>
 
 <div  class="card-container">
   <div class="row center-xs">
@@ -13,7 +13,7 @@
           (click)='toUserProfile()'
           class="shadow-1"
         >
-          Profile: {{user_name}}
+          Profile: {{USER_NAME}}
 
         </button>
 
