@@ -12,6 +12,7 @@ import {UserService} from "../services/users";
 export class UserShow {
     user = []
   id: string
+  onLeave: boolean  = true
 
   user_id = window.localStorage.getItem('cpms_user_id')
 
@@ -22,6 +23,16 @@ export class UserShow {
 
     this.userService.getUser(this.id)
       .subscribe(res => this.user = res);
+  }
+
+  toggle() {
+    this.onLeave = !this.onLeave;
+  }
+
+  ngOnInit(){
+    setTimeout(() => {
+      this.toggle()
+    },1500)
   }
 
   onBack(): void {
