@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 // import { StoreHelper } from './store-helper';
 // import { Store} from '../store';
 import { ApiService } from './api';
-import {Observable} from 'rxjs/Observable';
-import {CanActivate, Router} from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { CanActivate, Router } from '@angular/router';
 import 'rxjs/Rx';
 
 @Injectable()
 export class AuthService implements CanActivate {
   JWT_KEY: string = 'retain_token';
-  USER_ID: string = 'cpms_user_id'
-  USER_NAME: string = 'cpms_user_name'
+  USER_ID: string = 'cpms_user_id';
+  USER_NAME: string = 'cpms_user_name';
 
 
-  id:string
+  id: string;
   constructor(
     // private storeHelper: StoreHelper,
     private api: ApiService,
@@ -29,7 +29,7 @@ export class AuthService implements CanActivate {
     }
   }
 
-  setJwt(jwt: string, user_id:string, user_name:string) {
+  setJwt(jwt: string, user_id: string, user_name: string) {
     window.localStorage.setItem(this.JWT_KEY, jwt);
     window.localStorage.setItem(this.USER_ID, user_id);
     window.localStorage.setItem(this.USER_NAME, user_name);
@@ -46,7 +46,7 @@ export class AuthService implements CanActivate {
     if (!isAuth) {
       this.router.navigate(['', 'auth']);
     }
-    return isAuth
+    return isAuth;
   }
 
   authenticate(path, creds): Observable<any> {
@@ -55,7 +55,7 @@ export class AuthService implements CanActivate {
         console.log('res',res)
         this.setJwt(res.token, res.user_id, res.username);
         this.router.navigate(['', 'users', res.user_id]);
-      })
+      });
 
   }
 

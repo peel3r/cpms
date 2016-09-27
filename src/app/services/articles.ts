@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api';
 import 'rxjs/Rx';
-import {StoreHelper} from './store-helper'
+import { StoreHelper } from './store-helper';
 
 
 @Injectable()
@@ -14,16 +14,16 @@ export class ArticleService {
 
   createArticle(article) {
     return this.apiService.post(this.path, article)
-      .do(savedArticle => this.storeHelper.add('articles', savedArticle))
+      .do(savedArticle => this.storeHelper.add('articles', savedArticle));
   }
 
   getArticles() {
     return this.apiService.get(this.path)
-      .do(res => this.storeHelper.update('articles', res))
+      .do(res => this.storeHelper.update('articles', res));
   }
 
   completeArticle(article) {
     return this.apiService.delete(`${this.path}/${article.id}`)
-      .do(res => this.storeHelper.findAndDelete('articles', res.id))
+      .do(res => this.storeHelper.findAndDelete('articles', res.id));
   }
 }

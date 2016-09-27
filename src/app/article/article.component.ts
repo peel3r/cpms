@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { AppState } from '../app.service';
-import {ArticleService} from '../services'
-import {Store} from "../store";
+import { ArticleService } from '../services';
+import { Store } from '../store';
 
 @Component({
   selector: 'article',
@@ -12,6 +12,9 @@ import {Store} from "../store";
 
 export class Article {
   articles = [];
+  // Set our default values
+  localState = { value: '' };
+  // TypeScript public modifiers
 
   constructor(
     public appState: AppState,
@@ -19,7 +22,7 @@ export class Article {
     private store: Store
   ) {
     this.store.changes.pluck('articles')
-      .subscribe((articles: any) => this.articles = articles)
+      .subscribe((articles: any) => this.articles = articles);
 
     this.articleService.getArticles()
       .subscribe();
@@ -30,14 +33,12 @@ export class Article {
       .subscribe();
   }
 
-  onArticleDeleted(article){
+  onArticleDeleted(article) {
     this.articleService.completeArticle(article)
       .subscribe();
   }
 
-  // Set our default values
-  localState = { value: '' };
-  // TypeScript public modifiers
+
 
 
   ngOnInit() {

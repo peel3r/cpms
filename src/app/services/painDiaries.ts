@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api';
 import 'rxjs/Rx';
-import {StoreHelper} from './store-helper'
+import { StoreHelper } from './store-helper';
 
 @Injectable()
 export class DiaryService {
@@ -13,30 +13,30 @@ export class DiaryService {
 
   createDiary(diary) {
     return this.apiService.post(this.path, diary)
-      .do(savedDiary => this.storeHelper.add('diaries', savedDiary))
+      .do(savedDiary => this.storeHelper.add('diaries', savedDiary));
   }
 
   getDiaries() {
     return this.apiService.get(this.path)
-      .do(res => this.storeHelper.update('diaries', res.data))
+      .do(res => this.storeHelper.update('diaries', res.data));
   }
 
-  getUserDiaries(user_id) {
+  getUserDiaries(userId) {
     return this.getDiaries()
-      .map(diaries => diaries.filter(d=> d.author._id == user_id))
+      .map(diaries => diaries.filter(d => d.author._id === userId));
 
 
   }
 
   getDiary(id) {
     return this.getDiaries()
-      .map(diaries => diaries.find(d=> d._id == id))
+      .map(diaries => diaries.find(d => d._id === id));
 
   }
 
   completeDiary(diary) {
     return this.apiService.delete(`${this.path}/${diary.id}`)
-      .do(res => this.storeHelper.findAndDelete('diaries', res.id))
+      .do(res => this.storeHelper.findAndDelete('diaries', res.id));
 
   }
 }

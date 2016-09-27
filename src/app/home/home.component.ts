@@ -1,9 +1,8 @@
-import { Component , Input} from '@angular/core';
-
+import { Component , Input } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
-import {Article} from '../article/article.component'
+import { Article } from '../article/article.component';
 
 @Component({
   // The selector is what angular internally uses

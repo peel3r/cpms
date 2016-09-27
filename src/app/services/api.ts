@@ -10,7 +10,7 @@ export class ApiService {
     'Content-Type': 'application/json',
     Accept: 'application/json'
   });
-  api_url: string = 'http://localhost:3030';
+  apiUrl: string = 'http://localhost:3030';
 
   constructor(private http: Http) {}
 
@@ -22,39 +22,39 @@ export class ApiService {
     if (response.status >= 200 && response.status < 300) {
       return response;
     } else {
-      var error = new Error(response.statusText)
+      let error = new Error(response.statusText);
       error['response'] = response;
       throw error;
     }
   }
 
   get(path: string): Observable<any> {
-    return this.http.get(`${this.api_url}${path}`, { headers: this.headers })
+    return this.http.get(`${this.apiUrl}${path}`, { headers: this.headers })
       .map(this.checkForError)
       .catch(err => Observable.throw(err))
-      .map(this.getJson)
+      .map(this.getJson);
   }
 
   post(path: string, body): Observable<any> {
     return this.http.post(
-      `${this.api_url}${path}`,
+      `${this.apiUrl}${path}`,
       JSON.stringify(body),
       { headers: this.headers }
     )
       .map(this.checkForError)
       .catch(err => Observable.throw(err._body))
-      .map(this.getJson)
+      .map(this.getJson);
   }
 
 
   delete(path): Observable<any> {
     return this.http.delete(
-      `${this.api_url}${path}`,
+      `${this.apiUrl}${path}`,
       { headers: this.headers }
     )
       .map(this.checkForError)
       .catch(err => Observable.throw(err))
-      .map(this.getJson)
+      .map(this.getJson);
   }
 
   setHeaders(headers) {

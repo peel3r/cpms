@@ -32,7 +32,9 @@ module.exports = {
     {rel:"stylesheet", href: "https://cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css", type:"text/css"},
     { href: "https://fonts.googleapis.com/icon?family=Material+Icons",rel: "stylesheet"},
     { href: "/assets/ng2-toastr.min.css", rel:"stylesheet"},
-    { src:  "/assets/ng2-toastr.min.js", type:"text/javascript"},
+
+
+    { href: "/assets/ng2-toastr.min.js", type:"text/javascript"},
 
     /** <link> tags for android web app icons **/
     { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/assets/icon/android-icon-192x192.png' },
