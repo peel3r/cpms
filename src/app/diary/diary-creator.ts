@@ -28,7 +28,6 @@ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 export class DiaryCreator {
 
   diaries = []
-  submitted: boolean  = false
 
 
   constructor(private route: ActivatedRoute,
@@ -37,16 +36,12 @@ export class DiaryCreator {
               public toastr: ToastsManager
   ) {}
 
-  toggle() {
-    this.submitted = !this.submitted;
-  }
+
 
 
   powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
 
-  showSuccess() {
-    this.toastr.success('Log submitted!');
-  }
+
 
   @Output() createDiary = new EventEmitter();
   newDiary = {
@@ -143,8 +138,9 @@ export class DiaryCreator {
       lowerBack,
       lowerBackDesc
     } = this.newDiary;
-console.log('new diary', this.newDiary)
+
     if (title) {
+
       this.createDiary.next({
         title,
         text,
@@ -189,11 +185,13 @@ console.log('new diary', this.newDiary)
         lowerBack,
         lowerBackDesc
       });
+
       this.reset();
     }
   }
 
   reset() {
+
     this.newDiary = {
       title: '',
       text: '',

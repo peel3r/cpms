@@ -121,6 +121,10 @@ export class Auth {
     }
   }
 
+  ngOnDestroy() {
+    this.toastr.success("Hi " + this.user.username +" you successfully logged in")
+  }
+
   authenticate() {
     this.auth.authenticate(this.route, this.user)
   .subscribe(

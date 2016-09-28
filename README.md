@@ -8,8 +8,10 @@ show pain log
 -------------
 add overall pain and fatigue levels
 add previous diaries and pagination and arrange from newest to oldest
-add date as a title and username
-
+add file uploader
+add WYSIWYG
+add deployment script to server
+ansible
 log pain view
 -------------
 add scroller to show one question at the time
