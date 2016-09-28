@@ -60,10 +60,7 @@ import {NavigationEnd} from "@angular/router";
 })
 export class App {
 
-
-
-
-  constructor(public appState: AppState,private _applicationRef: ApplicationRef, private _router: Router) {
+  constructor( public appState: AppState,private _applicationRef: ApplicationRef, private _router: Router ) {
     if(this.isMac()) {
       _router.events.subscribe(ev => {
         if(ev instanceof NavigationEnd) {
