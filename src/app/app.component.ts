@@ -4,6 +4,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
+import {Router} from "@angular/router";
+import {ApplicationRef} from "@angular/core";
+import {NavigationEnd} from "@angular/router";
 /*
  * App Component
  * Top Level Component
@@ -58,9 +61,26 @@ import { AppState } from './app.service';
 export class App {
 
 
-  constructor(
-    public appState: AppState) {
 
+
+  constructor(public appState: AppState,private _applicationRef: ApplicationRef, private _router: Router) {
+    if(this.isMac()) {
+      _router.events.subscribe(ev => {
+        if(ev instanceof NavigationEnd) {
+          setTimeout(() => {
+            _applicationRef.zone.run(() => _applicationRef.tick())
+          }, 500)
+        }
+      })
+    }
+
+  }
+
+  isMac() {
+    if(navigator.userAgent.indexOf('Mac') > -1) {
+      return true
+    }
+    return false
   }
 
   ngOnInit() {
