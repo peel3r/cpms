@@ -7,6 +7,7 @@ import { AppState } from './app.service';
 import {Router} from "@angular/router";
 import {ApplicationRef} from "@angular/core";
 import {NavigationEnd} from "@angular/router";
+import {NgZone} from "@angular/core";
 /*
  * App Component
  * Top Level Component
@@ -60,12 +61,12 @@ import {NavigationEnd} from "@angular/router";
 })
 export class App {
 
-  constructor( public appState: AppState,private _applicationRef: ApplicationRef, private _router: Router ) {
+  constructor( public appState: AppState,private _applicationRef: ApplicationRef, private _router: Router,private ngZone: NgZone ) {
     if(this.isMac()) {
       _router.events.subscribe(ev => {
         if(ev instanceof NavigationEnd) {
           setTimeout(() => {
-            _applicationRef.zone.run(() => _applicationRef.tick())
+            ngZone.run(() => _applicationRef.tick())
           }, 500)
         }
       })
