@@ -5,7 +5,7 @@
     <div class="col-xs-12
                 col-sm-8
                 col-md-6
-                col-lg-6">
+                col-lg-7">
 
       <div class="box start-xs home-wrapper shadow-3">
         <button
@@ -13,12 +13,13 @@
           (click)='toUserProfile()'
           class="shadow-1"
         >
-          Profile: {{USER_NAME}}
+          Dashboard ({{USER_NAME}})
 
         </button>
 
         <hr>
-        <h1 x-large class="sample-content start-xs">Today: {{date | date}}</h1>
+        <h1>Pain Log</h1>
+        <h1 x-large class="sample-content end-xs">Today: {{date | date}}</h1>
 
 
         <diary-creator (createDiary)="onCreateDiary($event)"></diary-creator>
@@ -34,16 +35,17 @@
         <h1 x-large class="sample-content start-xs">Diary</h1>
         <div class="col-xs-12">
           <div>
+            <memory-fatigue-chart></memory-fatigue-chart>
             <bar-chart-demo></bar-chart-demo>
+              <div *ngFor="let diary of diaries | paginate: { itemsPerPage: 10, currentPage: p }">
+                <diary-card
+                  class="col-xs-12 start-xs"
+                  [diary]="diary"
+                >
+                </diary-card>
+              </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-            <diary-card
-              class="col-xs-12 start-xs"
-              [diary]="diary"
-
-              *ngFor="let diary of diaries"
-            >
-
-            </diary-card>
           </div>
         </div>
       </div>

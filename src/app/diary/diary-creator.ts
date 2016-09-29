@@ -87,10 +87,11 @@ export class DiaryCreator {
     upperBackDesc:'',
     lowerBack:'',
     lowerBackDesc:'',
-
-
-
-
+    fatigue: 0,
+    fatigueSeverity: '',
+    cognitiveSymptoms: 0,
+    cognitiveSeverity: '',
+    refreshed: 0
   };
 
   onCreateDiary() {
@@ -136,7 +137,12 @@ export class DiaryCreator {
       upperBack,
       upperBackDesc,
       lowerBack,
-      lowerBackDesc
+      lowerBackDesc,
+      fatigue,
+      fatigueSeverity,
+      cognitiveSymptoms,
+      cognitiveSeverity,
+      refreshed
     } = this.newDiary;
 
     if (title) {
@@ -183,7 +189,12 @@ export class DiaryCreator {
         upperBack,
         upperBackDesc,
         lowerBack,
-        lowerBackDesc
+        lowerBackDesc,
+        fatigue,
+        fatigueSeverity,
+        cognitiveSymptoms,
+        cognitiveSeverity,
+        refreshed,
       });
 
       this.reset();
@@ -234,7 +245,12 @@ export class DiaryCreator {
       upperBack:'0',
       upperBackDesc:'',
       lowerBack:'0',
-      lowerBackDesc:''
+      lowerBackDesc:'',
+      fatigue: 0,
+      fatigueSeverity: '0',
+      cognitiveSymptoms: 0,
+      cognitiveSeverity: '0',
+      refreshed: 0
     };
   }
 }

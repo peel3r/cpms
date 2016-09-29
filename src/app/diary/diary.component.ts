@@ -20,7 +20,7 @@ export class Diary {
   constructor( private diaryService: DiaryService, private router: Router ) {
     this.diaryService.getUserDiaries(this.USER_ID)
       .subscribe(
-        res => {this.diaries = res})
+        res => {this.diaries =  res.reverse()})
   }
 
   toUserProfile(): void {
