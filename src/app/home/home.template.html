@@ -1,52 +1,25 @@
 <div class="card-container">
 
   <div class="row center-xs">
-    <div class="col-xs-12
-                col-sm-8
-                col-md-6
-                col-lg-5">
-      <div class="box home-wrapper shadow-3">
-        <h1 x-large class="sample-content start-xs">News</h1>
 
-        <article></article>
+      <div class="box home-wrapper first-xs">
+        <h1 x-large class="sample-content start-xs">Chronic Pain Management System</h1>
+        <div class="start-xs">
+        <em>Gp conversation based on facts</em>
+        <p>Log your pain every day and get diagnosed earlier</p>
+          <button
+            md-raised-button
+            [routerLink]=" ['./diaries']"
+            class="shadow-1"
+            color="accent"
+          >
+            Start Today
 
-      </div>
-    </div>
-    <div class="col-xs-12
-                col-sm-8
-                col-md-6
-                col-lg-3">
-      <div class="box home-wrapper shadow-3">
-        <h1 x-large class="sample-content start-xs">Tools</h1>
+          </button>
+        </div>
 
-        <div class="note-card row shadow-2">hello</div>
-
-      </div>
-
-    </div>
-    <div class="col-xs-12
-                col-sm-8
-                col-md-6
-                col-lg-2">
-      <div class="box home-wrapper shadow-3">
-        <h1 x-large class="sample-content start-xs">Twitter Wall</h1>
-
-        <div class="note-card row shadow-2">hello</div>
+        <img src="http://fibrotrust.org/wp-content/uploads/2012/09/tender_points.gif" style="height:400px">
 
       </div>
-    </div>
   </div>
-  <div>
-
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
-
-    <!--<pre>this.localState = {{ localState | json }}</pre>-->
-
-  </div>
-
 </div>
