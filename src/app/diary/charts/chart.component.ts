@@ -3,7 +3,7 @@ import {DiaryService} from '../../services'
 
 @Component({
   selector: 'bar-chart-demo',
-  templateUrl: './chart.template.html'
+  templateUrl: './bar-chart.template.html'
 })
 export class BarChartDemoComponent {
 

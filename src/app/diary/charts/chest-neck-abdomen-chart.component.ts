@@ -2,30 +2,16 @@ import { Component } from '@angular/core';
 import {DiaryService} from '../../services'
 
 @Component({
-  selector: 'arms-chart',
+  selector: 'chestNeckAbdomen-chart',
   templateUrl: './bar-chart.template.html'
 })
-export class PaiPolarChartComponent {
+export class ChestNeckAbdomenChartComponent {
   diaries               = []
-  shoulderGirdleLeft    = []
-  shoulderGirdleRight   = []
-  upperArmRight         = []
-  upperArmLeft          = []
-  lowerArmRight         = []
-  lowerArmLeft          = []
-  hipRight              = []
-  hipLeft               = []
-  upperLegRight         = []
-  upperLegLeft          = []
-  lowerLegRight         = []
-  lowerLegLeft          = []
-  jawRight              = []
-  jawLeft               = []
+
   chest                 = []
   neck                  = []
   abdomen               = []
-  upperBack             = []
-  lowerBack             = []
+
   dateCount=[]
   user_id = window.localStorage.getItem('cpms_user_id')
 
@@ -33,7 +19,7 @@ export class PaiPolarChartComponent {
   constructor( private diaryService: DiaryService) {
     setTimeout(() => {
       this.randomize()
-    }, 1500);
+    }, 1000);
   }
 
   ngOnInit() {
@@ -46,14 +32,13 @@ export class PaiPolarChartComponent {
           tasks.forEach((task) => {
             // this.dateCount.push(task.date.substring(5,10));
 
-            this.upperArmRight.push(task.upperArmRight);
-            this.upperArmLeft.push(task.upperArmLeft);
-            this.lowerArmRight.push(task.lowerArmRight);
-            this.lowerArmLeft.push(task.lowerArmLeft);
+            this.neck.push(task.neck);
+            this.chest.push(task.chest);
+            this.abdomen.push(task.abdomen);
             this.dateCount.push(task.date.substring(5,10));
           });
         }
-        return this.upperArmRight;
+        return this.neck;
       })
 
       .subscribe(res => this.diaries = res)
@@ -92,10 +77,9 @@ export class PaiPolarChartComponent {
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: this.upperArmRight, label: 'Upper Right Arm'},
-    {data: this.upperArmLeft, label: 'Upper Left Arm'},
-    {data: this.lowerArmRight, label: 'Lower Left Arm'},
-    {data: this.lowerArmLeft, label: 'Lower Left Arm'},
+    { data: this.neck, label: 'Neck' },
+    { data: this.chest, label: 'Chest' },
+    { data: this.abdomen, label: 'Abdomen'},
   ];
 
   // events
@@ -109,7 +93,7 @@ export class PaiPolarChartComponent {
 
   public randomize() {
     // Only Change 3 values
-    let data = this.upperArmRight;
+    let data = this.neck;
     let clone = JSON.parse(JSON.stringify(this.barChartData));
     clone[0].data = data;
     this.barChartData = clone;

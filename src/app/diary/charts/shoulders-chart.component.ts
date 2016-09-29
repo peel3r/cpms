@@ -3,29 +3,16 @@ import {DiaryService} from '../../services'
 
 @Component({
   selector: 'shoulders-chart',
-  templateUrl: './shoulders-chart.component.html'
+  templateUrl: './bar-chart.template.html'
 })
 export class ShouldersChartComponent {
   diaries               = []
   shoulderGirdleLeft    = []
   shoulderGirdleRight   = []
-  upperArmRight         = []
-  upperArmLeft          = []
-  lowerArmRight         = []
-  lowerArmLeft          = []
-  hipRight              = []
-  hipLeft               = []
-  upperLegRight         = []
-  upperLegLeft          = []
-  lowerLegRight         = []
-  lowerLegLeft          = []
+
   jawRight              = []
   jawLeft               = []
-  chest                 = []
-  neck                  = []
-  abdomen               = []
-  upperBack             = []
-  lowerBack             = []
+
   dateCount=[]
   user_id = window.localStorage.getItem('cpms_user_id')
 
@@ -33,7 +20,7 @@ export class ShouldersChartComponent {
   constructor( private diaryService: DiaryService) {
     setTimeout(() => {
       this.randomize()
-    }, 1000);
+    }, 1200);
   }
 
   ngOnInit() {
@@ -54,7 +41,7 @@ export class ShouldersChartComponent {
 
           });
         }
-        return this.upperArmRight;
+        return this.shoulderGirdleLeft;
       })
 
       .subscribe(res => this.diaries = res)
@@ -95,8 +82,8 @@ export class ShouldersChartComponent {
   public barChartData:any[] = [
     {data: this.shoulderGirdleRight, label: 'Shoulder Right'},
     {data: this.shoulderGirdleLeft, label: 'Shoulder Left'},
-    {data: this.jawRight, label: 'Jaw right'},
-    {data: this.jawLeft, label: 'Jaw Right'},
+    {data: this.jawRight, label: 'Jaw Right'},
+    {data: this.jawLeft, label: 'Jaw Left'},
   ];
 
   // events

@@ -2,38 +2,26 @@ import { Component } from '@angular/core';
 import {DiaryService} from '../../services'
 
 @Component({
-  selector: 'arms-chart',
+  selector: 'hip-back-chart',
   templateUrl: './bar-chart.template.html'
 })
-export class PaiPolarChartComponent {
+export class HipsAndBackChartComponent {
   diaries               = []
-  shoulderGirdleLeft    = []
-  shoulderGirdleRight   = []
-  upperArmRight         = []
-  upperArmLeft          = []
-  lowerArmRight         = []
-  lowerArmLeft          = []
+  // chart fields
   hipRight              = []
   hipLeft               = []
-  upperLegRight         = []
-  upperLegLeft          = []
-  lowerLegRight         = []
-  lowerLegLeft          = []
-  jawRight              = []
-  jawLeft               = []
-  chest                 = []
-  neck                  = []
-  abdomen               = []
   upperBack             = []
   lowerBack             = []
-  dateCount=[]
-  user_id = window.localStorage.getItem('cpms_user_id')
+
+  user_id               = window.localStorage.getItem('cpms_user_id')
+  // date label for chart
+  dateCount             = []
 
 
   constructor( private diaryService: DiaryService) {
     setTimeout(() => {
       this.randomize()
-    }, 1500);
+    }, 1000);
   }
 
   ngOnInit() {
@@ -46,14 +34,14 @@ export class PaiPolarChartComponent {
           tasks.forEach((task) => {
             // this.dateCount.push(task.date.substring(5,10));
 
-            this.upperArmRight.push(task.upperArmRight);
-            this.upperArmLeft.push(task.upperArmLeft);
-            this.lowerArmRight.push(task.lowerArmRight);
-            this.lowerArmLeft.push(task.lowerArmLeft);
+            this.hipRight.push(task.hipRight);
+            this.hipLeft.push(task.hipLeft);
+            this.upperBack.push(task.upperBack);
+            this.lowerBack.push(task.lowerBack);
             this.dateCount.push(task.date.substring(5,10));
           });
         }
-        return this.upperArmRight;
+        return this.hipLeft;
       })
 
       .subscribe(res => this.diaries = res)
@@ -72,13 +60,13 @@ export class PaiPolarChartComponent {
   //   // 'lowerLegLeft',//
   //   // 'jawRight', //
   //   // 'jawLeft', //
-  //   // 'hipRight', //
-  //   // 'hipLeft', //
+  //   // 'hipRight',
+  //   // 'hipLeft',
   //   // 'chest',
   //   // 'neck',
   //   // 'abdomen',
-  //   // 'upperBack', //
-  //   // 'lowerBack' //
+  //   // 'upperBack',
+  //   // 'lowerBack'
   //
   // ];
 
@@ -92,10 +80,10 @@ export class PaiPolarChartComponent {
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: this.upperArmRight, label: 'Upper Right Arm'},
-    {data: this.upperArmLeft, label: 'Upper Left Arm'},
-    {data: this.lowerArmRight, label: 'Lower Left Arm'},
-    {data: this.lowerArmLeft, label: 'Lower Left Arm'},
+    {data: this.hipRight, label: 'Hip Right'},
+    {data: this.hipLeft, label: 'Hip Left'},
+    {data: this.lowerBack, label: 'Lower Back'},
+    {data: this.upperBack, label: 'Upper Back'},
   ];
 
   // events
@@ -109,7 +97,7 @@ export class PaiPolarChartComponent {
 
   public randomize() {
     // Only Change 3 values
-    let data = this.upperArmRight;
+    let data = this.hipRight;
     let clone = JSON.parse(JSON.stringify(this.barChartData));
     clone[0].data = data;
     this.barChartData = clone;
