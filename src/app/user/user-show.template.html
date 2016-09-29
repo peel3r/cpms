@@ -6,6 +6,7 @@
                 col-sm-8
                 col-md-6
                 col-lg-5">
+
       <div class="box home-wrapper shadow-3 start-xs">
         <button
           md-raised-button
@@ -27,7 +28,10 @@
         <h1 x-large class="sample-content start-xs">Profile</h1>
 
         <h1><em>{{user.username}} </em>!</h1>
-
+        <h2 class="center-xs">Over All Pain and Mood</h2>
+        <bar-chart-demo></bar-chart-demo>
+        <h2 class="center-xs">Fatigue Tiredness and Cognitive Symptoms Presence</h2>
+        <memory-fatigue-chart></memory-fatigue-chart>
 
       </div>
     </div>
@@ -39,16 +43,17 @@
         <h1 x-large class="sample-content start-xs">Charts</h1>
 
         <div class=" shadow-3">
-          <bar-chart-demo></bar-chart-demo>
-
-          <h2>Neck and Shoulders</h2>
+          <h2>Neck Chest and Abdomen</h2>
+          <chestNeckAbdomen-chart></chestNeckAbdomen-chart>
+          <h2>Hip and Back</h2>
+          <hip-back-chart></hip-back-chart>
+          <h2>Jaws and Shoulders</h2>
           <shoulders-chart></shoulders-chart>
           <h2>Legs</h2>
           <legs-chart></legs-chart>
           <h2>Arms</h2>
           <arms-chart></arms-chart>
-          Log charts
-          <bar-chart-demo></bar-chart-demo>
+
 
         </div>
         <button

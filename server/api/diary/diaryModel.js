@@ -215,6 +215,30 @@ var DiarySchema = new Schema({
     required: false
   },
 
+  // Fatigue
+
+  fatigue: {
+    type: Number
+  },
+
+  fatigueSeverity: {
+    type: Number
+  },
+
+  refreshed: {
+    type: Number
+  },
+
+  // Coginitive
+
+  cognitiveSymptoms: {
+    type: Number
+  },
+
+  cognitiveSeverity: {
+    type: String
+  },
+
   author: {type: Schema.Types.ObjectId, ref: 'user'},
 
   categories: [{type: Schema.Types.ObjectId, ref: 'category'}]

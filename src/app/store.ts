@@ -63,6 +63,11 @@ export interface Diary {
   upperBackDesc:string,
   lowerBack:string,
   lowerBackDesc:string
+  fatigue: number,
+  fatigueSeverity: string,
+  cognitiveSymptoms: number,
+  cognitiveSeverity: string,
+  refreshed: number
 
 
   id?: string | number,

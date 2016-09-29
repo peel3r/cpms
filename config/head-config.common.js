@@ -36,6 +36,7 @@ module.exports = {
 
     { href: "/assets/ng2-toastr.min.js", type:"text/javascript"},
 
+
     /** <link> tags for android web app icons **/
     { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/assets/icon/android-icon-192x192.png' },
 

@@ -53,6 +53,13 @@ import {UserList} from "./user/user-list.module";
 import {UserShow} from "./user/user-show.module";
 import {ToastModule} from "ng2-toastr";
 import {MdProgressBarModule} from "@angular2-material/progress-bar";
+import {HipsAndBackChartComponent} from "./diary/charts/hips-back-chart.component";
+import {ChestNeckAbdomenChartComponent} from "./diary/charts/chest-neck-abdomen-chart.component";
+import {MdTabsModule} from "@angular2-material/tabs";
+import {MemoryFatigueChartComponent} from "./diary/charts/tired-memory-chart.component";
+import {Ng2PaginationModule} from "ng2-pagination";
+import {AppFooter} from "./ui/app-footer";
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -79,6 +86,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     NoContent,
     XLarge,
     AppBar,
+    AppFooter,
     Article,
     ArticleCard,
     ArticleCreator,
@@ -94,7 +102,12 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     LegsChartComponent,
     ShouldersChartComponent,
     UserList,
-    UserShow
+    UserShow,
+    HipsAndBackChartComponent,
+    ChestNeckAbdomenChartComponent,
+    MemoryFatigueChartComponent
+
+
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -109,11 +122,14 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdInputModule,
       MdRadioModule,
       MdSlideToggleModule,
-      MdProgressBarModule
+      MdProgressBarModule,
+      MdTabsModule
     ],
+
 
     ChartsModule,
     ToastModule,
+    Ng2PaginationModule,
 
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],

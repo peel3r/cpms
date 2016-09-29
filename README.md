@@ -6,9 +6,16 @@ user can see charts displaying pain mood and cogintive performence
 
 show pain log
 -------------
-add overall pain and fatigue levels
+~~finish charts~~
+0auth implement
+input text on diary creator
+~~add tabs for mood and cognitive performance~~
+email field for user signup and sign in
+
+
+~~add overall pain and fatigue levels~~
 add previous diaries and pagination and arrange from newest to oldest
-add file uploader
+add file uploader ================> ???
 add WYSIWYG
 add deployment script to server
 ansible

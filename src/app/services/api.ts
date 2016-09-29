@@ -10,7 +10,7 @@ export class ApiService {
     'Content-Type': 'application/json',
     Accept: 'application/json'
   });
-  apiUrl: string = 'https://cpms-api.herokuapp.com'         //prod 'https://cpms-api.herokuapp.com';
+  apiUrl: string = 'http://localhost:3030'         //prod 'https://cpms-api.herokuapp.com';
 
   constructor(private http: Http) {}
 

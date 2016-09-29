@@ -4,10 +4,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
-import {Router} from "@angular/router";
-import {ApplicationRef} from "@angular/core";
-import {NavigationEnd} from "@angular/router";
-import {NgZone} from "@angular/core";
 /*
  * App Component
  * Top Level Component
@@ -48,37 +44,23 @@ import {NgZone} from "@angular/core";
 
     <main>
       <router-outlet></router-outlet>
+      <app-footer></app-footer>
+
     </main>
 
     <!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
-
     <footer>
-      <div>
-
+      <div class="box home-wrapper">
       </div>
     </footer>
   `
 })
 export class App {
 
-  constructor( public appState: AppState,private _applicationRef: ApplicationRef, private _router: Router,private ngZone: NgZone ) {
-    if(this.isMac()) {
-      _router.events.subscribe(ev => {
-        if(ev instanceof NavigationEnd) {
-          setTimeout(() => {
-            ngZone.run(() => _applicationRef.tick())
-          }, 500)
-        }
-      })
-    }
 
-  }
+  constructor(
+    public appState: AppState) {
 
-  isMac() {
-    if(navigator.userAgent.indexOf('Mac') > -1) {
-      return true
-    }
-    return false
   }
 
   ngOnInit() {
