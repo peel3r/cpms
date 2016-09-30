@@ -16,39 +16,12 @@ import { AppState } from './app.service';
   ],
   template: `
     <app-bar></app-bar>
-    <!--<nav>-->
-      <!--<span>-->
-        <!--<a [routerLink]=" ['./'] ">-->
-          <!--Index-->
-        <!--</a>-->
-      <!--</span>-->
-      <!--|-->
-      <!--<span>-->
-        <!--<a [routerLink]=" ['./home'] ">-->
-          <!--Home-->
-        <!--</a>-->
-      <!--</span>-->
-      <!--|-->
-      <!--<span>-->
-        <!--<a [routerLink]=" ['./detail'] ">-->
-          <!--Detail-->
-        <!--</a>-->
-      <!--</span>-->
-      <!--|-->
-      <!--<span>-->
-        <!--<a [routerLink]=" ['./about'] ">-->
-          <!--About-->
-        <!--</a>-->
-      <!--</span>-->
-    <!--</nav>-->
-
     <main>
       <router-outlet></router-outlet>
       <app-footer></app-footer>
 
     </main>
 
-    <!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
     <footer>
       <div class="box home-wrapper">
       </div>

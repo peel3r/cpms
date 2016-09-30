@@ -7,8 +7,8 @@ import {Router} from "@angular/router";
   selector: 'app-bar',
   styles: [`
   .app-bar {
-  height: 140px;
-  padding: 5px 30px;
+  height: 120px;
+  padding: 25px 30px;
   background-color: #00BCD4;
 }
 .logo {
