@@ -35,7 +35,7 @@ export class BarChartDemoComponent {
 
     setTimeout(() => {
       this.randomize()
-    }, 2200);
+    }, 2500);
   }
 
 

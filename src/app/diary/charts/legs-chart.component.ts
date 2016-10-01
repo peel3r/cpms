@@ -18,9 +18,6 @@ export class LegsChartComponent {
   user_id               = window.localStorage.getItem('cpms_user_id')
 
   constructor( private diaryService: DiaryService) {
-    setTimeout(() => {
-      this.randomize()
-    }, 1300);
   }
 
   ngOnInit() {
@@ -44,6 +41,9 @@ export class LegsChartComponent {
       })
 
       .subscribe(res => this.diaries = res)
+    setTimeout(() => {
+      this.randomize()
+    }, 1300);
   }
 
 

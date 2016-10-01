@@ -19,9 +19,6 @@ export class HipsAndBackChartComponent {
 
 
   constructor( private diaryService: DiaryService) {
-    setTimeout(() => {
-      this.randomize()
-    }, 1000);
   }
 
   ngOnInit() {
@@ -45,6 +42,10 @@ export class HipsAndBackChartComponent {
       })
 
       .subscribe(res => this.diaries = res)
+
+    setTimeout(() => {
+      this.randomize()
+    }, 1500);
   }
 
   // public polarAreaChartLabels:string[] = [

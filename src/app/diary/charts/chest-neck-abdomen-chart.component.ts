@@ -17,9 +17,6 @@ export class ChestNeckAbdomenChartComponent {
 
 
   constructor( private diaryService: DiaryService) {
-    setTimeout(() => {
-      this.randomize()
-    }, 1000);
   }
 
   ngOnInit() {
@@ -42,6 +39,10 @@ export class ChestNeckAbdomenChartComponent {
       })
 
       .subscribe(res => this.diaries = res)
+
+    setTimeout(() => {
+      this.randomize()
+    }, 1800);
   }
 
   // public polarAreaChartLabels:string[] = [

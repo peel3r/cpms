@@ -31,9 +31,7 @@ export class PaiPolarChartComponent {
 
 
   constructor( private diaryService: DiaryService) {
-    setTimeout(() => {
-      this.randomize()
-    }, 1500);
+
   }
 
   ngOnInit() {
@@ -57,6 +55,9 @@ export class PaiPolarChartComponent {
       })
 
       .subscribe(res => this.diaries = res)
+    setTimeout(() => {
+      this.randomize()
+    }, 1500);
   }
 
   // public polarAreaChartLabels:string[] = [
