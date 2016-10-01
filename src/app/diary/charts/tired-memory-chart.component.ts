@@ -19,7 +19,7 @@ export class MemoryFatigueChartComponent {
   constructor( private diaryService: DiaryService) {
     setTimeout(() => {
        this.randomize()
-    }, 1000);
+    }, 2000);
   }
 
   ngOnInit() {

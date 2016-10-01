@@ -33,8 +33,8 @@ module.exports = {
     { href: "https://fonts.googleapis.com/icon?family=Material+Icons",rel: "stylesheet"},
     { href: "/assets/ng2-toastr.min.css", rel:"stylesheet"},
 
-
     { href: "/assets/ng2-toastr.min.js", type:"text/javascript"},
+    { href: "/assets/loader.js", type:"text/javascript"},
 
 
     /** <link> tags for android web app icons **/
