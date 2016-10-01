@@ -43,7 +43,7 @@ export class LegsChartComponent {
       .subscribe(res => this.diaries = res)
     setTimeout(() => {
       this.randomize()
-    }, 2200);
+    }, 2500);
   }
 
 
