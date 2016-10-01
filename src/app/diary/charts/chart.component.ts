@@ -15,9 +15,6 @@ export class BarChartDemoComponent {
 
 
   constructor(private diaryService: DiaryService) {
-    setTimeout(() => {
-      this.randomize()
-    }, 1000);
   }
 
   ngOnInit() {
@@ -35,6 +32,10 @@ export class BarChartDemoComponent {
       })
 
       .subscribe(res => this.diaries = res)
+
+    setTimeout(() => {
+      this.randomize()
+    }, 2200);
   }
 
 

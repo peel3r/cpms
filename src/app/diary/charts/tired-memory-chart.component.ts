@@ -17,9 +17,6 @@ export class MemoryFatigueChartComponent {
   user_id               = window.localStorage.getItem('cpms_user_id')
 
   constructor( private diaryService: DiaryService) {
-    setTimeout(() => {
-       this.randomize()
-    }, 2000);
   }
 
   ngOnInit() {
@@ -43,6 +40,11 @@ export class MemoryFatigueChartComponent {
       })
 
       .subscribe(res => this.diaries = res)
+
+    setTimeout(() => {
+      this.randomize()
+    }, 2000);
+
   }
 
   public barChartOptions:any = {
