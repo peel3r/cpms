@@ -45,7 +45,7 @@ export class HipsAndBackChartComponent {
 
     setTimeout(() => {
       this.randomize()
-    }, 1500);
+    }, 2100);
   }
 
   // public polarAreaChartLabels:string[] = [

@@ -57,7 +57,7 @@ export class PaiPolarChartComponent {
       .subscribe(res => this.diaries = res)
     setTimeout(() => {
       this.randomize()
-    }, 1500);
+    }, 2000);
   }
 
   // public polarAreaChartLabels:string[] = [
