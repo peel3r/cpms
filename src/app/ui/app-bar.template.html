@@ -17,7 +17,15 @@
                 col-md-6
                 col-lg-6">
     <div >
-      <div class="row middle-xs between-xs">
+      <div class="row middle-xs">
+        <button
+          md-raised-button
+          [routerLink]=" ['']"
+          class="shadow-1"
+        >
+          Home
+
+        </button>
         <button
           md-raised-button
           [routerLink]=" ['./diaries']"
@@ -28,11 +36,22 @@
         </button>
         <button
           class="shadow-1"
+          md-raised-button
+          color="accent"
+          (click)="changeModeIn()"
+          [routerLink]=" ['', 'auth']"
+
+        >
+          {{modeIn}}
+
+        </button>
+        <button
+          class="shadow-1"
           (click)="showSuccess()"
 
           md-raised-button
-          (click)="changeMode()"
-          color="warn"
+          (click)="changeModeOut()"
+          color="accent"
         >
           {{mode}}
 

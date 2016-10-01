@@ -49,7 +49,7 @@ export class DiaryCreator {
     text: '',
     overAllPainLevel: '',
     overAllMoodLevel: '',
-    shoulderGirdleLeftDesc: '',
+    shoulderGirdleLeftDesc: 'Select',
     shoulderGirdleLeft: '',
     shoulderGirdleRightDesc: '',
     shoulderGirdleRight: '',

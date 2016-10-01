@@ -29,6 +29,8 @@ import {Router} from "@angular/router";
 
 export class AppBar {
   mode: string;
+  modeIn: string;
+
   library: string = ''
   user_id = window.localStorage.getItem('cpms_user_id')
   user_name = window.localStorage.getItem('cpms_user_name')
@@ -52,18 +54,34 @@ export class AppBar {
     if (localStorage.getItem('retain_token')) {
       this.mode = 'signout'
       this.library = 'Library'
+      this.modeIn = ''
+
     } else {
       this.mode = ''
       this.library = ''
+      this.modeIn = 'Sign In'
+
     }
   }
 
-  changeMode() {
+  changeModeOut() {
     if (this.mode == 'signin') {
       this.mode = 'signout'
+      this.modeIn = ''
+
     } else {
       this.mode = 'signin'
+      this.modeIn = ''
       this.authService.signout()
+    }
+  }
+
+  changeModeIn() {
+    if (this.modeIn == 'Sign In') {
+      this.modeIn = ''
+    } else {
+      this.modeIn = ''
+
     }
   }
 

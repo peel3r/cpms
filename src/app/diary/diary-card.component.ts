@@ -5,7 +5,7 @@ import {Component, Input, EventEmitter,Output} from '@angular/core';
 
   template: `
 <div class="card-container row shadow-3">
-<div class="col-xs-4">
+<div class="col-xs-3">
 {{diary.date | date:'dd/MMM/yyyy'}}  <br>  
 
 <button
@@ -28,7 +28,7 @@ import {Component, Input, EventEmitter,Output} from '@angular/core';
             #slider1
           ></md-slider>
           {{diary.overAllPainLevel}}</div>
-      <div class="col-xs-4">Fatigue: <br><md-slider
+      <div class="col-xs-5">Fatigue: <br><md-slider
    value="{{diary.overAllMoodLevel}}"
             tick-interval="1"
             step="1" max="10"

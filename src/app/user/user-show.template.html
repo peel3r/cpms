@@ -12,6 +12,7 @@
           md-raised-button
           [routerLink]=" ['','diaries']"
           class="shadow-1"
+          color="accent"
         >
           Pain Log
 
@@ -25,9 +26,12 @@
 
         <!--</button>-->
         <hr>
-        <h1 x-large class="sample-content start-xs">Profile</h1>
+        <div class="row " style=" padding: 15px;color: #00AAAA;">
 
-        <h1><em>{{user.username}} </em>!</h1>
+          <div class="col-5 shadow-3" >
+          <h3><em style="margin: 5px;"> {{user.username}} </em></h3>
+        </div>
+        </div>
         <h2 class="center-xs">Over All Pain and Mood</h2>
         <bar-chart-demo></bar-chart-demo>
         <h2 class="center-xs">Fatigue Tiredness and Cognitive Symptoms Presence</h2>
