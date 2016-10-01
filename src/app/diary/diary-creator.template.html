@@ -15,7 +15,7 @@
         <md-slide-toggle class="note-creator" color="accent" [(ngModel)]="newDiary.cognitiveSymptoms" name="first">
           Are you experiencing any <br>
           cognitive symptoms, such as<br>
-           difficulty
+          difficulty
           remembering or<br> concentrating?<br>
         </md-slide-toggle><br><br><br>
       </div>
@@ -33,7 +33,8 @@
               step="1" max="10"
               #slider1
               [(ngModel)]="newDiary.overAllPainLevel" name="first"
-            ></md-slider>
+            >
+            </md-slider>
             {{slider1.value}}
           </div>
         </div>
@@ -94,7 +95,6 @@
           <div class="box">
             <br>
             <select
-
               [(ngModel)]="newDiary.shoulderGirdleLeftDesc" name="first"
             >
               <option *ngFor="let p of powers" [ngValue]="p">{{p}}</option>

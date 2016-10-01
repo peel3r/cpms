@@ -11,6 +11,8 @@ show pain log
 input text on diary creator
 ~~add tabs for mood and cognitive performance~~
 email field for user signup and sign in
+DEACTIVATE USER LIST AT
+EXPLORE PUSHER
 
 
 ~~add overall pain and fatigue levels~~
