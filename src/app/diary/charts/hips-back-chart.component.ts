@@ -48,28 +48,6 @@ export class HipsAndBackChartComponent {
     }, 2100);
   }
 
-  // public polarAreaChartLabels:string[] = [
-  //   // 'shoulderGirdleLeft', //
-  //   // 'shoulderGirdleRight', //
-  //   // 'upperArmRight', //
-  //   // 'upperArmLeft', //
-  //   // 'lowerArmRight', //
-  //   // 'lowerArmLeft', //
-  //   // 'upperLegRight', //
-  //   // 'upperLegLeft', //
-  //   // 'lowerLegRight', //
-  //   // 'lowerLegLeft',//
-  //   // 'jawRight', //
-  //   // 'jawLeft', //
-  //   // 'hipRight',
-  //   // 'hipLeft',
-  //   // 'chest',
-  //   // 'neck',
-  //   // 'abdomen',
-  //   // 'upperBack',
-  //   // 'lowerBack'
-  //
-  // ];
 
   public barChartOptions:any = {
     scaleShowVerticalLines: false,

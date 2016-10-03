@@ -8,32 +8,33 @@ show pain log
 -------------
 ~~finish charts~~
 0auth implement
-input text on diary creator
+~~input text on diary creator~~
 ~~add tabs for mood and cognitive performance~~
 email field for user signup and sign in
-DEACTIVATE USER LIST AT
+~~DEACTIVATE USER LIST AT~~
+
 EXPLORE PUSHER
 
 
 ~~add overall pain and fatigue levels~~
-add previous diaries and pagination and arrange from newest to oldest
+~~add previous diaries and pagination and arrange from newest to oldest~~
 add file uploader ================> ???
 add WYSIWYG
-add deployment script to server
+~~add deployment script to server~~
 ansible
 log pain view
 -------------
 add scroller to show one question at the time
-add fatigue and cognitive questions
+~~add fatigue and cognitive questions~~
 
 charts dashboard
 ----------------
-dashboard with charts for all symptoms and pains
+~~dashboard with charts for all symptoms and pains~~
 
 implement per user pain log
 ---------------------------
 **routes as**
-profile/user_id/diaries/diary_id
+profile/user_id/diaries/diary_id ????
 
 # Angular2 Webpack Starter 
 
