@@ -93,10 +93,10 @@ export class PaiPolarChartComponent {
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: this.upperArmRight, label: 'Upper Right Arm'},
-    {data: this.upperArmLeft, label: 'Upper Left Arm'},
-    {data: this.lowerArmRight, label: 'Lower Left Arm'},
-    {data: this.lowerArmLeft, label: 'Lower Left Arm'},
+    {data: this.upperArmRight, label: 'Upper Right'},
+    {data: this.upperArmLeft, label: 'Upper Left'},
+    {data: this.lowerArmRight, label: 'Lower Right'},
+    {data: this.lowerArmLeft, label: 'Lower Left'},
   ];
 
   // events

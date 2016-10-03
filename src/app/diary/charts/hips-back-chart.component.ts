@@ -81,8 +81,8 @@ export class HipsAndBackChartComponent {
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: this.hipRight, label: 'Hip Right'},
-    {data: this.hipLeft, label: 'Hip Left'},
+    {data: this.hipRight, label: 'Right Hip'},
+    {data: this.hipLeft, label: 'Left Hip'},
     {data: this.lowerBack, label: 'Lower Back'},
     {data: this.upperBack, label: 'Upper Back'},
   ];

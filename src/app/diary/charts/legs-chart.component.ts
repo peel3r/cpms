@@ -57,10 +57,10 @@ export class LegsChartComponent {
   public barChartLegend:boolean = true;
 
   public barChartData:any[] = [
-    {data: this.upperLegRight, label: 'Upper Right Leg'},
-    {data: this.upperLegLeft, label: 'Upper Left Leg'},
-    {data: this.lowerLegRight, label: 'Lower Left Leg'},
-    {data: this.lowerLegLeft, label: 'Lower Left Leg'},
+    {data: this.upperLegRight, label: 'Upper Right'},
+    {data: this.upperLegLeft, label: 'Upper Left'},
+    {data: this.lowerLegRight, label: 'Lower Left'},
+    {data: this.lowerLegLeft, label: 'Lower Left'},
   ];
 
   // events

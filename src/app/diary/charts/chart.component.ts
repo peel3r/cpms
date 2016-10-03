@@ -49,7 +49,7 @@ export class BarChartDemoComponent {
   public barChartLegend: boolean = true;
 
   public barChartData: any[] = [
-    {data: this.painLevelCount, label: 'Pain Level'},
+    {data: this.painLevelCount, label: 'Pain'},
     {data: this.moodLevelCount, label: 'Mood'}
   ];
 
