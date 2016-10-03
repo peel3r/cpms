@@ -101,7 +101,7 @@ export class Auth {
   errorMessage:string;
 
 
-  button: string  = 'signin'
+  button: string  = 'sign in'
   route: string = 'auth/signin';
   linkText: string = 'Don\'t have an account?';
 
@@ -111,11 +111,11 @@ export class Auth {
 
   changeMode() {
     if (this.route === 'auth/signin') {
-      this.button = 'signup'
+      this.button = 'sign Up'
       this.route = 'api/users'
       this.linkText = 'Already have an account?'
     } else {
-      this.button = 'signin'
+      this.button = 'sign in'
       this.route = 'auth/signin';
       this.linkText = 'Don\'t have an account?';
     }
