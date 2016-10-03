@@ -1,6 +1,6 @@
 # about
-this is a future pain management system where user can come and log his pain records
-user can see charts displaying pain mood and cogintive performence 
+this is a pain assessment system where user can come and log his pain records
+user can see charts displaying pain mood and cognitive performance 
 
 **to do**
 
