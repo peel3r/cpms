@@ -1,15 +1,18 @@
 # about
 this is a pain assessment system where user can come and log his pain records
 user can see charts displaying pain mood and cognitive performance 
+[![Build Status](https://travis-ci.org/peel3r/cpms.svg?branch=master)](https://travis-ci.org/peel3r/cpms)
+#to do
 
-**to do**
 
-new feature
------------
-add pip assessment service
-add quantitative chart for body parts pain (donaut
-Travis
-show pain log
+    new feature
+    -----------
+    
+    add pip assessment service
+    add quantitative chart for body parts pain (donaut
+    Travis
+    show pain log
+
 -------------
 ~~finish charts~~
 
