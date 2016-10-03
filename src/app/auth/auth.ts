@@ -115,7 +115,7 @@ export class Auth {
       this.route = 'api/users'
       this.linkText = 'Already have an account?'
     } else {
-      this.button = 'sign in'
+      this.button = 'signin'
       this.route = 'auth/signin';
       this.linkText = 'Don\'t have an account?';
     }

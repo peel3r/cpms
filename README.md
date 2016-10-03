@@ -4,27 +4,45 @@ user can see charts displaying pain mood and cognitive performance
 
 **to do**
 
+new feature
+-----------
+add pip assessment service
+add quantitative chart for body parts pain (donaut
+Travis
 show pain log
 -------------
 ~~finish charts~~
+
 0auth implement
+
 ~~input text on diary creator~~
+
 ~~add tabs for mood and cognitive performance~~
-email field for user signup and sign in
+
+~~email field for user signup and sign in~~
+
 ~~DEACTIVATE USER LIST AT~~
 
-EXPLORE PUSHER
+EXPLORE PUSHER Twitter
 
 
 ~~add overall pain and fatigue levels~~
+
 ~~add previous diaries and pagination and arrange from newest to oldest~~
+
 add file uploader ================> ???
-add WYSIWYG
+
+add WYSIWYG ======================> ???
+
 ~~add deployment script to server~~
+
 ansible
+
 log pain view
 -------------
+
 add scroller to show one question at the time
+
 ~~add fatigue and cognitive questions~~
 
 charts dashboard
