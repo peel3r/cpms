@@ -8,13 +8,13 @@ describe('App', () => {
 
   it('should have a title', () => {
     let subject = browser.getTitle();
-    let result  = 'Angular2 Webpack Starter by @gdi2290 from @AngularClass';
+    let result  = 'CPMS';
     expect(subject).toEqual(result);
   });
 
-  it('should have `News` x-large', () => {
+  it('should have `Pain Assessment` x-large', () => {
     let subject = element(by.css('[x-large]')).getText();
-    let result  = 'News';
+    let result  = 'Pain Assessment';
     expect(subject).toEqual(result);
   });
 

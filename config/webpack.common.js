@@ -94,10 +94,9 @@ module.exports = function(options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
        */
-      rules: [
+      preLoaders: [
         {
           test: /\.ts$/,
-          enforce: "pre",
           loader: 'string-replace-loader',
           query: {
             search: '(System|SystemJS)(.*[\\n\\r]\\s*\\.|\\.)import\\((.+)\\)',
@@ -199,11 +198,7 @@ module.exports = function(options) {
         filename: 'webpack-assets.json',
         prettyPrint: true
       }),
-      new webpack.LoaderOptionsPlugin({
-           options: {
-          context: __dirname
-        }
-    }),
+
       /*
        * Plugin: ForkCheckerPlugin
        * Description: Do type checking in a separate process, so webpack don't need to wait.
