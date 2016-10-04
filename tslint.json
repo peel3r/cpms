@@ -3,8 +3,6 @@
     "node_modules/codelyzer"
   ],
   "rules": {
-    "quotes": "single",
-
     "member-access": false,
     "member-ordering": [
       true,
