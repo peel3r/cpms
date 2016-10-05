@@ -16,6 +16,7 @@ import {NewDiary} from "./diary/new-diary.component";
 import {DiaryShow} from "./diary/diary-show.component";
 import {UserList} from "./user/user-list.module";
 import {UserShow} from "./user/user-show.module";
+import {Esa} from "./esa/assesment.component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -34,6 +35,9 @@ export const ROUTES: Routes = [
   { path: 'diaries',  component: Diary , canActivate:[AuthService]},
   { path: 'diaries/:id', component: DiaryShow , canActivate:[AuthService]},
   // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
+  { path: 'esa',  component: Esa , canActivate:[AuthService]},
+
+
 
   { path: '**',    component: NoContent },
 

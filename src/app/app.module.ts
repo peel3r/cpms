@@ -59,6 +59,9 @@ import {MdTabsModule} from "@angular2-material/tabs";
 import {MemoryFatigueChartComponent} from "./diary/charts/tired-memory-chart.component";
 import {Ng2PaginationModule} from "ng2-pagination";
 import {AppFooter} from "./ui/app-footer";
+import { Question} from "./esa/question.component";
+import {Esa} from "./esa/assesment.component";
+import {QuestionCreator} from "./esa/question-creator";
 
 
 // Application wide providers
@@ -105,7 +108,10 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     UserShow,
     HipsAndBackChartComponent,
     ChestNeckAbdomenChartComponent,
-    MemoryFatigueChartComponent
+    MemoryFatigueChartComponent,
+    Question,
+    QuestionCreator,
+    Esa,
 
 
   ],
