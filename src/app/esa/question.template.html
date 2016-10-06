@@ -1,5 +1,5 @@
 <div class=" shadow-2 start-xs">
-  <form class="row" (ngSubmit)="onCreateQuestion()" style="padding: 10px;">
+  <form  (ngSubmit)="onCreateQuestion()" style="padding: 10px;">
     <div class="row">
     <div class="col-xs-12
                     col-sm-8
@@ -70,12 +70,75 @@
         <md-radio-button value="option_5">
           None of the above apply. <span style="color: white; background-color: rebeccapurple">0 points.</span>
         </md-radio-button>
-        <hr>
       </md-radio-group>
     </div>
     </div>
+<hr>
+    <div class="row">
+      <div class="col-xs-12
+                    col-sm-8
+                    col-md-6
+                    col-lg-5">
+        <div class="box" style="padding: 10px;">
+          <h1>2</h1>
+          Standing and sitting.
+          <div (mouseenter)="toggleCheck()" (mouseleave)="toggleCheck()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck" >
+            Question explained
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-xs-12
+                    col-sm-8
+                    col-md-6
+                    col-lg-7"
+      >
 
+        <md-radio-group >
+          <md-radio-button
+            value="option_1"
+          >
+            Cannot move between one seated <br>
+            position and another seated position<br>
+            located next to one another without <br>
+            receiving physical assistance from <br>
+            another person.<span style="color: white; background-color: rebeccapurple">15 points.</span>
+          </md-radio-button>
+          <hr>
+          <md-radio-button value="option_2"
+          >
+            Cannot, for the majority of the time, <br>
+            remain at a work station, either: (i) <br>
+            standing unassisted by another person <br>
+            (even if free to move around) or; <br>
+            (ii) sitting (even in an adjustable chair); <br>
+            or (iii) a combination of (i) and (ii), <br>
+            for more than 30 minutes, before needing <br>
+            to move away in order to avoid significant <br>
+            discomfort or exhaustion. <span style="color: white; background-color: rebeccapurple">9 points.</span>
+          </md-radio-button>
+          <hr>
+          <md-radio-button value="option_3">
+            Cannot, for the majority of the time, <br>
+            remain at a work station, either: (i)<br>
+            standing unassisted by another person <br>
+            (even if free to move around) or; <br>
+            (ii) sitting (even in an adjustable chair); <br>
+            or (iii) a combination of (i) and (ii), <br>
+            for more than an hour, before needing to <br>
+            move away in order to avoid significant <br>
+            discomfort or exhaustion.
+            <span style="color: white; background-color: rebeccapurple">6 points.</span>
+          </md-radio-button>
+          <hr>
+          <md-radio-button value="option_4">
+            None of the above apply. <span style="color: white; background-color: rebeccapurple">0 points.</span>
+          </md-radio-button>
 
+        </md-radio-group>
+      </div>
+    </div>
     <!--<input-->
     <!--type="text"-->
     <!--[(ngModel)]="newQuestion.title"-->
