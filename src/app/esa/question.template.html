@@ -1,0 +1,103 @@
+<div class=" shadow-2 start-xs">
+  <form class="row" (ngSubmit)="onCreateQuestion()" style="padding: 10px;">
+    <div class="row">
+    <div class="col-xs-12
+                    col-sm-8
+                    col-md-6
+                    col-lg-5">
+      <div class="box" style="padding: 10px;">
+        <h1>1</h1>
+        Mobilising unaided by another person <br>
+        with or without a walking stick, manual<br>
+        wheelchair or other aid if such aid is normally,<br>
+        or could reasonably be, worn or used <br>
+        (select appropriate)
+        <div (mouseenter)="toggleCheck()" (mouseleave)="toggleCheck()" style="background-color: rebeccapurple; color:white">Help</div>
+        <div class="note-creator shadow-2" [hidden]="showCheck" >
+          Question explained
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-xs-12
+                    col-sm-8
+                    col-md-6
+                    col-lg-7"
+    >
+
+      <md-radio-group >
+        <md-radio-button
+          value="option_1"
+        >
+          Cannot either (i) mobilise more than 50 meters<br>
+          on level ground without stopping <br>
+          in order to avoid significant discomfort or <br>
+          exhaustion or (ii) repeatedly mobilise <br>
+          50 meters within a reasonable timescale <br>
+          because of significant discomfort <br>
+          or exhaustion. <span style="color: white; background-color: rebeccapurple">15 points.</span>
+        </md-radio-button>
+        <hr>
+        <md-radio-button value="option_2"
+        >
+          Cannot mount or descend two steps <br>
+          unaided by another person <br>
+          even with the support of a handrail. <span style="color: white; background-color: rebeccapurple">9 points.</span>
+        </md-radio-button>
+        <hr>
+        <md-radio-button value="option_3">
+          Cannot either (i) mobilise more than 100 meters<br>
+          on level ground without stopping in order to avoid <br>
+          significant discomfort or exhaustion or (ii) <br>
+          repeatedly mobilise 100 meters within a <br>
+          reasonable timescale because of significant <br>
+          discomfort or exhaustion.
+          <span style="color: white; background-color: rebeccapurple">9 points.</span>
+        </md-radio-button>
+
+        <hr>
+        <md-radio-button value="option_4">
+          Cannot either (i) mobilise more than 200 <br>
+          metres on level ground <br>
+          without stopping in order to avoid significant <br>
+          discomfort or exhaustion or (ii)<br>
+          repeatedly mobilise 200 meters within a <br>
+          reasonable timescale because of <br>
+          significant discomfort or exhaustion.<br>
+          <span style="color: white; background-color: rebeccapurple">6 points.</span>
+        </md-radio-button>
+        <hr>
+        <md-radio-button value="option_5">
+          None of the above apply. <span style="color: white; background-color: rebeccapurple">0 points.</span>
+        </md-radio-button>
+        <hr>
+      </md-radio-group>
+    </div>
+    </div>
+
+
+    <!--<input-->
+    <!--type="text"-->
+    <!--[(ngModel)]="newQuestion.title"-->
+    <!--name="newQuestionTitle"-->
+    <!--placeholder="Title"-->
+    <!--class="col-xs-10 title"-->
+
+    <!--&gt;-->
+    <!--<input-->
+    <!--type="text"-->
+    <!--[(ngModel)]="newQuestion.value"-->
+    <!--name="newQuestionValue"-->
+    <!--placeholder="Take a note..."-->
+    <!--class="col-xs-10"-->
+    <!--&gt;-->
+    <!--<div class="actions col-xs-12 row between-xs" >-->
+    <!--<button-->
+    <!--type="submit"-->
+    <!--class="btn-light"-->
+    <!--&gt;-->
+    <!--Done-->
+    <!--</button>-->
+    <!--</div>-->
+  </form>
+</div>
