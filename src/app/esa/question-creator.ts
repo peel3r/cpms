@@ -1,6 +1,7 @@
 import {
   Component,
   Output,
+Input,
   EventEmitter
 } from '@angular/core';
 
@@ -20,38 +21,7 @@ import {
       height: 100px;
     }
   `],
-  template: `
-    <div class="note-creator shadow-2">
-      <form class="row" (ngSubmit)="onCreateQuestion()">
-        <div>
-        sgdgafd
-</div>
-        <input
-          type="text"
-          [(ngModel)]="newQuestion.title"
-          name="newQuestionTitle"
-          placeholder="Title"
-          class="col-xs-10 title"
-
-        >
-        <input
-          type="text"
-          [(ngModel)]="newQuestion.value"
-          name="newQuestionValue"
-          placeholder="Take a note..."
-          class="col-xs-10"
-        >
-        <div class="actions col-xs-12 row between-xs" >
-          <button
-            type="submit"
-            class="btn-light"
-           >
-            Done
-          </button>
-        </div>
-      </form>
-    </div>
-  `
+  templateUrl: './question.template.html'
 })
 export class QuestionCreator {
   @Output() createQuestion = new EventEmitter();
@@ -59,6 +29,9 @@ export class QuestionCreator {
     title: '',
     value: ''
   };
+
+  @Output() checked = new EventEmitter();
+  @Input() question = {};
 
   onCreateQuestion() {
     const { title, value } = this.newQuestion;
@@ -76,6 +49,16 @@ console.log(this.newQuestion)
       value: ''
     };
   }
+  showCheck: boolean = true;
 
+  toggleCheck() {
+
+      this.showCheck = !this.showCheck
+
+  }
+
+  onChecked() {
+    this.checked.next(this.question);
+  }
 
 }

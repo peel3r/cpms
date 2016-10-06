@@ -10,11 +10,13 @@ import {QuestionCreator} from './question-creator'
     }
     .creator {
       margin-bottom: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
   `],
   template: `
     <div class="row center-xs questions">
-      <div class="col-xs-6 creator">
+      <div>
     <question-creator (createQuestion)="onCreateQuestion($event)"></question-creator>
       </div>
       <div class="questions col-xs-8">
