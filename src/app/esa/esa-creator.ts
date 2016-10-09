@@ -5,7 +5,7 @@ import {EsaService} from "../services/esa";
 
 
 @Component({
-  selector: 'diary-creator',
+  selector: 'esa-creator',
   styles: [` 
   .note-creator {
       padding: 20px;
@@ -20,7 +20,7 @@ import {EsaService} from "../services/esa";
       height: 100px;
     }
   `],
-  templateUrl: './question.template.html'
+  templateUrl: './esa-creator.template.html'
 
 })
 
@@ -44,11 +44,11 @@ export class EsaCreator {
     text: ''
   };
 
-  onCreateDiary() {
+  onCreateEsa() {
     const {
       text
     } = this.newEsa;
-
+console.log(this.newEsa)
     if (text) {
 
       this.createEsa.next({

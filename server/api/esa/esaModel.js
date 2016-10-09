@@ -14,7 +14,7 @@ var EsaSchema = new Schema({
 
   author: {type: Schema.Types.ObjectId, ref: 'user'},
 
-  answers: [{type: Schema.Types.ObjectId, ref: 'answer'}]
+  categories: [{type: Schema.Types.ObjectId, ref: 'category'}]
 });
 
 module.exports = mongoose.model('esa', EsaSchema);

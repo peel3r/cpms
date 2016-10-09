@@ -4,14 +4,15 @@ import 'rxjs/Rx';
 import { StoreHelper } from './store-helper';
 
 @Injectable()
-export class DiaryService {
-  path: string = '/api/esa';
+export class EsaService {
+  path: string = '/api/esas';
   constructor(
     private apiService: ApiService,
     private storeHelper: StoreHelper
   ) {}
 
   createEsa(esa) {
+    console.log('esa',esa)
     return this.apiService.post(this.path, esa)
       .do(savedEsa => this.storeHelper.add('esas', savedEsa));
   }

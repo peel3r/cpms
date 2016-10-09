@@ -3,7 +3,7 @@ import {EsaService} from '../services'
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'question-container',
+  selector: 'esa-container',
 
   styles: [`
     .questions {
@@ -30,7 +30,7 @@ export class Esa {
     this.esaService.getUserEsas(this.USER_ID)
       .subscribe(
         res => {
-          console.log(this.esas)
+          this.esas = res
         })
   }
 

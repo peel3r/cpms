@@ -1,4 +1,4 @@
-var Answer = require('./canswerModel');
+var Answer = require('./answerModel');
 var _ = require('lodash');
 
 exports.params = function(req, res, next, id) {

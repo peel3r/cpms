@@ -12,6 +12,8 @@ export class DiaryService {
   ) {}
 
   createDiary(diary) {
+    console.log('a',diary)
+
     return this.apiService.post(this.path, diary)
       .do(savedDiary => this.storeHelper.add('diaries', savedDiary));
   }
