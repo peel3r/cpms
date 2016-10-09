@@ -1,0 +1,14 @@
+<div>
+  <esa-creator (createEsa)="onCreateEsa($event)"></esa-creator>
+</div>
+<div class="questions col-xs-8">
+  <div class="row between-xs">
+    <question-card
+      class="col-xs-4"
+      [question]="question"
+      *ngFor="let question of questions; let i = index"
+      (checked)="onQuestionChecked($event, i)"
+    >
+    </question-card>
+  </div>
+</div>
