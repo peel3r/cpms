@@ -1,22 +1,372 @@
-<div class=" shadow-2">
+<div class=" shadow-2 " style="background-color: white; padding-left: 20px;padding-right: 20px">
   <form  (submit)="onCreateEsa()" >
-    <h3 class="center-xs" style="color: rgb(20, 198, 229);">Work capability self-assessment</h3>
+    <h3 class="center-xs " style="color: rgb(20, 198, 229);">Work capability self-assessment</h3>
 
-    <div class="row center-xs shadow-2" style="padding-bottom: 10px;">
 
-      <div class="box">
-<input
-  style="height:100px; width: 100%"
-  type="text"
-  [(ngModel)]="newEsa.text"
-  name="newEsaText"
-  placeholder="Notes"
-  class="col-xs-10"
->
-
+    <div class="row shadow-2 " style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>1</h1>
+          Mobilising unaided by another person
+          with or without a walking stick, manual
+          wheelchair or other aid if such aid is normally,
+          or could reasonably be, worn or used
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_1" [(ngModel)]="favoriteAnswer_q_1">
+            <md-radio-button *ngFor="let answer of answers_1_options" name="question_1" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck1()" (mouseleave)="toggleCheck1()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck1" >
+            Question explained
+          </div>
+        </div>
       </div>
     </div>
 
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>2</h1>
+          Standing and sitting.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_2" [(ngModel)]="favoriteAnswer_q_2">
+            <md-radio-button *ngFor="let answer of answers_2_options" name="question_2" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck2()" (mouseleave)="toggleCheck2()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck2" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>3</h1>
+          Reaching.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_3" [(ngModel)]="favoriteAnswer_q_3">
+            <md-radio-button *ngFor="let answer of answers_3_options" name="question_3" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck3()" (mouseleave)="toggleCheck3()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck3" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>4</h1>
+          Picking up and moving or transferring by the use of the upper body and arms.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_4" [(ngModel)]="favoriteAnswer_q_4">
+            <md-radio-button *ngFor="let answer of answers_4_options" name="question_4" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck4()" (mouseleave)="toggleCheck4()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck4" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>5</h1>
+          Manual dexterity.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_5" [(ngModel)]="favoriteAnswer_q_5">
+            <md-radio-button *ngFor="let answer of answers_5_options" name="question_5" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck5()" (mouseleave)="toggleCheck5()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck5" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>6</h1>
+          Making self understood through speaking, writing, typing, or other means which are normally, or could reasonably be, used, unaided by another person.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_6" [(ngModel)]="favoriteAnswer_q_6">
+            <md-radio-button *ngFor="let answer of answers_6_options" name="question_6" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck6()" (mouseleave)="toggleCheck6()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck6" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>7</h1>
+          Understanding communication by:
+          (a) verbal means (such as hearing or lip reading) alone,
+          (b) non-verbal means (such as reading 16 point print or Braille) alone, or
+          (c) a combination of (a) and (b),
+          using any aid that is normally, or could reasonably be, used, unaided by another person.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_7" [(ngModel)]="favoriteAnswer_q_7">
+            <md-radio-button *ngFor="let answer of answers_7_options" name="question_7" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck7()" (mouseleave)="toggleCheck7()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck7" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>8</h1>
+          Navigation and maintaining safety, using a guide dog or other aid if either or both are normally, or could reasonably be, used.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_8" [(ngModel)]="favoriteAnswer_q_8">
+            <md-radio-button *ngFor="let answer of answers_8_options" name="question_8" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck8()" (mouseleave)="toggleCheck8()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck8" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>9</h1>
+          Absence or loss of control whilst conscious leading to extensive evacuation of the bowel and/or bladder, other than enuresis (bed-wetting), despite the wearing or use of any aids or adaptations which are normally, or could reasonably be, worn or used.          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_9" [(ngModel)]="favoriteAnswer_q_9">
+            <md-radio-button *ngFor="let answer of answers_9_options" name="question_9" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck9()" (mouseleave)="toggleCheck9()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck9" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>10</h1>
+          Consciousness during waking moments.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_10" [(ngModel)]="favoriteAnswer_q_10">
+            <md-radio-button *ngFor="let answer of answers_10_options" name="question_10" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <div (mouseenter)="toggleCheck10()" (mouseleave)="toggleCheck10()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck10" >
+            Question explained
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="actions col-xs-12 row between-xs">
       <button
         color="accent"
@@ -25,10 +375,7 @@
         class="shadow-1"
       >
         Submit
-
       </button>
-
-
     </div>
     <!--<div class="row">-->
     <!--<div class="col-xs-12-->
@@ -36,15 +383,7 @@
                     <!--col-md-6-->
                     <!--col-lg-5">-->
       <!--<div class="box" style="padding: 10px;">-->
-        <!--<h1>1</h1>-->
-        <!--Mobilising unaided by another person <br>-->
-        <!--with or without a walking stick, manual<br>-->
-        <!--wheelchair or other aid if such aid is normally,<br>-->
-        <!--or could reasonably be, worn or used <br>-->
-        <!--(select appropriate)-->
-        <!--<div (mouseenter)="toggleCheck()" (mouseleave)="toggleCheck()" style="background-color: rebeccapurple; color:white">Help</div>-->
-        <!--<div class="note-creator shadow-2" [hidden]="showCheck" >-->
-          <!--Question explained-->
+
         <!--</div>-->
       <!--</div>-->
     <!--</div>-->
