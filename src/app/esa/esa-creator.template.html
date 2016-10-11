@@ -1,7 +1,39 @@
 <div class=" shadow-2 " style="background-color: white; padding-left: 20px;padding-right: 20px">
-  <form  (submit)="onCreateEsa()" >
-    <h3 class="center-xs " style="color: rgb(20, 198, 229);">Work capability self-assessment</h3>
 
+  <sticky sticky-offset-top="20" sticky-offset-bottom="20" >Total <br>score: <br><h1 style="color: rebeccapurple">{{totalScore}}</h1></sticky>
+
+  <form  (submit)="onCreateEsa()" style="padding-left: 70px;">
+    <h3 class="center-xs " style="color: rgb(20, 198, 229);">Work capability self-assessment</h3>
+<div class="row shadow-2" style="margin-bottom: 5px;padding-left: 50px;padding-right: 50px;padding-top: 20px;padding-bottom: 20px">
+  At the assessment
+  You might have to wait some time before being seen – delays are not uncommon.
+  When the doctor is ready to see you, they will come to get you from the waiting area
+  to take you into the examination room. This gives them a chance to watch how you
+  manage to rise from a chair, walk and sit down again or how you manage with a
+  wheelchair.<br><br>
+  You may find it helpful to have someone with you at the assessment. This could be a
+  relative, friend or support worker. They can help fill in any gaps in what you tell the
+  doctor.<br><br>
+  During the assessment, the doctor will identify the descriptors (listed in Section F of
+  the Claiming ESA booklet) that they consider apply to you. To do this, they will ask
+  questions about your daily activities (including hobbies or leisure activities). They will
+  observe how you manage during the assessment itself and they may give you an
+  examination.<br><br>
+  When answering the doctor, explain your difficulties as fully as you can. You should
+  tell them about any pain or exhaustion you feel, or would feel, while carrying out
+  tasks, both on the day of the assessment and over time.<br><br>
+  Consider how you would feel if you had to do the same task repeatedly. Try not to
+  overestimate your ability to undertake tasks. Let them know what you are like on bad
+  days, as well as good days.<br><br>
+  Do not assume the doctor has a good understanding of your condition. They may not fully
+  understand how you are affected by your condition unless you make it clear. They might
+  make incorrect assumptions about your abilities unless you tell them otherwise. For
+  example, they might not have seen you getting dropped off right outside the entrance
+  of the examination centre and could assume you were able to walk from the bus
+  stop.<br><br>
+  If you find the assessment makes you tired or you are beginning to find it difficult to
+  answer because of your condition symptoms, you need to tell the doctor this.
+</div>
 
     <div class="row shadow-2 " style="background-color: white; padding: 15px; margin-bottom: 8px">
       <div class="col-xs-12
@@ -34,9 +66,22 @@
                 col-md-6
                 col-lg-4">
         <div class="box">
+          <br>
           <div (mouseenter)="toggleCheck1()" (mouseleave)="toggleCheck1()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck1" >
-            Question explained
+            The doctor will usually ask how you get around your home and whether it is all on
+            the same level or if there are stairs you need to climb. If so, how do you manage with
+            these?
+            They will probably ask how you got to the examination centre. If you came by bus,
+            they will want to know how far the bus stop is from your home and how you
+            managed to get there (they will already know the distance between the examination
+            centre and the nearest bus stop). Ensure you let them know about any rests you
+            needed to take on the way, and how long you needed to rest each time.
+            They may ask how you manage your shopping. For example, the DWP advises
+            doctors that someone who can mobilise round a shopping centre or supermarket is
+            unlikely to have their mobility limited to less than 800 metres. If you do go to the
+            supermarket, let the doctor know if it is just a small local one, and if you have to stop
+            several times to take a rest.
           </div>
         </div>
       </div>
@@ -69,10 +114,23 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck2()" (mouseleave)="toggleCheck2()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck2" >
-            Question explained
+            With respect to standing, the doctor may ask whether you do the washing up or
+            cooking, and how you manage to stand when doing so. They will probably ask how
+            you manage with queues in shops or while waiting for public transport. From your
+            answers, they will gain an impression of your limitations in standing.
+            Similarly, with respect to sitting, the doctor will usually ask if you watch much TV and
+            whether you could sit through a 30-minute news programme or an hour-long wildlife
+            documentary. The doctor may ask how you manage sitting in other circumstances,
+            such as using a computer, going to a pub, sitting at mealtimes or travelling in cars or
+            buses. Of course, the doctor will be able to see how you are managing throughout
+            the assessment. Do not be afraid to ask the doctor if you can get up and walk around
+            (or lie down) if you are in pain or discomfort.
+            If you stated on the questionnaire that you had problems transferring from a
+            wheelchair, the doctor may ask how you manage with similar activities, such as
+            getting on and off the toilet or getting in and out of a car.
           </div>
         </div>
       </div>
@@ -105,10 +163,13 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck3()" (mouseleave)="toggleCheck3()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck3" >
-            Question explained
+            The doctor will probably ask how you manage with things like dressing and
+            undressing, washing and brushing your hair, shaving, reaching up to shelves and
+            hanging out laundry. At the assessment, they may observe you taking off your jacket
+            or coat, hanging it up and putting it on again afterwards.
           </div>
         </div>
       </div>
@@ -141,10 +202,12 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck4()" (mouseleave)="toggleCheck4()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck4" >
-            Question explained
+            The doctor may ask how you manage with cooking, shopping, carrying the laundry or
+            making a cup of tea or coffee. They may observe you picking up and carrying a bag,
+            if you have brought one to the assessment.
           </div>
         </div>
       </div>
@@ -177,10 +240,15 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck5()" (mouseleave)="toggleCheck5()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck5" >
-            Question explained
+            The doctor may ask whether or not you can fill out forms, use phones, set a house
+            alarm, pay for things with a credit card, cope with buttons or zips, or open jars and
+            bottles. They could ask about your hobbies or leisure activities; whether you read
+            books, do crosswords, knit or play board games. At the assessment they may
+            observe you handling tablet bottles or unbuttoning your cuffs for the medical
+            examination.
           </div>
         </div>
       </div>
@@ -213,10 +281,14 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck6()" (mouseleave)="toggleCheck6()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck6" >
-            Question explained
+            The doctor may want to know how you ask for items in shops or pubs, how you
+            manage with buses or taxis or whether you are able to use the phone. They will also
+            be assessing how easy you are to understand at the assessment. If you know the
+            doctor is able to understand you only because you are having a good day, you need
+            to make this clear to them.
           </div>
         </div>
       </div>
@@ -253,10 +325,12 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck7()" (mouseleave)="toggleCheck7()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck7" >
-            Question explained
+            The doctor will probably ask you if you have any difficulties in socialising, shopping,
+            using buses or taxis, or taking part in hobbies with other people. They will be able to
+            gauge how well you can hear at the assessment.
           </div>
         </div>
       </div>
@@ -289,10 +363,18 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck8()" (mouseleave)="toggleCheck8()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck8" >
-            Question explained
+            The doctor will ask questions about how you get around, both indoors and out. They
+            will probably ask you how you got to the examination centre and how you found your
+            way around it. They may ask questions about any problems you have in going
+            shopping, reading, cooking, bathing or caring for children – in each case to get a
+            wider view of your visual problems. They could ask about any falls or accidents you
+            have had.
+            The doctor will be able to observe you getting round the examination room and might
+            check if you can read any medication labels you have brought in. They may ask you
+            to do a visual field test.
           </div>
         </div>
       </div>
@@ -324,10 +406,11 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck9()" (mouseleave)="toggleCheck9()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck9" >
-            Question explained
+            The doctor will ask how you manage with shopping trips, visits to friends or other
+            social outings, to gain an idea of the frequency and severity of the problem.
           </div>
         </div>
       </div>
@@ -359,177 +442,283 @@
                 col-sm-8
                 col-md-6
                 col-lg-4">
-        <div class="box">
+        <div class="box"><br>
           <div (mouseenter)="toggleCheck10()" (mouseleave)="toggleCheck10()" style="background-color: rebeccapurple; color:white">Help</div>
           <div class="note-creator shadow-2" [hidden]="showCheck10" >
-            Question explained
+            To get an idea of how much risk the fits, seizures or absences pose, the doctor may
+            ask questions about whether or not you still drive, cook or take part in activities such
+            as swimming or contact sports.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>11</h1>
+          Learning tasks.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_11" [(ngModel)]="favoriteAnswer_q_11">
+            <md-radio-button *ngFor="let answer of answers_11_options" name="question_11" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck11()" (mouseleave)="toggleCheck11()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck11" >
+            The doctor may ask about how you manage using a TV remote control, a microwave
+            oven, playing CDs, or using a computer to play games. Knowing how to switch a
+            device on and off is not the same having learnt how to use it.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>12</h1>
+          Awareness of everyday hazards (such as boiling water or sharp objects).
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_12" [(ngModel)]="favoriteAnswer_q_12">
+            <md-radio-button *ngFor="let answer of answers_12_options" name="question_12" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck12()" (mouseleave)="toggleCheck12()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck12" >
+            The doctor could ask questions about your road safety awareness; whether or not
+            you still drive or cook; and if you are responsible for children or animals. If you live by
+            yourself, the doctor may want to know how you manage.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>13</h1>
+          Initiating and completing personal action (which means planning, organisation, problem solving, prioritising or switching tasks).        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_13" [(ngModel)]="favoriteAnswer_q_13">
+            <md-radio-button *ngFor="let answer of answers_13_options" name="question_13" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck13()" (mouseleave)="toggleCheck13()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck13" >
+            To get an idea of whether you can plan and organise activities, the doctor may ask
+            whether you can make travel arrangements, write shopping lists, organise finances
+            or plan a meal.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>14</h1>
+          Coping with change
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_14" [(ngModel)]="favoriteAnswer_q_14">
+            <md-radio-button *ngFor="let answer of answers_14_options" name="question_14" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck14()" (mouseleave)="toggleCheck14()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck14" >
+            The doctor will want to know how you deal with changes to your routine, whether
+            planned (such as hospital appointments) or unplanned (such as train cancellations).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>15</h1>
+          Getting about.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_15" [(ngModel)]="favoriteAnswer_q_15">
+            <md-radio-button *ngFor="let answer of answers_15_options" name="question_15" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck15()" (mouseleave)="toggleCheck15()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck15" >
+            The doctor may ask how you manage with shopping, attending GP appointments,
+            walking the dog or supervising children outdoors.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>16</h1>
+          Coping with social engagement due to cognitive impairment or mental disorder.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_16" [(ngModel)]="favoriteAnswer_q_16">
+            <md-radio-button *ngFor="let answer of answers_16_options" name="question_16" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck16()" (mouseleave)="toggleCheck16()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck16" >
+            The doctor may ask about whether you talk with your neighbours, how you use the
+            phone, any hobbies or interests you may have and how you get on with your family.
+            The doctor will see how you interact with them at the assessment – if you are
+            sweating, or appear stressed or timid, for example
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>17</h1>
+          Appropriateness of behaviour with other people, due to cognitive impairment or mental disorder.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_17" [(ngModel)]="favoriteAnswer_q_17">
+            <md-radio-button *ngFor="let answer of answers_17_options" name="question_17" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"><br>
+          <div (mouseenter)="toggleCheck17()" (mouseleave)="toggleCheck17()" style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck17" >
+            The doctor may ask about whether you talk with your neighbours, how you use the
+            phone, any hobbies or interests you may have and how you get on with your family.
+            The doctor will see how you interact with them at the assessment – if you are
+            sweating, or appear stressed or timid, for example
           </div>
         </div>
       </div>
     </div>
     <div class="actions col-xs-12 row between-xs">
-      <button
-        color="accent"
-        type="submit"
-        md-raised-button
-        class="shadow-1"
-      >
-        Submit
-      </button>
-    </div>
-    <!--<div class="row">-->
-    <!--<div class="col-xs-12-->
-                    <!--col-sm-8-->
-                    <!--col-md-6-->
-                    <!--col-lg-5">-->
-      <!--<div class="box" style="padding: 10px;">-->
-
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div-->
-      <!--class="col-xs-12-->
-                    <!--col-sm-8-->
-                    <!--col-md-6-->
-                    <!--col-lg-7"-->
-    <!--&gt;-->
-
-      <!--<md-radio-group >-->
-        <!--<md-radio-button-->
-          <!--value="option_1"-->
-        <!--&gt;-->
-          <!--Cannot either (i) mobilise more than 50 meters<br>-->
-          <!--on level ground without stopping <br>-->
-          <!--in order to avoid significant discomfort or <br>-->
-          <!--exhaustion or (ii) repeatedly mobilise <br>-->
-          <!--50 meters within a reasonable timescale <br>-->
-          <!--because of significant discomfort <br>-->
-          <!--or exhaustion. <span style="color: white; background-color: rebeccapurple">15 points.</span>-->
-        <!--</md-radio-button>-->
-        <!--<hr>-->
-        <!--<md-radio-button value="option_2"-->
-        <!--&gt;-->
-          <!--Cannot mount or descend two steps <br>-->
-          <!--unaided by another person <br>-->
-          <!--even with the support of a handrail. <span style="color: white; background-color: rebeccapurple">9 points.</span>-->
-        <!--</md-radio-button>-->
-        <!--<hr>-->
-        <!--<md-radio-button value="option_3">-->
-          <!--Cannot either (i) mobilise more than 100 meters<br>-->
-          <!--on level ground without stopping in order to avoid <br>-->
-          <!--significant discomfort or exhaustion or (ii) <br>-->
-          <!--repeatedly mobilise 100 meters within a <br>-->
-          <!--reasonable timescale because of significant <br>-->
-          <!--discomfort or exhaustion.-->
-          <!--<span style="color: white; background-color: rebeccapurple">9 points.</span>-->
-        <!--</md-radio-button>-->
-
-        <!--<hr>-->
-        <!--<md-radio-button value="option_4">-->
-          <!--Cannot either (i) mobilise more than 200 <br>-->
-          <!--metres on level ground <br>-->
-          <!--without stopping in order to avoid significant <br>-->
-          <!--discomfort or exhaustion or (ii)<br>-->
-          <!--repeatedly mobilise 200 meters within a <br>-->
-          <!--reasonable timescale because of <br>-->
-          <!--significant discomfort or exhaustion.<br>-->
-          <!--<span style="color: white; background-color: rebeccapurple">6 points.</span>-->
-        <!--</md-radio-button>-->
-        <!--<hr>-->
-        <!--<md-radio-button value="option_5">-->
-          <!--None of the above apply. <span style="color: white; background-color: rebeccapurple">0 points.</span>-->
-        <!--</md-radio-button>-->
-      <!--</md-radio-group>-->
-    <!--</div>-->
-    <!--</div>-->
-<!--<hr>-->
-    <!--<div class="row">-->
-      <!--<div class="col-xs-12-->
-                    <!--col-sm-8-->
-                    <!--col-md-6-->
-                    <!--col-lg-5">-->
-        <!--<div class="box" style="padding: 10px;">-->
-          <!--<h1>2</h1>-->
-          <!--Standing and sitting.-->
-          <!--<div (mouseenter)="toggleCheck()" (mouseleave)="toggleCheck()" style="background-color: rebeccapurple; color:white">Help</div>-->
-          <!--<div class="note-creator shadow-2" [hidden]="showCheck" >-->
-            <!--Question explained-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div-->
-        <!--class="col-xs-12-->
-                    <!--col-sm-8-->
-                    <!--col-md-6-->
-                    <!--col-lg-7"-->
+      <!--<button-->
+        <!--color="accent"-->
+        <!--type="submit"-->
+        <!--md-raised-button-->
+        <!--class="shadow-1"-->
       <!--&gt;-->
-
-        <!--<md-radio-group >-->
-          <!--<md-radio-button-->
-            <!--value="option_1"-->
-          <!--&gt;-->
-            <!--Cannot move between one seated <br>-->
-            <!--position and another seated position<br>-->
-            <!--located next to one another without <br>-->
-            <!--receiving physical assistance from <br>-->
-            <!--another person.<span style="color: white; background-color: rebeccapurple">15 points.</span>-->
-          <!--</md-radio-button>-->
-          <!--<hr>-->
-          <!--<md-radio-button value="option_2"-->
-          <!--&gt;-->
-            <!--Cannot, for the majority of the time, <br>-->
-            <!--remain at a work station, either: (i) <br>-->
-            <!--standing unassisted by another person <br>-->
-            <!--(even if free to move around) or; <br>-->
-            <!--(ii) sitting (even in an adjustable chair); <br>-->
-            <!--or (iii) a combination of (i) and (ii), <br>-->
-            <!--for more than 30 minutes, before needing <br>-->
-            <!--to move away in order to avoid significant <br>-->
-            <!--discomfort or exhaustion. <span style="color: white; background-color: rebeccapurple">9 points.</span>-->
-          <!--</md-radio-button>-->
-          <!--<hr>-->
-          <!--<md-radio-button value="option_3">-->
-            <!--Cannot, for the majority of the time, <br>-->
-            <!--remain at a work station, either: (i)<br>-->
-            <!--standing unassisted by another person <br>-->
-            <!--(even if free to move around) or; <br>-->
-            <!--(ii) sitting (even in an adjustable chair); <br>-->
-            <!--or (iii) a combination of (i) and (ii), <br>-->
-            <!--for more than an hour, before needing to <br>-->
-            <!--move away in order to avoid significant <br>-->
-            <!--discomfort or exhaustion.-->
-            <!--<span style="color: white; background-color: rebeccapurple">6 points.</span>-->
-          <!--</md-radio-button>-->
-          <!--<hr>-->
-          <!--<md-radio-button value="option_4">-->
-            <!--None of the above apply. <span style="color: white; background-color: rebeccapurple">0 points.</span>-->
-          <!--</md-radio-button>-->
-
-        <!--</md-radio-group>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<input-->
-    <!--type="text"-->
-    <!--[(ngModel)]="newQuestion.title"-->
-    <!--name="newQuestionTitle"-->
-    <!--placeholder="Title"-->
-    <!--class="col-xs-10 title"-->
-
-    <!--&gt;-->
-    <!--<input-->
-    <!--type="text"-->
-    <!--[(ngModel)]="newQuestion.value"-->
-    <!--name="newQuestionValue"-->
-    <!--placeholder="Take a note..."-->
-    <!--class="col-xs-10"-->
-    <!--&gt;-->
-    <!--<div class="actions col-xs-12 row between-xs" >-->
-    <!--<button-->
-    <!--type="submit"-->
-    <!--class="btn-light"-->
-    <!--&gt;-->
-    <!--Done-->
-    <!--</button>-->
-    <!--</div>-->
+        <!--Submit-->
+      <!--</button>-->
+    </div>
   </form>
 </div>

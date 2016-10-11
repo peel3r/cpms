@@ -62,6 +62,7 @@ import {AppFooter} from "./ui/app-footer";
 import {Esa} from "./esa/esa.component";
 import {EsaCreator} from "./esa/esa-creator";
 import { Question} from "./esa/question.component";
+import {Sticky} from 'ng2-sticky-kit/ng2-sticky-kit';
 
 
 // Application wide providers
@@ -112,6 +113,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Esa,
     EsaCreator,
     Question,
+    Sticky,
 
 
   ],
@@ -119,6 +121,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     BrowserModule,
     FormsModule,
     HttpModule,
+
     [
       MdButtonModule,
       MdCardModule,

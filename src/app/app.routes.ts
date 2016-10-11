@@ -36,7 +36,7 @@ export const ROUTES: Routes = [
   { path: 'diaries',  component: Diary , canActivate:[AuthService]},
   { path: 'diaries/:id', component: DiaryShow , canActivate:[AuthService]},
   // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
-  { path: 'esa',  component: Esa , canActivate:[AuthService]},
+  { path: 'esa',  component: Esa },
   { path: 'questions',  component: EsaCreator , canActivate:[AuthService]},
 
 
