@@ -63,6 +63,8 @@ import {Esa} from "./esa/esa.component";
 import {EsaCreator} from "./esa/esa-creator";
 import { Question} from "./esa/question.component";
 import {Sticky} from 'ng2-sticky-kit/ng2-sticky-kit';
+import {Pip} from "./pip/pip.component";
+import {PipCreator} from "./pip/pip-creator";
 
 
 // Application wide providers
@@ -114,6 +116,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     EsaCreator,
     Question,
     Sticky,
+    Pip,
+    PipCreator
 
 
   ],
