@@ -18,6 +18,7 @@ import {UserList} from "./user/user-list.module";
 import {UserShow} from "./user/user-show.module";
 import {Esa} from "./esa/esa.component";
 import {EsaCreator} from "./esa/esa-creator";
+import {Pip} from "./pip/pip.component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -37,6 +38,8 @@ export const ROUTES: Routes = [
   { path: 'diaries/:id', component: DiaryShow , canActivate:[AuthService]},
   // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
   { path: 'esa',  component: Esa },
+  { path: 'pip',  component: Pip },
+
   { path: 'questions',  component: EsaCreator , canActivate:[AuthService]},
 
 
