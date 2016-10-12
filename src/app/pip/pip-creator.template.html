@@ -1,0 +1,627 @@
+<div class=" shadow-2 " style="background-color: white; padding-left: 20px;padding-right: 20px">
+
+  <sticky sticky-offset-top="20" sticky-offset-bottom="20" >Total <br>score: <br><h1 style="color: rebeccapurple">{{totalScore}}</h1></sticky>
+
+  <form  (submit)="onCreateEsa()" style="padding-left: 70px;">
+    <h3 class="center-xs " style="color: rgb(20, 198, 229);">Personal Independence Payment self-assessment</h3>
+<div class="row shadow-2" style="margin-bottom: 5px;padding-left: 50px;padding-right: 50px;padding-top: 20px;padding-bottom: 20px">
+  When you are assessing yourself, the law says that you only count as being able to do something if you can do it safely; to an acceptable standard;
+  repeatedly and in a reasonable time period. Guidance also says that 'pain, fatigue, breathlessness, nausea and motivation' should all be taken into account.
+</div>
+
+    <div class="row shadow-2 " style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>1</h1>
+          Preparing food.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_1" [(ngModel)]="favoriteAnswer_q_1">
+            <md-radio-button *ngFor="let answer of answers_1_options" name="question_1" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck1()"
+             (mouseleave)="toggleCheck1()">
+          <br>
+          <div  style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck1" >
+            This question focuses on your ability to prepare and cook a simple one-course meal
+            for one person from fresh ingredients. <br><br>This includes your ability to:
+            <br>&bull; prepare the food, including tasks such as chopping and peeling vegetables,
+            checking food is not out of date, pouring a drink, opening cans.
+            <br>&bull; cook the food, which includes using a hob or microwave above waist height
+            safely. It does not include any difficulties you may have in bending down to
+            use an oven.<br><br>
+            If you need to buy pre-chopped vegetables, say so. Balance problems, poor
+            coordination or blurred or double vision could make it dangerous for you to use hot
+            pans. List any incidents that have happened in the past. Have you cut yourself
+            mishandling knives or burnt yourself on hot pans?<br><br>
+            If you have difficulties with your memory or concentration, you may have problems in
+            planning meals, checking the ingredients, timing the cooking and making sure the
+            food is cooked properly. Mention if the heat from cooking affects your MS symptoms.
+            Write down if you have difficulty timing the cooking correctly. Let them know if you
+            are so exhausted after cooking a meal that you could not do it again that day.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>2</h1>
+          Taking nutrition.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_2" [(ngModel)]="favoriteAnswer_q_2">
+            <md-radio-button *ngFor="let answer of answers_2_options" name="question_2" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck2()"
+             (mouseleave)="toggleCheck2()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck2" >
+            This activity is called ‘Taking nutrition’ in the ‘PIP assessment scores’. Write down if
+            hand tremor or poor dexterity makes it difficult for you to use cutlery properly or
+            manage hot drinks safely.
+            If you can cut up some food but cannot cut up tougher items, such as meat, write this
+            down. If you tend to drop food or spill drinks, let them know if you then need any help
+            in cleaning up afterwards. If you have difficulty
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>3</h1>
+          Managing therapy or monitoring a health condition.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_3" [(ngModel)]="favoriteAnswer_q_3">
+            <md-radio-button *ngFor="let answer of answers_3_options" name="question_3" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck3()"
+             (mouseleave)="toggleCheck3()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck3" >
+            This activity is called ‘Managing therapy or monitoring a health condition’ in the ‘PIP
+            assessment scores’. It focuses on the support you need from another person to
+            manage your medication or therapy, or monitor your health condition. It also looks at
+            the amount of time that you need such support.<br><br>
+            Let them know if you have hand tremor or poor dexterity that causes difficulties with
+            tasks like opening pill bottles or pouring out medicine. Write down if you need
+            reminding to take medication at the right time or to take the right amount. Give
+            examples of any occasions when you have missed taking medication or have taken
+            too much.<br><br>
+            If you have blurred or double vision, you may need someone to read the labels and
+            instructions on your medication. Explain if there are side effects from any of the
+            medications you take and if you need any extra help because of these.
+            Write down how many hours on average each week you require supervision,
+            prompting or assistance with the above. You may find it helpful ‘Keeping a diary’
+            over a typical week to answer this correctly.<br><br>
+            Also, write down if you have been advised to do physiotherapy or exercises (such as
+            leg bending) at home, and if you need help doing them.<br><br>
+            Check the ‘PIP assessment scores’ to see what points you get for particular time
+            periods (for example, if you need such help for more than seven hours, but no more
+            than 14 hours a week, you would receive six points).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>4</h1>
+          Washing and bathing.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_4" [(ngModel)]="favoriteAnswer_q_4">
+            <md-radio-button *ngFor="let answer of answers_4_options" name="question_4" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck4()"
+             (mouseleave)="toggleCheck4()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck4" >
+            Write down any aids or adaptations that you use to wash or bathe yourself. These
+            could include a long-handled sponge, shower seat or bath rail. Let them know if
+            there are any parts of your body that you cannot reach even using such aids (for
+            example if you cannot wash your back properly). If you have fallen trying to get in or
+            out of the bath or shower by yourself, note this down. Mention if you need to bathe or
+            shower more often due to either bladder or bowel problems and if you need
+            someone’s help to get washed and bathed.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>5</h1>
+          Managing toilet needs or incontinence.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_5" [(ngModel)]="favoriteAnswer_q_5">
+            <md-radio-button *ngFor="let answer of answers_5_options" name="question_5" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck5()"
+             (mouseleave)="toggleCheck5()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck5" >
+            This activity is called ‘Managing toilet needs or incontinence’ in the ‘PIP assessment
+            scores’. This is one of the most difficult parts of the form to complete because the
+            questions are of such a personal nature. Try to put as much information down as you
+            can. The forms are treated with strict confidentiality.<br><br>
+            Mention any difficulties you have using the toilet, including sitting down or getting up
+            from it, wiping yourself, adjusting your clothing and washing afterwards.<br><br>
+            If you need to visit the toilet more often than is usual, explain why. A symptom of
+            your MS may be bladder or bowel frequency. If you do not get enough warning that
+            you need to use the toilet due to bladder or bowel urgency, write that down. If you
+            have bladder or bowel incontinence, write about the help you need in dealing with it.
+            This can include cleaning yourself afterwards
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>6</h1>
+          Dressing and undressing.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_6" [(ngModel)]="favoriteAnswer_q_6">
+            <md-radio-button *ngFor="let answer of answers_6_options" name="question_6" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck6()"
+             (mouseleave)="toggleCheck6()"><br>
+          <div  style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck6" >
+            This question looks at your ability to select, put on and take off un-adapted clothing
+            (which could include using fastenings such as zips or buttons). It includes putting on
+            and taking off socks and shoes.<br><br>
+            It also looks at your ability to select clothing appropriate to your culture, the weather
+            and time of the day, and to put your clothes on in the right order.<br><br>
+            If you have any hand tremor or MS affects your dexterity, then you may well have
+            difficulties with laces, buttons and other types of fastenings.<br><br>
+            Muscle pain or coordination problems can create difficulties with other articles of
+            clothing. Write down if it takes a long time to dress yourself, or if you have to rest
+            after putting on each piece of clothing due to fatigue. Also, mention if you need to
+            change your clothes during the day if you have either bladder or bowel problems.
+            <hr>
+            Fatigue<br>
+            Fatigue could well be a symptom that affects you more than any other. If this is the
+            case, you must write it down. You might be able to carry out an activity, but it takes a
+            great deal of time to do so. You might have to take several rests, or even give up the
+            attempt until you have found more energy. Or the activity may leave you so fatigued
+            you are unable to do anything else for some time. Write down if any of this applies to
+            you.
+            <hr>
+            If you live by yourself, write down if there are days when you do not dress because
+            of the pain or discomfort involved. Also, state if you avoid putting on certain clothes,
+            which you would like to wear, for the same reason.<br><br>
+            List any aids that you use to dress, such as modified buttons, zips, front fastening
+            bras, trousers, velcro fastenings and shoe aids. Write down if you still need
+            assistance, despite using such aids, even if this does not take long. Let them know if
+            you need someone to choose clothing that is clean and appropriate (for example if
+            you have blurred or double vision and cannot see stains or marks on clothing).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>7</h1>
+          Communicating.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_7" [(ngModel)]="favoriteAnswer_q_7">
+            <md-radio-button *ngFor="let answer of answers_7_options" name="question_7" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck7()"
+             (mouseleave)="toggleCheck7()"><br>
+          <div  style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck7" >
+            This activity is called ‘Communicating verbally’ in the ‘PIP assessment scores’. It
+            focuses on your ability to convey and understand verbal information.<br><br>
+            You may have difficulties communicating with people if your speech is slurred or
+            slow. It may be difficult to find the right words to express your thoughts, and you may
+            need help ‘word-finding’. Alternatively, you may have difficulties concentrating during
+            conversations, remembering what has been said, or adequately processing the
+            information you have been given.<br><br>
+            In any of these circumstances, list examples where you might need help either
+            understanding or being understood when having a conversation. These could
+            include dealing with visitors to your door, telephone calls, or communicating in
+            places like shops, buses or taxis
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>8</h1>
+          Reading and understanding signs, symbols and words
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_8" [(ngModel)]="favoriteAnswer_q_8">
+            <md-radio-button *ngFor="let answer of answers_8_options" name="question_8" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck8()"
+             (mouseleave)="toggleCheck8()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck8" >
+            This activity is called ‘Reading and understanding signs, symbols and words’ in the
+            ‘PIP assessment scores’. If you have blurred or double vision, list examples where
+            you need someone to read things to you. These could include checking labels on
+            medication and sell-by dates on food, reading your post, dealing with any official
+            letters, or reading radio and TV listings or the newspaper.<br><br>
+            Write down if you need to use aids to help you read, such as a magnifier or
+            magnifying glass. If you can manage indoors, but cannot adequately read signs out
+            of doors, let them know.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>9</h1>
+          Engaging with other people face to face.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_9" [(ngModel)]="favoriteAnswer_q_9">
+            <md-radio-button *ngFor="let answer of answers_9_options" name="question_9" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck9()"
+             (mouseleave)="toggleCheck9()"><br>
+          <div  style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck9" >
+            This activity is called ‘Engaging with other people face to face’ in the ‘PIP
+            assessment scores’. It considers your ability to engage socially. Any inability you
+            have to mix with other people must result from your condition, rather than shyness. If
+            you can only mix with people you know well, and cannot deal with strangers, write
+            this down.<br><br>
+            If you avoid mixing with other people because you have no one to help you, write this
+            down. How would you feel mixing with others without any support? Write down how
+            you would feel: would you get panicky or angry, or do you have difficulty
+            understanding the way that people behave towards you?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>10</h1>
+          Making budgeting decisions.
+          (select appropriate)
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_10" [(ngModel)]="favoriteAnswer_q_10">
+            <md-radio-button *ngFor="let answer of answers_10_options" name="question_10" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box"
+             (mouseenter)="toggleCheck10()"
+             (mouseleave)="toggleCheck10()"
+        ><br>
+          <div  style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck10" >
+            This activity is called ‘Making budgeting decisions’ in the ‘PIP assessment scores’.
+            Write down if you would have problems in buying a few items from your local shop.
+            Would you be able to give the shop assistant the right amount of money for the
+            items? Would you know if the change was correct?<br><br>
+            If going to the local shop would pose no problems, but you would have problems with
+            more complex budgeting decisions, such as working out the household budget for
+            the month or sorting out a gas bill, write this down. Let them know if you can do most
+            of the job yourself, but would still need some support to finish it properly.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>11</h1>
+          Planning and following journeys.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_11" [(ngModel)]="favoriteAnswer_q_11">
+            <md-radio-button *ngFor="let answer of answers_11_options" name="question_11" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck11()"
+             (mouseleave)="toggleCheck11()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck11" >
+            This activity is called ‘Planning and following journeys’ in the ‘PIP assessment
+            scores’. It assesses your ability to work out and follow a route safely and reliably.<br><br>
+            If you have difficulties with your memory or concentration, you may find it impossible
+            to plan the route of a journey or to follow a route without another person. If you have
+            blurred or double vision as a result of your MS, you may need to be accompanied by
+            another person, particularly on an unfamiliar journey.<br><br>
+            Write down if you need to have someone else with you to get somewhere. Would
+            you need support just on unfamiliar routes, or would you also need it in places you
+            know well? If you have no one to accompany you outdoors and therefore do not go
+            out alone, make this clear. Explain where you would like to go if you had someone to
+            accompany you.<br><br>
+            List any incidents that have already occurred when you have been outdoors. For
+            example, if you have become lost, confused or disorientated, or where dangerous
+            situations have arisen that could have been avoided if help had been at hand.<br><br>
+            Write down if you are unable to use buses or trains due to stress or anxiety. Let them
+            know if you would find small disruptions or unexpected changes difficult to deal with,
+            such as road works where you normally cross the road or if your bus stop has been
+            moved.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row shadow-2" style="background-color: white; padding: 15px; margin-bottom: 8px">
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <h1>12</h1>
+          Moving around.
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+        <div class="box">
+          <md-radio-group name="question_12" [(ngModel)]="favoriteAnswer_q_12">
+            <md-radio-button *ngFor="let answer of answers_12_options" name="question_12" [value]="answer">
+              <div  class="box start-xs" style="white-space: pre-wrap;"> {{answer}}</div>
+            </md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"
+      >
+        <div class="box"
+             (mouseenter)="toggleCheck12()"
+             (mouseleave)="toggleCheck12()"><br>
+          <div style="background-color: rebeccapurple; color:white">Help</div>
+          <div class="note-creator shadow-2" [hidden]="showCheck12" >
+            This activity focuses on your physical ability to stand and move around without
+            severe discomfort. ‘Severe discomfort’ does not just mean pain, but can include
+            muscle tightness and rigidity or extreme fatigue.<br><br>
+            Normally, when you are in severe discomfort, you would not want to go any further,
+            until the symptoms subside. Your ability to move around should be judged in relation
+            to the type of surface normally expected out of doors, such as pavements, roads and
+            kerbs.
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="actions col-xs-12 row between-xs">
+      <!--<button-->
+        <!--color="accent"-->
+        <!--type="submit"-->
+        <!--md-raised-button-->
+        <!--class="shadow-1"-->
+      <!--&gt;-->
+        <!--Submit-->
+      <!--</button>-->
+    </div>
+  </form>
+</div>
