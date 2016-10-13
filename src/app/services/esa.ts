@@ -12,7 +12,6 @@ export class EsaService {
   ) {}
 
   createEsa(esa) {
-    console.log('esa',esa)
     return this.apiService.post(this.path, esa)
       .do(savedEsa => this.storeHelper.add('esas', savedEsa));
   }
