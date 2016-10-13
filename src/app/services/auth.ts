@@ -52,7 +52,6 @@ export class AuthService implements CanActivate {
   authenticate(path, creds): Observable<any> {
     return this.api.post(`/${path}`, creds)
       .map((res) => {
-        console.log('res',res)
         this.setJwt(res.token, res.user_id, res.username);
         // this.router.navigate(['', 'users', res.user_id]); // to user profile
         this.router.navigate(['', 'diaries']); // to create diary
