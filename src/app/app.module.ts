@@ -67,6 +67,7 @@ import {Pip} from "./pip/pip.component";
 import {PipCreator} from "./pip/pip-creator";
 
 
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -117,7 +118,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Question,
     Sticky,
     Pip,
-    PipCreator
+    PipCreator,
+
 
 
   ],
