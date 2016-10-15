@@ -11,7 +11,7 @@ import { XLarge } from './x-large';
   templateUrl: './diary.template.html',
   providers: [
     Title,
-
+    DiaryService
   ],
 
 })
@@ -26,8 +26,8 @@ export class Diary {
   constructor(
     public appState: AppState,
     public title: Title,
-    private diaryService: DiaryService,
-    private router: Router
+    public diaryService: DiaryService,
+    public router: Router
 
   ) {
     this.diaryService.getUserDiaries(this.USER_ID)

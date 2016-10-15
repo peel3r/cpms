@@ -37,7 +37,7 @@ describe('Title', () => {
 
     title.getData();
     expect(console.log).toHaveBeenCalled();
-    expect(title.getData()).toEqual({ value: 'Diaries' });
+    expect(title.getData()).toEqual({ value: 'Diary' });
   }));
 
 });
