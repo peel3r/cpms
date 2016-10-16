@@ -65,7 +65,7 @@ import { Question} from "./esa/question.component";
 import {Sticky} from 'ng2-sticky-kit/ng2-sticky-kit';
 import {Pip} from "./pip/pip.component";
 import {PipCreator} from "./pip/pip-creator";
-import {MdSidenavModule} from "@angular2-material/sidenav";
+import {SidebarModule} from "ng2-sidebar";
 
 
 // Application wide providers
@@ -136,10 +136,9 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdSlideToggleModule,
       MdProgressBarModule,
       MdTabsModule,
-      MdSidenavModule
     ],
 
-
+    SidebarModule,
     ChartsModule,
     ToastModule,
     Ng2PaginationModule,

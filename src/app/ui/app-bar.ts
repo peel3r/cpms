@@ -3,6 +3,8 @@ import {AuthService} from '../services'
 import {ToastsManager} from "ng2-toastr";
 import {DiaryService} from "../services/painDiaries";
 import {Router} from "@angular/router";
+
+
 @Component({
   selector: 'app-bar',
   styles: [`
@@ -35,6 +37,12 @@ export class AppBar {
   user_id = window.localStorage.getItem('cpms_user_id')
   user_name = window.localStorage.getItem('cpms_user_name')
 
+
+  private _open: boolean = false;
+
+  private _toggleSidebar() {
+    this._open = !this._open;
+  }
 
 
   constructor(
