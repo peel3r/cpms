@@ -16,6 +16,7 @@ import { AppState } from './app.service';
   template: `
     <app-bar></app-bar>
     <main>
+
       <router-outlet></router-outlet>
       <app-footer></app-footer>
 

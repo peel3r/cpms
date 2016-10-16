@@ -65,7 +65,7 @@ import { Question} from "./esa/question.component";
 import {Sticky} from 'ng2-sticky-kit/ng2-sticky-kit';
 import {Pip} from "./pip/pip.component";
 import {PipCreator} from "./pip/pip-creator";
-
+import {MdSidenavModule} from "@angular2-material/sidenav";
 
 
 // Application wide providers
@@ -80,9 +80,6 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
-
-
-
 
 @NgModule({
   bootstrap: [ App ],
@@ -138,7 +135,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdRadioModule,
       MdSlideToggleModule,
       MdProgressBarModule,
-      MdTabsModule
+      MdTabsModule,
+      MdSidenavModule
     ],
 
 
