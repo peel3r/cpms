@@ -14,7 +14,9 @@ import { AppState } from './app.service';
     './app.style.css'
   ],
   template: `
-    <app-bar></app-bar>
+    <!--<app-bar></app-bar>-->
+    <div style="margin-bottom: 80px;"></div>
+    <navbar ></navbar>
     <main>
 
       <router-outlet></router-outlet>
