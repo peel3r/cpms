@@ -1,6 +1,6 @@
 <div class="note-creator shadow-2">
   <form  (submit)="onCreateDiary()">
-    <h3 class="center-xs" style="color: rgb(20, 198, 229);">How do you feel today? (in general)</h3>
+    <h5 class="center-xs" style="color: rgb(20, 198, 229);">How do you feel today? (in general)</h5>
 
     <div class="row center-xs shadow-2" style="padding-bottom: 10px;">
 
@@ -82,25 +82,26 @@
     </div>
 
     <div class=" note-card shadow-3">
-      <h3 class='center-xs shadow-2' style="color: rgb(20, 198, 229);">Questions About Your Pain</h3>
-      <div class="row ">
+      <h5 class='center-xs shadow-2' style="color: rgb(20, 198, 229);">Questions About Your Pain</h5>
+      <div class="row center-xs">
         <div class="col-xs">
           <div class="box">
-            <h3>Localization</h3>
+            <h5>Localization</h5>
           </div>
         </div>
         <div class="col-xs">
           <div class="box">
-            <h3>Level</h3>
+            <h5>Level</h5>
           </div>
         </div>
         <div class="col-xs">
           <div class="box">
-            <h3>Type</h3>
+            <h5>Type</h5>
           </div>
         </div>
       </div>
       <hr>
+      <div class="center-xs">
 
       <div class="row">
         <div class="col-xs">
@@ -675,7 +676,7 @@
       </div>
       <hr>
     </div>
-
+</div>
     <div class="row start-xs">
       <div class="col-xs-6">
         <div class="box note-card shadow-2">
@@ -687,7 +688,7 @@
             name="newDiaryTitle"
             required
             placeholder="Title"
-            class="col-xs-10 title"
+            class="col-xs-10 title shadow-2"
           >
         </div>
       </div>
@@ -704,21 +705,22 @@
             </textarea>
         </div>
       </div>
+      <div class="actions col-xs-12 row">
+        <button
+          color="accent"
+          type="submit"
+          md-raised-button
+          class="shadow-1"
+        >
+          Submit
+
+        </button>
+
+
+      </div>
     </div>
 
 
-    <div class="actions col-xs-12 row between-xs">
-      <button
-        color="accent"
-        type="submit"
-        md-raised-button
-        class="shadow-1"
-      >
-        Submit
 
-      </button>
-
-
-    </div>
   </form>
 </div>
