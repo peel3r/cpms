@@ -1,7 +1,7 @@
 export enum MenuType {
   BRAND,
+  LEFT,
   RIGHT
-
 }
 
 export interface RouteInfo {
