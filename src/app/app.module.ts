@@ -65,8 +65,7 @@ import { Question} from "./esa/question.component";
 import {Sticky} from 'ng2-sticky-kit/ng2-sticky-kit';
 import {Pip} from "./pip/pip.component";
 import {PipCreator} from "./pip/pip-creator";
-import {SidebarModule} from "ng2-sidebar";
-
+import {NavbarModule} from "./ui/navbar/navbar.module";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -138,7 +137,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdTabsModule,
     ],
 
-    SidebarModule,
+    NavbarModule,
     ChartsModule,
     ToastModule,
     Ng2PaginationModule,
