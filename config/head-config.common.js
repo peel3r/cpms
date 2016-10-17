@@ -30,8 +30,13 @@ module.exports = {
     { rel: 'stylesheet', href: '/assets/css/global.css' },
     {href:'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css', rel:'stylesheet', type:'text/css'},
     {rel:"stylesheet", href: "https://cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css", type:"text/css"},
+
     { href: "https://fonts.googleapis.com/icon?family=Material+Icons",rel: "stylesheet"},
     { href: "/assets/ng2-toastr.min.css", rel:"stylesheet"},
+
+    { href: "/assets/jquery.min.js", type:"text/javascript"},
+    { href: "/assets/bootstrap.min.js", type:"text/javascript"},
+
 
     { href: "/assets/ng2-toastr.min.js", type:"text/javascript"},
     { href: "/assets/loader.js", type:"text/javascript"},
