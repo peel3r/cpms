@@ -30,6 +30,11 @@ export class Diary {
     public router: Router
 
   ) {
+
+
+    setTimeout(() => {
+      this.toggle()
+    },1500)
     this.diaryService.getUserDiaries(this.USER_ID)
       .subscribe(
         res => {this.diaries =  res.reverse()})
@@ -53,9 +58,7 @@ export class Diary {
   ngOnInit(){
     console.log('hello `Diary` component');
     //this.title.getData().subscribe(data => this.data = data);
-    setTimeout(() => {
-      this.toggle()
-    },1500)
+
   }
   submitState(value: string) {
     console.log('submitState', value);
