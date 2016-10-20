@@ -21,16 +21,16 @@ export class GoalService {
       .do(res => this.storeHelper.update('diaries', res.data));
   }
 
-  getUserDiaries(userId) {
-    return this.getDiaries()
-      .map(diaries => diaries.filter(d => d.author._id === userId));
+  getUserGoals(userId) {
+    return this.getGoals()
+      .map(goals => goals.filter(d => d.author._id === userId));
 
 
   }
 
   getGoal(id) {
-    return this.getDiaries()
-      .map(diaries => diaries.find(d => d._id === id));
+    return this.getGoals()
+      .map(goals => goals.find(d => d._id === id));
 
   }
 
