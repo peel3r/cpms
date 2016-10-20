@@ -66,6 +66,10 @@ import {Sticky} from 'ng2-sticky-kit/ng2-sticky-kit';
 import {Pip} from "./pip/pip.component";
 import {PipCreator} from "./pip/pip-creator";
 import {NavbarModule} from "./ui/navbar/navbar.module";
+import {Goal} from "./goal/goal.component";
+import {GoalCard} from "./goal/goal-card.component";
+import {CreateGoal} from "./goal/create-goal";
+import {ShowGoal} from "./goal/show-goal.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -115,6 +119,10 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Sticky,
     Pip,
     PipCreator,
+    Goal,
+    GoalCard,
+    CreateGoal,
+    ShowGoal,
 
 
 
