@@ -1,0 +1,36 @@
+<md-progress-bar *ngIf="onLeave" mode="indeterminate" color="primary"></md-progress-bar>
+
+<div  class="card-container">
+  <div class="row center-xs">
+    <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-7">
+
+      <div class="box start-xs home-wrapper shadow-3">
+        <button
+          md-raised-button
+          (click)='toUserProfile()'
+          class="shadow-1"
+          color="accent"
+        >
+          Profile
+
+        </button>
+
+        <hr>
+        <h1>Goal Log</h1>
+        <h1 x-large class="sample-content end-xs">Today: {{date | date}}</h1>
+
+
+        <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
