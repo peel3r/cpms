@@ -22,8 +22,8 @@ exports.get = function(req, res, next) {
     Goal.find({})
         .populate('author categories')
         .exec()
-        .then(function(diaries){
-            res.json(diaries);
+        .then(function(goals){
+            res.json(goals);
         }, function(err){
             next(err);
         });
