@@ -7,8 +7,8 @@ user can see charts displaying pain mood and cognitive performance
 
     new feature
     -----------
-    add esa assessment service
-    add pip assessment service - started
+    ~~add esa assessment service~~
+    ~~add pip assessment service - started~~
     add quantitative chart for body parts pain (donaut
     ~~Travis~~
     rearange show pain log
