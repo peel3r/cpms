@@ -20,6 +20,13 @@ import { Article } from '../article/article.component';
   templateUrl: './home.template.html'
 })
 export class Home {
+
+  fbInner = "<img src='../assets/img/custom/facebook.svg'>";
+  twitterInner = "<img src='../assets/img/custom/twitter.svg'>";
+  pintInner = "<img src='../assets/img/custom/pinterest.svg'>";
+  googleInner = "<img src='../assets/img/custom/google-plus.svg'>";
+  tumblrInner = "<img src='../assets/img/custom/tumblr.svg'>";
+
   // Set our default values
   localState = { value: '' };
   // TypeScript public modifiers
