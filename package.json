@@ -104,6 +104,7 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.28",
+
     "@types/hammerjs": "^2.0.28",
     "@types/jasmine": "^2.2.29",
     "@types/node": "^6.0.38",
