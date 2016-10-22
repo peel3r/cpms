@@ -70,7 +70,6 @@ import {Goal} from "./goal/goal.component";
 import {GoalCard} from "./goal/goal-card.component";
 import {CreateGoal} from "./goal/create-goal";
 import {ShowGoal} from "./goal/show-goal.component";
-import {TwitterShareButtonComponent} from "angular2-twitter-share-button";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -123,9 +122,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Goal,
     GoalCard,
     CreateGoal,
-    ShowGoal,
-    TwitterShareButtonComponent
-
+    ShowGoal
 
 
   ],
