@@ -2,7 +2,6 @@ import {Component, Output, EventEmitter} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
 import {GoalService} from "../services/goal.service";
-import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -32,8 +31,7 @@ export class CreateGoal {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private goalService: GoalService,
-              public toastr: ToastsManager
+              private goalService: GoalService
   ) {}
 
 

@@ -1,4 +1,4 @@
-import { Component , Input } from '@angular/core';
+import { Component , Input, Output } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
