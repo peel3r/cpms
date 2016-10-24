@@ -3,6 +3,7 @@
  */
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AppState } from './app.service';
+import {AuthService} from "./services/auth";
 /*
  * App Component
  * Top Level Component
@@ -34,7 +35,9 @@ export class App {
 
 
   constructor(
-    public appState: AppState) {
+    public appState: AppState,
+    private auth: AuthService
+  ) {
 
   }
 

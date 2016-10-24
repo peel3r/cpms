@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
+import { ModuleWithProviders }         from '@angular/core';
 
 import { DataResolver } from './app.resolver';
 import {AppBar} from "./ui/app-bar";
@@ -54,3 +55,9 @@ export const ROUTES: Routes = [
   { path: '**',    component: NoContent },
 
 ];
+
+export const appRoutingProviders: any[] = [
+
+];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(ROUTES);

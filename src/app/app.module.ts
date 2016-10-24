@@ -14,7 +14,7 @@ import 'hammerjs'
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import {ROUTES, appRoutingProviders} from './app.routes';
 // App is our top level component
 import { App } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -71,6 +71,7 @@ import {GoalCard} from "./goal/goal-card.component";
 import {CreateGoal} from "./goal/create-goal";
 import {ShowGoal} from "./goal/show-goal.component";
 import {ShareButtonsModule} from "ng2-sharebuttons";
+import {AUTH_PROVIDERS} from "angular2-jwt";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -158,6 +159,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
+    AUTH_PROVIDERS,
+    appRoutingProviders,
     Store,
     ...mapValuesToArray(services),
     AuthService,
