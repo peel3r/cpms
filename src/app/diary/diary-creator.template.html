@@ -1,5 +1,5 @@
 <div class="note-creator shadow-2">
-  <form  (submit)="onCreateDiary()">
+  <form  (submit)="onCreateDiary()" novalidate>
     <h5 class="center-xs" style="color: rgb(20, 198, 229);">How do you feel today? (in general)</h5>
 
     <div class="row center-xs shadow-2" style="padding-bottom: 10px;">
@@ -693,6 +693,7 @@
         </div>
       </div>
       <div class="col-xs-6">
+
         <div class="box note-card shadow-2 center-xs">
           <textarea
             style="height:100px; width: 100%"
@@ -700,7 +701,7 @@
             [(ngModel)]="newDiary.text"
             name="newDiaryValue"
             placeholder="Notes"
-            class="col-xs-10"
+            class="col-xs-10 "
           >
             </textarea>
         </div>
