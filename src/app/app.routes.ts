@@ -22,6 +22,7 @@ import {EsaCreator} from "./esa/esa-creator";
 import {Pip} from "./pip/pip.component";
 import {Goal} from "./goal/goal.component";
 import {ShowGoal} from "./goal/show-goal.component";
+import {NewGoal} from "./goal/new-goal.component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -33,16 +34,18 @@ export const ROUTES: Routes = [
   { path: 'articles',  component: Article , canActivate:[AuthService]},
   { path: 'articles/new', component: NewArticle , canActivate:[AuthService]},
 
+  { path: 'goals',  component: Goal , canActivate:[AuthService]},
+  { path: 'goals/:id', component: ShowGoal , canActivate:[AuthService]},
+  { path: 'goalsnew', component: NewGoal , canActivate:[AuthService]},
+
   { path: 'auth', component: Auth },
   { path: 'users',  component: UserList , canActivate:[AuthService]},
   { path: 'users/:id', component: UserShow , canActivate:[AuthService]},
 
   { path: 'diaries',  component: Diary , canActivate:[AuthService]},
-
   { path: 'diaries/:id', component: DiaryShow , canActivate:[AuthService]},
-  { path: 'goals/:id', component: ShowGoal , canActivate:[AuthService]},
 
-  { path: 'goals',  component: Goal , canActivate:[AuthService]},
+
 
   // { path: 'diaries/new', component: NewDiary , canActivate:[AuthService]},
   { path: 'esa',  component: Esa },
