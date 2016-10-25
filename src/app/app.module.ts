@@ -72,7 +72,7 @@ import {CreateGoal} from "./goal/create-goal";
 import {ShowGoal} from "./goal/show-goal.component";
 import {ShareButtonsModule} from "ng2-sharebuttons";
 import {AUTH_PROVIDERS} from "angular2-jwt";
-import {NewGoal} from "./goal/new-goal.component";
+import {NewGoal} from "./goal/goal-new.component";
 
 // Application wide providers
 const APP_PROVIDERS = [

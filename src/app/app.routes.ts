@@ -22,7 +22,7 @@ import {EsaCreator} from "./esa/esa-creator";
 import {Pip} from "./pip/pip.component";
 import {Goal} from "./goal/goal.component";
 import {ShowGoal} from "./goal/show-goal.component";
-import {NewGoal} from "./goal/new-goal.component";
+import {NewGoal} from "./goal/goal-new.component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
