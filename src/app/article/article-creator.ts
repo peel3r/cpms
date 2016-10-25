@@ -1,4 +1,9 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {  Component,
+  OnDestroy,
+  AfterViewInit,
+  EventEmitter,
+  Input,
+  Output} from '@angular/core';
 
 @Component({
   selector: 'article-creator',
@@ -31,7 +36,7 @@ import {Component, Output, EventEmitter} from '@angular/core';
           [(ngModel)]="newArticle.text"
           name="newArticleValue"
           placeholder="Write new article"
-          class="col-xs-10"
+          class="col-xs-10 tinyMCE"
         >
         <div class="actions col-xs-12 row between-xs">
           <button
@@ -47,14 +52,41 @@ import {Component, Output, EventEmitter} from '@angular/core';
 
 })
 
-export class ArticleCreator {
+export class ArticleCreator implements AfterViewInit, OnDestroy {
   @Output() createArticle = new EventEmitter();
+  @Input() elementId: String;
+  @Output() onEditorKeyup = new EventEmitter<any>();
+  editor;
+
+  ngAfterViewInit() {
+    console.log('id', this.elementId)
+
+    tinymce.init({
+      selector: ".tinyMCE",
+      plugins: ['link', 'paste', 'table', 'image'],
+      skin_url: 'assets/skins/lightgray',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('keyup', () => {
+          this.newArticle.text = editor.getContent();
+          this.onEditorKeyup.emit(this.newArticle.text);
+
+        });
+      },
+    });
+  }
+
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
+
   newArticle = {
     title: '',
     text: ''
   };
 
   onCreateArticle() {
+    console.log(this.newArticle)
     const {title, text} = this.newArticle;
 
     if (title && text) {
