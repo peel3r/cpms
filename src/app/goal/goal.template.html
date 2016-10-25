@@ -23,8 +23,15 @@
         <h1 x-large class="sample-content end-xs">Today: {{date | date}}</h1>
 
 
-        <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
+        <div *ngFor="let goal of goals | paginate: { itemsPerPage: 10, currentPage: p }">
+          <goal-card
+            class="col-xs-12 start-xs"
+            [goal]="goal"
+          >
+          </goal-card>
 
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
       </div>
     </div>
