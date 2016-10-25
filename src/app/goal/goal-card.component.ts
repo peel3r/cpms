@@ -10,7 +10,7 @@ import {Component, Input, EventEmitter,Output} from '@angular/core';
 
 <button
           md-raised-button
-          [routerLink]=" [ goal._id]"
+          [routerLink]="[goal._id]"
           class="shadow-1"
         >
           More
