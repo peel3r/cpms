@@ -37,22 +37,31 @@ export class CreateGoal {
 
 
 
-  powers = ['Aching','Sharp','Penetrating','Throbbing','Tender','Nagging','Shooting','Burning','Numb','Stabbing','Pinching','Gnaving'];
+  goalTypes = ['physical activity', 'mental activity', 'social activity'];
 
   @Output() createGoal = new EventEmitter();
   newGoal = {
-    title: ''
+    title: '',
+    duration: 0,
+    done: false,
+    type: ''
   };
 
   onCreateGoal() {
     const {
-      title
+      title,
+      duration,
+      done,
+      type
     } = this.newGoal;
 
     if (title) {
-
+console.log(this.newGoal)
       this.createGoal.next({
-        title
+        title,
+        duration,
+        done,
+        type
       });
 
       this.reset();
@@ -62,7 +71,10 @@ export class CreateGoal {
   reset() {
 
     this.newGoal = {
-      title: ''
+      title: '',
+      duration: 0,
+      done: false,
+      type: ''
     };
   }
 }
