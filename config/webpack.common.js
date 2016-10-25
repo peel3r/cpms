@@ -118,6 +118,20 @@ module.exports = function(options) {
        */
       loaders: [
 
+        {
+          test: require.resolve('tinymce/tinymce'),
+          loaders: [
+            'imports?this=>window',
+            'exports?window.tinymce'
+          ]
+        },
+        {
+          test: /tinymce\/(themes|plugins)\//,
+          loaders: [
+            'imports?this=>window'
+          ]
+        },
+
         /*
          * Typescript loader support for .ts and Angular 2 async routes via .async.ts
          * Replace templateUrl and stylesUrl with require()
