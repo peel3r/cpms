@@ -36,7 +36,7 @@ export const ROUTES: Routes = [
 
   { path: 'goals',  component: Goal , canActivate:[AuthService]},
   { path: 'goals/:id', component: ShowGoal , canActivate:[AuthService]},
-  { path: 'goalsnew', component: NewGoal , canActivate:[AuthService]},
+  { path: 'goal/new', component: NewGoal , canActivate:[AuthService]},
 
   { path: 'auth', component: Auth },
   { path: 'users',  component: UserList , canActivate:[AuthService]},

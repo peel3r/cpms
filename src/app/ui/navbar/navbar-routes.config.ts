@@ -5,6 +5,6 @@ export const ROUTES: RouteInfo[] = [
   { path: 'diaries', title: 'Pain Log', menuType: MenuType.RIGHT },
   { path: 'esa', title: 'Esa', menuType: MenuType.LEFT },
   { path: 'pip', title: 'Pip', menuType: MenuType.LEFT },
-  { path: 'goalsnew', title: 'New Goal', menuType: MenuType.RIGHT}
+  { path: 'goal/new', title: 'New Goal', menuType: MenuType.RIGHT}
 
 ];
