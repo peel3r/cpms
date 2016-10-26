@@ -69,10 +69,8 @@ import {NavbarModule} from "./ui/navbar/navbar.module";
 import {Goal} from "./goal/goal.component";
 import {GoalCard} from "./goal/goal-card.component";
 import {CreateGoal} from "./goal/create-goal";
-import {ShowGoal} from "./goal/show-goal.component";
 import {ShareButtonsModule} from "ng2-sharebuttons";
 import {AUTH_PROVIDERS} from "angular2-jwt";
-import {NewGoal} from "./goal/goal-new.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -125,10 +123,6 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Goal,
     GoalCard,
     CreateGoal,
-    ShowGoal,
-    NewGoal
-
-
   ],
   imports: [ // import Angular's modules
     BrowserModule,
