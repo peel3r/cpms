@@ -5,19 +5,19 @@ user can see charts displaying pain mood and cognitive performance
 #to do
 
 
-    new feature
-    -----------
-    ~~add esa assessment service~~
-    ~~add pip assessment service - started~~
-    add quantitative chart for body parts pain (donaut
-    ~~Travis~~
-    rearange show pain log
+new feature
+-----------
+~~add esa assessment service~~
+~~add pip assessment service - started~~
+add quantitative chart for body parts pain 
+~~Travis~~
+~~rearange show pain log~~
 
 -------------
 ~~finish charts~~
-
+~~add goals feature~~
 0auth implement
-
+~~integrate tinymce~~
 ~~input text on diary creator~~
 
 ~~add tabs for mood and cognitive performance~~
@@ -35,7 +35,7 @@ EXPLORE PUSHER Twitter
 
 add file uploader ================> ???
 
-add WYSIWYG ======================> ???
+~~add WYSIWYG ======================> ???~~
 
 ~~add deployment script to server~~
 
