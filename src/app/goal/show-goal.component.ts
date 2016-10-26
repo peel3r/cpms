@@ -5,8 +5,8 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'show-goal',
-  styleUrls: ['../goal/goal.style.css'],
-  templateUrl: 'show-goal.template.html'
+  styleUrls: ['./goal.style.css'],
+  templateUrl: './show-goal.template.html'
 })
 
 export class ShowGoal {
