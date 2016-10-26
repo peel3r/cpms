@@ -10,6 +10,16 @@ export interface Article {
   updatedAt?: string,
   userId?: string
 }
+export interface Goal {
+  title?: string,
+  duration?: number,
+  type?: string,
+  done?: boolean,
+  _id?: string | number,
+  createdAt?: string,
+  updatedAt?: string,
+  userId?: string
+}
 
 export interface UserList {
   name: string,
@@ -106,6 +116,7 @@ export interface State {
   diaries: Array<Diary>
   users: Array<UserList>
   esas: Array<EsaList>
+  goals: Array<Goal>
 
 }
 
@@ -113,7 +124,8 @@ const defaultState = {
   articles: [],
   diaries: [],
   users: [],
-  esas: []
+  esas: [],
+  goals: []
 }
 
 const _store = new BehaviorSubject<State>(defaultState);

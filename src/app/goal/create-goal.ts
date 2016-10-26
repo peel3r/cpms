@@ -1,8 +1,6 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
-import {GoalService} from "../services/goal.service";
-
 
 @Component({
   selector: 'create-goal',
@@ -25,21 +23,10 @@ import {GoalService} from "../services/goal.service";
 })
 
 export class CreateGoal {
-
-  goals = []
-
-
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private goalService: GoalService
-  ) {}
-
-
-
+  @Output() createGoal = new EventEmitter();
 
   goalTypes = ['physical activity', 'mental activity', 'social activity'];
 
-  @Output() createGoal = new EventEmitter();
   newGoal = {
     title: '',
     duration: 0,
@@ -48,28 +35,15 @@ export class CreateGoal {
   };
 
   onCreateGoal() {
-    const {
-      title,
-      duration,
-      done,
-      type
-    } = this.newGoal;
+    const { title, duration, done, type } = this.newGoal;
 
     if (title) {
-console.log(this.newGoal)
-      this.createGoal.next({
-        title,
-        duration,
-        done,
-        type
-      });
-
-      this.reset();
+      this.createGoal.next({ title, duration, done, type });
     }
-  }
+      this.reset();
+   }
 
   reset() {
-
     this.newGoal = {
       title: '',
       duration: 0,
