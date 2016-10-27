@@ -1,4 +1,4 @@
-import {Component, Input, EventEmitter,Output} from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'goal-card',
@@ -46,11 +46,10 @@ import {Component, Input, EventEmitter,Output} from '@angular/core';
         <i class="material-icons">check</i>
       </div>
       <div class="col-xs-12 title">
-        {{ goal.title }} 
-
+        {{ goal.title }}
       </div>
       <div class="col-xs-12 value">
-        {{ goal.type }} | {{goal.duration}}  
+        {{ goal.type }} | {{ goal.duration }}
       </div>
     </div>
 `
@@ -61,15 +60,15 @@ export class GoalCard {
   @Input() goal = {};
   @Output() checked = new EventEmitter();
 
-  user_name = window.localStorage.getItem('cpms_user_name')
   showCheck: boolean = false;
 
+  // user_name = window.localStorage.getItem('cpms_user_name')
 
   toggleCheck(){
     this.showCheck = !this.showCheck;
   }
 
-  onChecked() {
+  onChecked(goal) {
     this.checked.next(this.goal);
   }
 
