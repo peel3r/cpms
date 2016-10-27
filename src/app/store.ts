@@ -10,11 +10,11 @@ export interface Article {
   updatedAt?: string,
   userId?: string
 }
-export interface Goal {
-  title?: string,
-  duration?: number,
-  type?: string,
-  done?: boolean,
+export interface GoalList {
+  title: string,
+  type: string,
+  duration: number,
+  done: boolean,
   _id?: string | number,
   createdAt?: string,
   updatedAt?: string,
@@ -116,7 +116,7 @@ export interface State {
   diaries: Array<Diary>
   users: Array<UserList>
   esas: Array<EsaList>
-  goals: Array<Goal>
+  goals: Array<GoalList>
 
 }
 
@@ -133,12 +133,9 @@ const _store = new BehaviorSubject<State>(defaultState);
 @Injectable()
 export class Store {
   private _store = _store;
-  changes = this._store.asObservable()
-    .distinctUntilChanged()
-    .do(() => console.log('changes'))
+  changes = this._store.asObservable().distinctUntilChanged()
 
   setState(state: State) {
-    console.log('setState', state)
     this._store.next(state);
   }
 
