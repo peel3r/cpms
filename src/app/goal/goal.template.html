@@ -24,16 +24,17 @@
         <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
 
 
-        <div >
-          <goal-card
-            @fade
-            class="col-xs-12 start-xs"
-            [goal]="goal"
-            (checked)="onGoalChecked($event)"
-            *ngFor="let goal of goals"
-          >
-          </goal-card>
-
+        <div class="notes col-xs-8">
+          <div class="row between-xs">
+            <goal-card
+              @fade
+              class="col-xs-6"
+              *ngFor="let goal of goals; let i = index"
+              [goal]="goal"
+              (checked)="onGoalChecked($event,i)"
+            >
+            </goal-card>
+          </div>
         </div>
       </div>
     </div>
