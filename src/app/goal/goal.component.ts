@@ -4,11 +4,12 @@ import {Component,OnDestroy,
   animate,
   state,
   transition} from '@angular/core';
-import { AppState } from '../app.service';
 import {GoalService} from '../services/goal.service'
 import {Router} from "@angular/router";
 import { XLarge } from './x-large';
 import {Store} from "../store";
+import 'rxjs/Rx'
+
 
 @Component({
   selector: 'goal',
@@ -26,61 +27,48 @@ import {Store} from "../store";
 })
 
 export class Goal {
-  localState = { value: '' };
   goals = [];
   date = Date.now()
-  USER_NAME = window.localStorage.getItem('cpms_user_name')
   USER_ID = window.localStorage.getItem('cpms_user_id')
   onLeave: boolean  = true
   constructor(
-    public appState: AppState,
     public goalService: GoalService,
     public router: Router,
     private store: Store
   ) {
-    setTimeout(() => {
-      this.toggle()
-    },1500)
     this.goalService.getUserGoals(this.USER_ID)
-      .subscribe(
-        res => {this.goals =  res.reverse()});
+      .subscribe();
 
     this.store.changes.pluck('goals')
       .subscribe((goals: any) =>  this.goals = goals);
+
+    // setTimeout(() => {
+    //   this.toggle()
+    // },1500)
   }
 
-
-  toUserProfile(): void {
-    this.router.navigate(['','users', this.USER_ID]);
-  }
 
   onCreateGoal(goal) {
     this.goalService.createGoal(goal)
       .subscribe();
   }
 
+
+
+  onGoalChecked(goal,i) {
+
+    this.goalService.completeGoal(goal)
+      .subscribe();
+    this.goals.splice(i, 1);
+
+  }
+
   toggle() {
     this.onLeave = !this.onLeave;
   }
 
-  ngOnChange(){
-    console.log('hello `Goal` component');
-    //this.title.getData().subscribe(data => this.data = data);
-    this.goalService.getUserGoals(this.USER_ID)
-      .subscribe(
-        res => {this.goals =  res.reverse()});
-
-    this.store.changes.pluck('goals')
-      .subscribe((goals: any) =>  this.goals = goals);
-  }
-  submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
+  toUserProfile(): void {
+    this.router.navigate(['','users', this.USER_ID]);
   }
 
-  onGoalChecked(goal) {
-    this.goalService.completeGoal(goal)
-      .subscribe();
-  }
 }
