@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Goal} from '../store'
+import {GoalList} from '../store'
+import { StoreHelper } from './store-helper';
 import { ApiService } from './api';
 import 'rxjs/Rx';
-import { StoreHelper } from './store-helper';
 
 @Injectable()
 export class GoalService {
@@ -19,12 +19,12 @@ export class GoalService {
 
   getGoals() {
     return this.apiService.get(this.path)
-      .do(res => this.storeHelper.update('goals', res.data));
+      .do(res => this.storeHelper.update('goals', res));
   }
 
   getUserGoals(userId) {
     return this.getGoals()
-      .map(goals => goals.filter(d => d.author._id === userId));
+      .map(goals => goals.filter(d => d.author._id === userId))
 
 
   }
@@ -35,7 +35,7 @@ export class GoalService {
 
   }
 
-  completeGoal(goal: Goal) {
+  completeGoal(goal: GoalList) {
     return this.apiService.delete(`${this.path}/${goal._id}`)
       .do(res => this.storeHelper.findAndDelete('goals', res._id));
 
