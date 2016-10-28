@@ -17,6 +17,11 @@ var GoalSchema = new Schema({
     required: false
   },
 
+  color: {
+    type: String,
+    required: false
+  },
+
   duration: {
     type: Number,
     required: false
