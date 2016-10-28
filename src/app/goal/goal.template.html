@@ -23,13 +23,14 @@
         <h1 x-large class="sample-content end-xs">Today: {{date | date}}</h1>
         <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
 
-
-        <div class="notes col-xs-8">
-          <div class="row between-xs">
+        <hr>
+        <div class="notes col-xs-12" >
+          <div class="row between-xs"
+               *ngFor="let goal of goals; let i = index"
+               class="col-xs-6"
+               @fade>
             <goal-card
-              @fade
-              class="col-xs-6"
-              *ngFor="let goal of goals; let i = index"
+              *ngIf="goal.done === false"
               [goal]="goal"
               (checked)="onGoalChecked($event,i)"
             >
@@ -39,6 +40,22 @@
       </div>
     </div>
   </div>
+
+  <h1>Last 5 goals</h1>
+
+  <div class="notes col-xs-12" >
+    <div class="row between-xs"
+         *ngFor="let goal of goals.slice(5); let i = index"
+         class="col-xs-4"
+         @fade>
+      <div
+        *ngIf="goal.done === true"
+        (checked)="onGoalChecked($event,i)"
+      >{{goal.title}}|
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
