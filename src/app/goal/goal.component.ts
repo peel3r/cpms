@@ -1,13 +1,15 @@
-import {Component,OnDestroy,
+import {
+  Component,
+  OnDestroy,
   trigger,
   style,
   animate,
   state,
-  transition} from '@angular/core';
-import {GoalService} from '../services/goal.service'
-import {Router} from "@angular/router";
+  transition } from '@angular/core';
+import { GoalService } from '../services/goal.service'
+import { Router } from "@angular/router";
 import { XLarge } from './x-large';
-import {Store} from "../store";
+import { Store } from "../store";
 import 'rxjs/Rx'
 
 
@@ -37,26 +39,23 @@ export class Goal {
     private store: Store
   ) {
     this.goalService.getUserGoals(this.USER_ID)
-      .subscribe();
+      .subscribe(res => this.goals =  res);
 
     this.store.changes.pluck('goals')
-      .subscribe((goals: any) =>  this.goals = goals);
+      .subscribe();
 
-    // setTimeout(() => {
-    //   this.toggle()
-    // },1500)
+    setTimeout(() => {
+      this.toggle()
+    },1500)
   }
-
 
   onCreateGoal(goal) {
     this.goalService.createGoal(goal)
-      .subscribe();
+      .subscribe(goal => this.goals.push(goal));
   }
 
-
-
   onGoalChecked(goal,i) {
-
+    goal.done = true
     this.goalService.completeGoal(goal)
       .subscribe();
     this.goals.splice(i, 1);
