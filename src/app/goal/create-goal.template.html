@@ -1,61 +1,62 @@
-<div class="note-creator shadow-2">
-  <form  (submit)="onCreateGoal()">
-    <h5 class="center-xs" style="color: rgb(20, 198, 229);">Goal</h5>
+<div class="note-creator shadow-2 " [ngStyle]="{'background-color': newGoal.color}">
+  <form class="row" (submit)="onCreateGoal()">
+        <input
+          type="text"
+          (focus)="toggle(true)"
+          [(ngModel)]="newGoal.title" name="newGoalTitle"
+          placeholder="Enter your next goal"
+          class="col-xs-10 title"
 
-    <div class="row center-xs shadow-2" style="padding-bottom: 10px;">
+        >
 
-      <div class="row">
-        <div class="col-xs">
-        </div>
-        <div class="col-xs">
-          <div class="box shadow-2">
-            <input
-              type="text"
-              [(ngModel)]="newGoal.title" name="newGoalTitle"
-              placeholder="Name your Goal"
+          <div class="box" *ngIf="fullForm">
 
-            >
-          </div>
-          <div class="box">
-            <input
+            Duration in min:
+            <select
               [(ngModel)]="newGoal.duration" name="first"
-              class="shadow-2"
-              placeholder="duration in min."
+              class="col-xs-10"
+
             >
+              <option *ngFor="let p of duration" [ngValue]="p">{{p}}</option>
+            </select>
           </div>
-        </div>
-        <div class="col-xs">
-          <div class="box">
-            <br>
+
+        <div class="col-xs center-xs">
+          <div class="box" *ngIf="fullForm">
+            Activity Type:<br>
             <select
               [(ngModel)]="newGoal.type" name="first"
+              class="col-xs-8"
+
             >
               <option *ngFor="let p of goalTypes" [ngValue]="p">{{p}}</option>
             </select>
           </div>
         </div>
-      </div>
-    </div>
+    <br><br>
+        <div class="actions col-xs-12 row between-xs" *ngIf="fullForm">
+          <div class="col-xs-10">
+            <color-picker
+              class="end-xs"
+              (selected)="onColorSelect($event)"
+              [colors]="colors"
+            >
+            </color-picker>
+          </div>
+          <div class="col-xs-2">
 
-      <div class="actions col-xs-12 row">
-        <button
-          color="accent"
-          type="submit"
-          md-raised-button
-          class="shadow-1"
-        >
-          Submit
+          <div class="box end-xs">
+            <button
+              color="accent"
+              type="submit"
+              md-raised-button
+              class="shadow-1"
+            >
+              done
 
-        </button>
-        <button
-          class="shadow-1 end-xs"
-          [routerLink]=" ['','goals']"
-
-          md-raised-button
-        >
-          Goal List
-
-        </button>
-      </div>
+            </button>
+          </div>
+        </div>
+          </div>
   </form>
 </div>

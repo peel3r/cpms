@@ -39,6 +39,8 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
 
 <div
       class="note-card row shadow-1"
+            [ngStyle]="{'background-color': goal.color}"
+
       (mouseenter)="toggleCheck()"
       (mouseleave)="toggleCheck()"
     >
@@ -49,7 +51,7 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
         {{ goal.title }}
       </div>
       <div class="col-xs-12 value">
-        {{ goal.type }} | {{ goal.duration }}
+        {{ goal.type }} | {{ goal.duration }} | {{goal.done}}
       </div>
     </div>
 `
