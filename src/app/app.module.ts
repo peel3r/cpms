@@ -72,6 +72,7 @@ import {CreateGoal} from "./goal/create-goal";
 import {ShareButtonsModule} from "ng2-sharebuttons";
 import {AUTH_PROVIDERS} from "angular2-jwt";
 import {ColorPicker} from "./goal/color-picker";
+import {DoughnutChartDemoComponent} from "./goal/goal-charts.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -124,7 +125,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Goal,
     GoalCard,
     CreateGoal,
-    ColorPicker
+    ColorPicker,
+    DoughnutChartDemoComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
