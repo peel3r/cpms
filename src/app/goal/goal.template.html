@@ -40,18 +40,17 @@
       </div>
     </div>
   </div>
-
-  <h1>Last 5 goals</h1>
-
+  <h1>Last 6 goals</h1>
   <div class="notes col-xs-12" >
     <div class="row between-xs"
-         *ngFor="let goal of goals.slice(5); let i = index"
-         class="col-xs-4"
+         *ngFor="let goal of goals.slice(-6); let i = index"
+         class="col-xs-2"
          @fade>
-      <div
-        *ngIf="goal.done === true"
-        (checked)="onGoalChecked($event,i)"
-      >{{goal.title}}|
+      <div class="note-card"
+           [ngStyle]="{'background-color': goal.color}"
+
+           (checked)="onGoalChecked($event,i)"
+      ><div class="title"> {{goal.title}} </div><br>Activity type:  {{goal.type}}<br> Duration: {{goal.duration}}
       </div>
     </div>
   </div>
