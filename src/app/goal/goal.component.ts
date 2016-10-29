@@ -46,7 +46,7 @@ export class Goal {
 
     setTimeout(() => {
       this.toggle()
-    },1500)
+    },1000)
   }
 
   onCreateGoal(goal) {
