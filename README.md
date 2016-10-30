@@ -3,7 +3,8 @@ this is a pain assessment system where user can come and log his pain records
 user can see charts displaying pain mood and cognitive performance 
 [![Build Status](https://travis-ci.org/peel3r/cpms.svg?branch=master)](https://travis-ci.org/peel3r/cpms)
 #to do
-
+update readme file
+create articles for services
 
 new feature
 -----------
@@ -12,6 +13,11 @@ new feature
 add quantitative chart for body parts pain 
 ~~Travis~~
 ~~rearange show pain log~~
+add other types data recording services
+
+activity log
+envelope log
+symptom log
 
 -------------
 ~~finish charts~~
@@ -52,7 +58,7 @@ charts dashboard
 ----------------
 ~~dashboard with charts for all symptoms and pains~~
 
-implement per user pain log
+~~implement per user pain log~~
 ---------------------------
 **routes as**
 profile/user_id/diaries/diary_id ????
