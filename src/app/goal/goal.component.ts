@@ -30,6 +30,8 @@ import 'rxjs/Rx'
 
 export class Goal {
   goals = [];
+  completedGoals = [];
+  notCompletedGoals = [];
   date = Date.now()
   USER_ID = window.localStorage.getItem('cpms_user_id')
   onLeave: boolean  = true
@@ -39,7 +41,18 @@ export class Goal {
     private store: Store
   ) {
     this.goalService.getUserGoals(this.USER_ID)
-      .subscribe(res => this.goals =  res);
+      .subscribe(res => {
+        this.goals =  res
+        res.map(goal => {
+          if(goal.done === true ) {
+            this.completedGoals.push(goal)
+          } else {
+            this.notCompletedGoals.push(goal)
+          }
+        })
+      })
+
+
 
     this.store.changes.pluck('goals')
       .subscribe();
@@ -49,9 +62,13 @@ export class Goal {
     },1000)
   }
 
+
   onCreateGoal(goal) {
     this.goalService.createGoal(goal)
-      .subscribe(goal => this.goals.push(goal));
+      .subscribe(goal => {
+        this.goals.push(goal)
+        this.notCompletedGoals.push(goal)
+      });
   }
 
   onGoalChecked(goal,i) {
