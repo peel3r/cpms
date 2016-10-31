@@ -51,7 +51,7 @@ exports.put = function(req, res, next) {
 };
 
 exports.post = function(req, res, next) {
-  console.log(req);
+  console.log('hmm',req);
     var newgoal = req.body;
     newgoal.author = req.user._id;
     Goal.create(newgoal)
