@@ -13,14 +13,33 @@ export interface Article {
 export interface GoalList {
   title: string,
   type: string,
-  duration: number,
+  color?: string,
+  duration?: string,
+  howOften?: string,
+  when?: string,
+  comments?: string,
+  confidenceLevel?: string,
   done: boolean,
   _id?: string | number,
   createdAt?: string,
   updatedAt?: string,
   userId?: string
 }
-
+export interface ActivityList {
+  name: string,
+  fatigue?: number,
+  pain?: number,
+  fog?: number,
+  rating?: number,
+  comments?: string,
+  relatedGoal?: number,
+  color?: string,
+  duration?: number,
+  _id?: string | number,
+  createdAt?: string,
+  updatedAt?: string,
+  userId?: string
+}
 export interface UserList {
   name: string,
   id?: string | number,
@@ -117,6 +136,7 @@ export interface State {
   users: Array<UserList>
   esas: Array<EsaList>
   goals: Array<GoalList>
+  activities: Array<ActivityList>
 
 }
 
@@ -125,7 +145,8 @@ const defaultState = {
   diaries: [],
   users: [],
   esas: [],
-  goals: []
+  goals: [],
+  activities: []
 }
 
 const _store = new BehaviorSubject<State>(defaultState);

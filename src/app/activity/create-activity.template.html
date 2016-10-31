@@ -1,0 +1,124 @@
+<div class="note-creator shadow-2 " [ngStyle]="{'background-color': newActivity.color}">
+  <form class="row" (submit)="onCreateActivity()">
+    <input
+      type="text"
+      (focus)="toggle(true)"
+      [(ngModel)]="newActivity.name" name="newActivityName"
+      placeholder="Enter your Activity"
+      class="col-xs-10 title"
+    >
+<hr>
+    <div class="box" *ngIf="fullForm">
+      <div class="note-card">
+      <div class="row">
+        <div class="col-xs">
+          <div class="box">
+
+            Fatigue Level:
+            <select
+              [(ngModel)]="newActivity.fatigue" name="first"
+              class="col-xs-10"
+
+            >
+              <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+            </select>
+
+          </div>
+          <div class="box">
+
+            Pain Level:
+            <select
+              [(ngModel)]="newActivity.pain" name="first"
+              class="col-xs-10"
+
+            >
+              <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+            </select>
+
+          </div>
+
+
+          <div class="box">
+
+
+
+          </div>
+
+          <div class="box">
+
+            Activity Duration:
+            <select
+              [(ngModel)]="newActivity.duration" name="first"
+              class="col-xs-10"
+
+            >
+              <option *ngFor="let p of duration" [ngValue]="p">{{p}}</option>
+            </select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+    <div class="col-xs center-xs">
+      <div class="box" *ngIf="fullForm">
+        Related target:<br>
+        <select
+          required
+          [(ngModel)]="newActivity.relatedGoal" name="first"
+          class="col-xs-8"
+
+        >
+          <option *ngFor="let p of goals" [ngValue]="p.title">{{p.title}}</option>
+        </select><br><br>
+        <textarea
+          type="text"
+          [(ngModel)]="newActivity.comments" name="newActivityComments"
+          placeholder="Enter your Comment"
+          class="col-xs-10 title"
+        ></textarea>
+        <br><br>
+
+
+
+
+      </div>
+    </div>
+    <br><br>
+    <div class="actions col-xs-12 row between-xs" *ngIf="fullForm">
+      <div class="col-xs-8">
+        <color-picker
+          class="end-xs"
+          (selected)="onColorSelect($event)"
+          [colors]="colors"
+        >
+        </color-picker>
+
+      </div>
+      <div class="col-xs-4">
+        <div class="box  ">
+        <div style="font-size: 8pt;">Overall rating:</div>
+        <select
+          [(ngModel)]="newActivity.rating" name="first"
+          class="col-xs-6 end-xs"
+
+        >
+          <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+        </select>
+        </div>
+        <div class="box end-xs">
+          <button
+            color="accent"
+            type="submit"
+            md-raised-button
+            class="shadow-1"
+          >
+            done
+
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
