@@ -23,7 +23,24 @@ var GoalSchema = new Schema({
   },
 
   duration: {
-    type: Number,
+    type: String,
+    required: false
+  },
+  howOften: {
+    type: String,
+    required: false
+  },
+  when: {
+    type: String,
+    required: false
+  },
+
+  comments: {
+    type: String,
+    required: false
+  },
+  confidenceLevel: {
+    type: String,
     required: false
   },
 
