@@ -51,7 +51,8 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
         {{ goal.title }}
       </div>
       <div class="col-xs-12 value">
-        {{ goal.type }} | {{ goal.duration }} | {{goal.done}}
+        {{ goal.type }} <br> Duration: {{ goal.duration }} min
+        {{goal.howOften}} | {{goal.when}} | {{goal.confidenceLevel}} | {{goal.comments}}
       </div>
     </div>
 `

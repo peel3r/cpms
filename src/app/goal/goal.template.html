@@ -5,7 +5,7 @@
     <div class="col-xs-12
                 col-sm-8
                 col-md-6
-                col-lg-7">
+                col-lg-6">
 
       <div class="box start-xs home-wrapper shadow-3">
         <button
@@ -19,7 +19,7 @@
         </button>
 
         <hr>
-        <h1>Goal Log</h1>
+        <h1>Targets</h1>
         <h1 x-large class="sample-content end-xs">Today: {{date | date}}</h1>
         <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
 
@@ -39,22 +39,36 @@
         </div>
       </div>
     </div>
-  </div>
-  <h1>Last 6 goals </h1>
-  <div class="notes col-xs-12" >
-    <div class="row between-xs"
-         *ngFor="let goal of goals.slice(-6); let i = index"
-         class="col-xs-2"
-         @fade>
-      <div class="note-card"
-           [ngStyle]="{'background-color': goal.color}"
 
-           (checked)="onGoalDeleted($event,i)"
-      ><div class="title"> {{goal.title}} </div><br>{{goal.type}}<br> Duration: {{goal.duration}}
-      </div>
+  <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-6">
+
+
+                <h1>Log Your Activities </h1>
+
+    <create-activity (createActivity)="onCreateActivity($event)"></create-activity>
+
+
+    <div class="notes col-xs-12" >
+                  <div class="row between-xs"
+                       *ngFor="let goal of goals; let i = index"
+                       class="col-xs-6"
+                       @fade>
+                    <goal-card
+                      *ngIf="goal.done === true"
+                      [goal]="goal"
+                      (checked)="onBackGoalChecked($event,i)"
+                    >
+                    </goal-card>
+
+                  </div>
+                </div>
+
+
     </div>
   </div>
-
 </div>
 
 

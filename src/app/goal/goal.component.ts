@@ -44,8 +44,11 @@ export class Goal {
       .subscribe(res => {
         this.goals =  res
         res.map(goal => {
-          if(goal.done === true ) {
-            this.completedGoals.push(goal)
+          if(goal.type === "mental activity" ) {
+            this.completedGoals.push(goal.type)
+            // console.log(this.completedGoals.reduce((a, b) => a + b, 0)/60) // sum of goal duration
+            console.log(this.completedGoals.length) // length od mental activity array
+
           } else {
             this.notCompletedGoals.push(goal)
           }
@@ -75,9 +78,19 @@ export class Goal {
     goal.done = true
     this.goalService.completeGoal(goal)
       .subscribe();
-    this.goals.splice(i, 1);
+    this.goals.push(i, 1);
 
   }
+
+  onBackGoalChecked(goal,i) {
+    goal.done = false
+    this.goalService.completeGoal(goal)
+      .subscribe();
+    this.goals.push(i, 1);
+
+  }
+
+
 
   toggle() {
     this.onLeave = !this.onLeave;

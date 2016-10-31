@@ -14,22 +14,31 @@ export class CreateGoal {
 
   colors: Array<string> = ['#B19CD9', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
   goalTypes = ['physical activity', 'mental activity', 'social activity'];
-  duration = [5,10,15,20,30,45,60,90,120]
+  duration = ['5','10','15','20','30','45','60','90','120']
+  howOften = ['every day', 'every two days','twice a week', 'once a week', 'every fortnight'  ]
+  days = ['Morning','Noon', 'Afternoon','Evening','Late Evening','Night']
+  ratings = ['1','2','3','4','5','6','7','8','9','10']
+
 
   newGoal = {
     title: '',
-    duration: 0,
-    done: false,
     type: '',
-    color: 'white'
+    color: 'white',
+    duration: '',
+    howOften: '',
+    when: '',
+    comments: '',
+    confidenceLevel: '',
+    done: false
   };
   fullForm: boolean = false;
 
   onCreateGoal() {
-    const { title, duration, done, type, color } = this.newGoal;
+    const { title, type, color, duration, howOften, when, comments, confidenceLevel, done } = this.newGoal;
+    console.log(this.newGoal)
 
     if (title) {
-      this.createGoal.next({ title, duration, done, type, color });
+      this.createGoal.next({ title, type, color, duration, howOften, when, comments, confidenceLevel, done });
     }
       this.reset();
       this.fullForm = false;
@@ -47,10 +56,14 @@ export class CreateGoal {
   reset() {
     this.newGoal = {
       title: '',
-      duration: 0,
-      done: false,
       type: '',
-      color: 'white'
+      color: 'white',
+      duration: '',
+      howOften: '',
+      when: '',
+      comments: '',
+      confidenceLevel: '',
+      done: false
     };
   }
 }

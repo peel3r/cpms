@@ -4,22 +4,82 @@
           type="text"
           (focus)="toggle(true)"
           [(ngModel)]="newGoal.title" name="newGoalTitle"
-          placeholder="Enter your next goal"
+          placeholder="Target Name"
           class="col-xs-10 title"
 
         >
 
           <div class="box" *ngIf="fullForm">
+            <div class="note-card">
+            <div class="row">
+              <div class="col-xs">
+                <div class="box">
 
-            Duration in min:
-            <select
-              [(ngModel)]="newGoal.duration" name="first"
-              class="col-xs-10"
+                  How much (in min):
+                  <select
+                    [(ngModel)]="newGoal.duration" name="first"
+                    class="col-xs-10"
 
-            >
-              <option *ngFor="let p of duration" [ngValue]="p">{{p}}</option>
-            </select>
+                  >
+                    <option *ngFor="let p of duration" [ngValue]="p">{{p}}</option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-xs">
+                <div class="box">
+
+                  How Often
+                  <select
+                    [(ngModel)]="newGoal.howOften" name="first"
+                    class="col-xs-10"
+
+                  >
+                    <option *ngFor="let p of howOften" [ngValue]="p">{{p}}</option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs">
+                <div class="box">
+
+                  When
+                  <select
+                    [(ngModel)]="newGoal.when" name="first"
+                    class="col-xs-10"
+
+                  >
+                    <option *ngFor="let p of days" [ngValue]="p">{{p}}</option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs">
+                <div class="box">
+
+                  Confidence level <p style="font-size: 10pt">(0 = no confidence; 10=totally confident)</p>
+                  <select
+                    [(ngModel)]="newGoal.confidenceLevel" name="first"
+                    class="col-xs-10"
+
+                  >
+                    <option *ngFor="let p of ratings" [ngValue]="p">{{p}}</option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
           </div>
+            </div>
 
         <div class="col-xs center-xs">
           <div class="box" *ngIf="fullForm">
@@ -31,6 +91,15 @@
             >
               <option *ngFor="let p of goalTypes" [ngValue]="p">{{p}}</option>
             </select>
+            <br><br>
+            <textarea
+              type="text"
+              (focus)="toggle(true)"
+              [(ngModel)]="newGoal.comments" name="newGoalComment"
+              placeholder="Comments"
+              class="col-xs-10 shadow-2"
+
+            ></textarea>
           </div>
         </div>
     <br><br>
