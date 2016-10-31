@@ -73,6 +73,7 @@ import {ShareButtonsModule} from "ng2-sharebuttons";
 import {AUTH_PROVIDERS} from "angular2-jwt";
 import {ColorPicker} from "./goal/color-picker";
 import {DoughnutChartDemoComponent} from "./goal/goal-charts.component";
+import {CreateActivity} from "./activity/create-activity.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -126,7 +127,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     GoalCard,
     CreateGoal,
     ColorPicker,
-    DoughnutChartDemoComponent
+    DoughnutChartDemoComponent,
+    CreateActivity
   ],
   imports: [ // import Angular's modules
     BrowserModule,
