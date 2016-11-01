@@ -7,19 +7,19 @@ var ActivitySchema = new Schema({
     required: false,
   },
   fatigue: {
-    type: Number,
+    type: String,
     required: false
   },
   pain: {
-    type: Number,
+    type: String,
     required: false
   },
   fog: {
-    type: Number,
+    type: String,
     required: false
   },
   rating: {
-    type: Number,
+    type: String,
     required: false
   },
   comments: {
@@ -35,18 +35,18 @@ var ActivitySchema = new Schema({
     required: false
   },
   duration: {
-    type: Number,
+    type: String,
     required: false
   },
   color: {
-    type: Number,
+    type: String,
     required: false
   },
 
 
   author: {type: Schema.Types.ObjectId, ref: 'user'},
 
-  date: { type: Date, default: Date.now }
+  activities: [{type: Schema.Types.ObjectId, ref: 'activity'}]
 });
 
 module.exports = mongoose.model('activity', ActivitySchema);
