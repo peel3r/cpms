@@ -35,7 +35,6 @@ export class CreateGoal {
 
   onCreateGoal() {
     const { title, type, color, duration, howOften, when, comments, confidenceLevel, done } = this.newGoal;
-    console.log(this.newGoal)
 
     if (title) {
       this.createGoal.next({ title, type, color, duration, howOften, when, comments, confidenceLevel, done });

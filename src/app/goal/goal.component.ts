@@ -30,8 +30,6 @@ import 'rxjs/Rx'
 
 export class Goal {
   goals = [];
-  completedGoals = [];
-  notCompletedGoals = [];
   date = Date.now()
   USER_ID = window.localStorage.getItem('cpms_user_id')
   onLeave: boolean  = true
@@ -43,16 +41,6 @@ export class Goal {
     this.goalService.getUserGoals(this.USER_ID)
       .subscribe(res => {
         this.goals =  res
-        res.map(goal => {
-          if(goal.type === "mental activity" ) {
-            this.completedGoals.push(goal.type)
-            // console.log(this.completedGoals.reduce((a, b) => a + b, 0)/60) // sum of goal duration
-            console.log(this.completedGoals.length) // length od mental activity array
-
-          } else {
-            this.notCompletedGoals.push(goal)
-          }
-        })
       })
 
 
@@ -70,15 +58,14 @@ export class Goal {
     this.goalService.createGoal(goal)
       .subscribe(goal => {
         this.goals.push(goal)
-        this.notCompletedGoals.push(goal)
       });
   }
 
   onGoalChecked(goal,i) {
     goal.done = true
-    this.goalService.completeGoal(goal)
+    this.goalService.deleteGoal(goal)
       .subscribe();
-    this.goals.push(i, 1);
+    this.goals.splice(i, 1);
 
   }
 

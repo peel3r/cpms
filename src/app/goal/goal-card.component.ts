@@ -23,7 +23,7 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
     }
     .icon {
       position: absolute;
-      color: black;
+      color: red;
       border: 1px solid lightgrey;
       background-color: white;
       font-size: 30px;
@@ -37,24 +37,58 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
   `],
   template: `
 
-<div
-      class="note-card row shadow-1"
-            [ngStyle]="{'background-color': goal.color}"
 
-      (mouseenter)="toggleCheck()"
-      (mouseleave)="toggleCheck()"
-    >
-      <div class="icon" *ngIf="showCheck" (click)="onChecked()">
-        <i class="material-icons">check</i>
+<div class="row shadow-1" 
+     [ngStyle]="{'background-color': goal.color}"
+     (mouseenter)="toggleCheck()"
+     (mouseleave)="toggleCheck()">
+     <div  *ngIf="showCheck" (click)="onChecked()">
+        <i class="icon material-icons">delete_forever</i>
       </div>
-      <div class="col-xs-12 title">
+    <div class="col-xs">
+        <div class="box">
         {{ goal.title }}
-      </div>
-      <div class="col-xs-12 value">
-        {{ goal.type }} <br> Duration: {{ goal.duration }} min
-        {{goal.howOften}} | {{goal.when}} | {{goal.confidenceLevel}} | {{goal.comments}}
-      </div>
+        
+        </div>
     </div>
+    <div class="col-xs">
+        <div class="box">
+        {{ goal.type }} 
+        
+        </div>
+    </div>
+    <div class="col-xs">
+        <div class="box">
+        {{ goal.duration }} (min)
+
+        </div>
+    </div>
+    <div class="col-xs">
+        <div class="box">
+        {{goal.confidenceLevel}}
+        
+        </div>
+    </div>
+    <div class="col-xs">
+        <div class="box">
+        {{goal.howOften}}
+        
+        </div>
+    </div>
+    <div class="col-xs">
+        <div class="box">
+        {{goal.when}}
+        
+        </div>
+    </div>
+    <div class="col-xs">
+        <div class="box" style="font-size: 10px; font-style: oblique">
+        {{goal.comments}}
+        
+        </div>
+    </div>
+</div>
+
 `
 })
 

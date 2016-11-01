@@ -23,7 +23,6 @@ export class GoalService {
   }
 
   getUserGoals(userId) {
-    console.log(userId)
     return this.getGoals()
       .map(goals => goals.filter(d => d.author._id === userId))
 

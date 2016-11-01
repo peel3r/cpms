@@ -2,9 +2,10 @@ import {Component, Output, EventEmitter} from '@angular/core';
 // import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
 import {Input} from "@angular/core";
-import {GoalService} from "../services/goal.service";
+import {ActivityService} from "../services/activity.service";
 import {Route} from "@angular/router";
 import {Store} from "../store";
+import {GoalService} from "../services/goal.service";
 
 @Component({
   selector: 'create-activity',
@@ -14,16 +15,16 @@ import {Store} from "../store";
 })
 
 export class CreateActivity {
+  activities = []
   goals = []
-
   @Output() createActivity = new EventEmitter();
-  goalTypes = ['physical activity', 'mental activity', 'social activity'];
   USER_ID = window.localStorage.getItem('cpms_user_id')
 
-  colors: Array<string> = ['#B19CD9', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
+  colors: Array<string> = ['#B19C09', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
   duration = [5,10,15,20,30,45,60,90,120]
   rating = [1,2,3,4,5,6,7,8,9,10]
   constructor(
+    public activityService: ActivityService,
     public goalService: GoalService,
     public router: Router,
     private store: Store
@@ -32,17 +33,23 @@ export class CreateActivity {
       .subscribe(res => {
         this.goals = res
       })
+    this.activityService.getUserActivities(this.USER_ID)
+      .subscribe(res => {
+        this.activities = res
+      })
   }
+  relatedGoals = this.goals;
+
   newActivity = {
     name: '',
-    fatigue: 0,
-    pain: 0,
-    fog: 0,
-    rating: 0,
+    fatigue: '',
+    pain: '',
+    fog: '',
+    rating: '',
     comments: '',
-    relatedGoal: 0,
+    relatedGoal: '',
     color: 'white',
-    duration: 0
+    duration: ''
   };
   fullForm: boolean = false;
 
@@ -68,14 +75,14 @@ export class CreateActivity {
   reset() {
     this.newActivity = {
       name: '',
-      fatigue: 0,
-      pain: 0,
-      fog: 0,
-      rating: 0,
+      fatigue: '',
+      pain: '',
+      fog: '',
+      rating: '',
       comments: '',
-      relatedGoal: 0,
+      relatedGoal: '',
       color: 'white',
-      duration: 0
+      duration: ''
     };
   }
 }
