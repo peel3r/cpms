@@ -1,27 +1,32 @@
 var Activity = require('./activityModel');
 var _ = require('lodash');
+var logger = require('../../util/logger');
 
 exports.params = function(req, res, next, id) {
     Activity.findById(id)
-        .then(function(activity) {
-            if (!activity) {
-                next(new Error('No activity with that id'));
-            } else {
-                req.activity = activity;
-                next();
-            }
-        }, function(err) {
-            next(err);
-        });
+      .populate('author', 'username')
+      .exec()
+      .then(function(activity) {
+          if (!activity) {
+              next(new Error('No activity with that id'));
+          } else {
+              req.activity = activity;
+              next();
+          }
+      }, function(err) {
+          next(err);
+      });
 };
 
 exports.get = function(req, res, next) {
     Activity.find({})
-        .then(function(categories){
-            res.json(categories);
-        }, function(err){
-            next(err);
-        });
+      .populate('author categories')
+      .exec()
+      .then(function(categories){
+          res.json(categories);
+      }, function(err){
+          next(err);
+      });
 };
 
 exports.getOne = function(req, res, next) {
@@ -47,12 +52,13 @@ exports.put = function(req, res, next) {
 
 exports.post = function(req, res, next) {
     var newactivity = req.body;
-
+    newactivity.author = req.user._id;
     Activity.create(newactivity)
         .then(function(activity) {
             res.json(activity);
         }, function(err) {
-            next(err);
+          logger.error(err);
+          next(err);
         });
 };
 
