@@ -1,10 +1,11 @@
 <div class="note-creator shadow-2 " [ngStyle]="{'background-color': newActivity.color}">
   <form class="row" (submit)="onCreateActivity()">
     <input
+      required
       type="text"
       (focus)="toggle(true)"
       [(ngModel)]="newActivity.name" name="newActivityName"
-      placeholder="Enter your Activity"
+      placeholder="Activity Name"
       class="col-xs-10 title"
     >
 <hr>
@@ -29,6 +30,18 @@
             Pain Level:
             <select
               [(ngModel)]="newActivity.pain" name="first"
+              class="col-xs-10"
+
+            >
+              <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+            </select>
+
+          </div>
+          <div class="box">
+
+            Brain Gog Level:
+            <select
+              [(ngModel)]="newActivity.fog" name="first"
               class="col-xs-10"
 
             >
