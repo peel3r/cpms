@@ -22,6 +22,11 @@ export class ActivityService {
       .do(res => this.storeHelper.update('activities', res));
   }
 
+  getEvents() {
+    return this.apiService.get(this.path)
+      .do(res => this.storeHelper.update('activities', res));
+  }
+
   getUserActivities(userId) {
     return this.getActivities()
       .map(activities => activities.filter(d => d.author._id === userId))
