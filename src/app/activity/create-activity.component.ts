@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {Input} from "@angular/core";
 import {ActivityService} from "../services/activity.service";
 import {Route} from "@angular/router";
-import {Store} from "../store";
+import {Store, ActivityList} from "../store";
 import {GoalService} from "../services/goal.service";
 
 @Component({
@@ -17,6 +17,8 @@ import {GoalService} from "../services/goal.service";
 export class CreateActivity {
   activities = []
   goals = []
+  event: ActivityList;
+
   @Output() createActivity = new EventEmitter();
   USER_ID = window.localStorage.getItem('cpms_user_id')
 
@@ -49,15 +51,17 @@ export class CreateActivity {
     comments: '',
     relatedGoal: '',
     color: 'white',
-    duration: ''
+    duration: '',
+    start: '',
+    end: ''
   };
   fullForm: boolean = false;
 
   onCreateActivity() {
-    const { name, fatigue, pain, fog, rating, comments, relatedGoal, color, duration } = this.newActivity;
+    const { name, fatigue, pain, fog, rating, comments, relatedGoal, color, duration, start, end } = this.newActivity;
 
     if (name) {
-      this.createActivity.next({ name, fatigue, pain, fog, rating, comments, relatedGoal, color, duration });
+      this.createActivity.next({ name, fatigue, pain, fog, rating, comments, relatedGoal, color, duration , start, end});
     }
       this.reset();
       this.fullForm = false;
@@ -82,7 +86,10 @@ export class CreateActivity {
       comments: '',
       relatedGoal: '',
       color: 'white',
-      duration: ''
+      duration: '',
+      start: '',
+      end: ''
     };
   }
 }
+
