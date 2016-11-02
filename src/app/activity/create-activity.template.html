@@ -13,6 +13,29 @@
       <div class="note-card">
       <div class="row">
         <div class="col-xs">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="start">Start</label></div>
+            <div class="ui-grid-col-8">
+              <p-inputMask
+                id="start"
+                mask="9999-99-99"
+                [(ngModel)]="newActivity.start"
+                name="startDate"
+                placeholder="start date"
+                slotChar="yyyy-mm-dd">
+
+              </p-inputMask></div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="end">End</label></div>
+            <div class="ui-grid-col-8">
+              <p-inputMask
+                id="end"
+                mask="9999-99-99"
+                [(ngModel)]="newActivity.end"
+                name="endDate"
+                placeholder="Optional" slotChar="yyyy-mm-dd"></p-inputMask></div>
+          </div>
           <div class="box">
 
             Fatigue Level:
