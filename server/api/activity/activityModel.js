@@ -42,6 +42,15 @@ var ActivitySchema = new Schema({
     type: String,
     required: false
   },
+  start: {
+    type: String,
+    required: false
+  },
+  end: {
+    type: String,
+    required: false
+  },
+
 
 
   author: {type: Schema.Types.ObjectId, ref: 'user'},
