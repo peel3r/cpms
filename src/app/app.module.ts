@@ -76,6 +76,10 @@ import {DoughnutChartDemoComponent} from "./goal/goal-charts.component";
 import {CreateActivity} from "./activity/create-activity.component";
 import {ActivityCard} from "./activity/activity-card.component";
 import {Activity} from "./activity/activity.component";
+import {ScheduleModule} from "primeng/components/schedule/schedule";
+import {DialogModule} from "primeng/components/dialog/dialog";
+import {InputMaskModule} from "primeng/components/inputmask/inputmask";
+import {CheckboxModule} from "primeng/components/checkbox/checkbox";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -156,7 +160,10 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     ChartsModule,
     ToastModule,
     Ng2PaginationModule,
-
+    ScheduleModule,
+    DialogModule,
+    InputMaskModule,
+    CheckboxModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
