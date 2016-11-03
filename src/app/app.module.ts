@@ -80,6 +80,7 @@ import {ScheduleModule} from "primeng/components/schedule/schedule";
 import {DialogModule} from "primeng/components/dialog/dialog";
 import {InputMaskModule} from "primeng/components/inputmask/inputmask";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
+import {ButtonModule} from "primeng/components/button/button";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -164,6 +165,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     DialogModule,
     InputMaskModule,
     CheckboxModule,
+    ButtonModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
