@@ -26,7 +26,7 @@ export interface GoalList {
   userId?: string
 }
 export interface ActivityList {
-  name: string,
+  title: string,
   fatigue?: string | number,
   pain?: string | number,
   fog?: string | number,

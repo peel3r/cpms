@@ -43,7 +43,7 @@ export class CreateActivity {
   relatedGoals = this.goals;
 
   newActivity = {
-    name: '',
+    title: '',
     fatigue: '',
     pain: '',
     fog: '',
@@ -58,10 +58,10 @@ export class CreateActivity {
   fullForm: boolean = false;
 
   onCreateActivity() {
-    const { name, fatigue, pain, fog, rating, comments, relatedGoal, color, duration, start, end } = this.newActivity;
+    const { title, fatigue, pain, fog, rating, comments, relatedGoal, color, duration, start, end } = this.newActivity;
 
-    if (name) {
-      this.createActivity.next({ name, fatigue, pain, fog, rating, comments, relatedGoal, color, duration , start, end});
+    if (title) {
+      this.createActivity.next({ title, fatigue, pain, fog, rating, comments, relatedGoal, color, duration , start, end});
     }
       this.reset();
       this.fullForm = false;
@@ -78,7 +78,7 @@ export class CreateActivity {
 
   reset() {
     this.newActivity = {
-      name: '',
+      title: '',
       fatigue: '',
       pain: '',
       fog: '',
