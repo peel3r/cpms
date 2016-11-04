@@ -19,6 +19,8 @@ export class CreateActivity {
   goals = []
   event: ActivityList;
 
+  date6: Date;
+
   @Output() createActivity = new EventEmitter();
   USER_ID = window.localStorage.getItem('cpms_user_id')
 
