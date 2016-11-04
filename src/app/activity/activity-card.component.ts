@@ -48,6 +48,8 @@ import {Store} from "../store";
   template: `
 <p-schedule [events]="events" [header]="header" defaultDate="2016-11-02" [eventLimit]="4" [editable]="true"
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
+            <button (click)="refresh()">Refresh</button>
+
 <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
     <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
         <div class="ui-grid-row">
@@ -55,16 +57,45 @@ import {Store} from "../store";
             <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
         </div>
         <div class="ui-grid-row">
-            <div class="ui-grid-col-4"><label for="fatigue">Fatigue Level</label></div>
-            <div class="ui-grid-col-8"><input pInputText id="fatigue" [(ngModel)]="event.fatigue" /></div>
+            <div class="ui-grid-col-4"><label for="fatigue">Level of: Fatigue</label></div>
+            <div class="ui-grid-col-1"><input pInputText id="fatigue" [(ngModel)]="event.fatigue" /></div>
+            <div class="ui-grid-col-2 end-xs"><label for="fatigue">Pain</label></div>
+            <div class="ui-grid-col-1"><input pInputText id="pain" [(ngModel)]="event.pain" /></div>
+            <div class="ui-grid-col-3 end-xs"><label for="fog">Brain Fog</label></div>
+            <div class="ui-grid-col-1"><input pInputText id="fog" [(ngModel)]="event.fog" /></div>
+
+
         </div>
         <div class="ui-grid-row">
-            <div class="ui-grid-col-4"><label for="start">Start</label></div>
-            <div class="ui-grid-col-8"><p-inputMask id="start" mask="9999-99-99" [(ngModel)]="event.start" placeholder="99/99/9999" slotChar="yyyy-mm-dd"></p-inputMask></div>
-        </div>
+        <div class="ui-grid-col-4"><label for="date">Change Start Date</label></div>
+        <div class="ui-grid-col-8"><p-calendar [(ngModel)]="date1" [showTime]="true" [inline]="false"></p-calendar> </div>
+    </div>    
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="end">End</label></div>
             <div class="ui-grid-col-8"><p-inputMask id="end" mask="9999-99-99" [(ngModel)]="event.end" placeholder="Optional" slotChar="yyyy-mm-dd"></p-inputMask></div>
+            
+               </div> 
+               <div class="ui-grid-row">
+            <div class="ui-grid-col-4 end-xs"><label for="rating">Over All Rating</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="rating" [(ngModel)]="event.rating" /></div>
+    </div>
+    <div class="ui-grid-row">
+            <div class="ui-grid-col-4 end-xs"><label for="relatedGoal">Related Goal</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="relatedGoal" [(ngModel)]="event.relatedGoal" /></div>
+    </div>
+               <div class="ui-grid-row">
+            <div class="ui-grid-col-4 end-xs"><label for="duration">Duration in min</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="duration" [(ngModel)]="event.duration" /></div>
+ 
+            
+            
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4 end-xs"><label for="comments">Comments</label></div>
+            <div class="ui-grid-col-8"><textarea pInputText id="comments" [(ngModel)]="event.comments" ></textarea></div>
+ 
+            
+            
         </div>
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
@@ -95,6 +126,10 @@ export class ActivityCard {
   date = Date.now()
   USER_ID = window.localStorage.getItem('cpms_user_id')
   onLeave: boolean  = true
+  date1: Date;
+  minDate: Date;
+  maxDate: Date;
+  tr: any;
 
   @Input() activity = {};
   @Output() checked = new EventEmitter();
@@ -160,6 +195,12 @@ export class ActivityCard {
       center: 'title',
       right: 'month,agendaWeek,agendaDay'
     };
+
+    this.tr = {
+      firstDayOfWeek : 1
+    }
+
+
   }
 
   handleDayClick(event) {
@@ -179,7 +220,20 @@ export class ActivityCard {
     this.event.fog = e.calEvent.fog;
     this.event.rating = e.calEvent.rating;
     this.event.duration = e.calEvent.duration;
+    this.event.comments = e.calEvent.comments;
     this.event.relatedGoal = e.calEvent.relatedGoal;
+
+
+
+    let today = new Date();
+    let month = today.getMonth();
+    let prevMonth = (month === 0) ? 11 : month -1;
+    let nextMonth = (month === 11) ? 0 : month + 1;
+    this.minDate = new Date();
+    this.minDate.setMonth(prevMonth);
+    this.maxDate = new Date();
+    this.maxDate.setMonth(nextMonth);
+
 
 
     let start = e.calEvent.start;
@@ -236,7 +290,13 @@ export class ActivityCard {
 
     return index;
   }
+  public refresh() {
+    this.activityService.getEvents()
+      .subscribe(events => {
+        this.events = events;
+      });
 
+  }
 }
 export class MyEvent {
   id: number;
@@ -246,6 +306,7 @@ export class MyEvent {
   fatigue: string;
   pain: string;
   fog: string;
+  comments: string
   duration: string;
   relatedGoal: string;
   rating: string;
