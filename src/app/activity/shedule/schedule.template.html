@@ -1,0 +1,108 @@
+<p-schedule [events]="events" [header]="header" defaultDate="{{date}}" [eventLimit]="4" [editable]="true"
+
+            (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
+
+<p-dialog header="Event Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
+  <div class="ui-grid ui-grid-responsive ui-fluid"              [ngStyle]="{'background-color': event.color}"
+        *ngIf="event">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="vin">Title</label></div>
+      <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
+    </div>
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="start">Start</label></div>
+      <div class="ui-grid-col-8"><p-inputMask id="start" mask="9999-99-99" [(ngModel)]="event.start" placeholder="99/99/9999" slotChar="yyyy-mm-dd"></p-inputMask></div>
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="end">End</label></div>
+      <div class="ui-grid-col-8"><p-inputMask id="end" mask="9999-99-99" [(ngModel)]="event.end" placeholder="99/99/9999" slotChar="yyyy-mm-dd"></p-inputMask></div>
+    </div>
+
+    <div class="ui-grid-row">
+          <div class="ui-grid-col-4"><label for="relatedGoal">Related Goal</label></div>
+        <select
+            required
+            [(ngModel)]="event.relatedGoal" name="first"
+            class="col-xs-8"
+
+          >          <option *ngFor="let p of goals" [ngValue]="p.title">{{p.title}}</option>
+          </select>
+
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="pain">Pain</label></div>
+      <div class="ui-grid-col-6"><label for="start">Level: <a style="background-color: white;">{{event.pain}}</a> change:</label></div>
+
+      <select
+        [(ngModel)]="event.pain" name="pain"
+        class="col-xs-2"
+
+      >
+        <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+      </select>
+
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="pain">Fatigue</label></div>
+      <div class="ui-grid-col-6"><label for="start">Level: <a style="background-color: white;">{{event.fatigue}}</a> change:</label></div>
+
+      <select
+        [(ngModel)]="event.fatigue" name="fatigue"
+        class="col-xs-2"
+
+      >
+        <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+      </select>
+
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="fog">Brain Fog</label></div>
+      <div class="ui-grid-col-6"><label for="fog">Level: <a style="background-color: white;">{{event.fog}}</a> change:</label></div>
+
+      <select
+        [(ngModel)]="event.fog" name="fog"
+        class="col-xs-2"
+
+      >
+        <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+      </select>
+
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="rating">Over All Rating</label></div>
+      <div class="ui-grid-col-6"><label for="rating">Level: <a style="background-color: white;">{{event.rating}}</a> change:</label></div>
+
+      <select
+        [(ngModel)]="event.rating" name="rating"
+        class="col-xs-2"
+
+      >
+        <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+      </select>
+
+    </div>
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="comments">Comments</label></div>
+      <div class="ui-grid-col-8"><textarea pInputTextArea id="comments" [(ngModel)]="event.comments" ></textarea></div>
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
+      <div class="ui-grid-col-8"><p-checkbox [(ngModel)]="event.allDay" binary="binary"></p-checkbox></div>
+    </div>
+  </div>
+  <footer>
+
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <color-picker
+        class="end-xs"
+        (selected)="onColorSelect($event)"
+        [colors]="colors"
+      >
+      </color-picker>
+      <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete"></button>
+      <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save"></button>
+    </div>
+  </footer>
+</p-dialog>
