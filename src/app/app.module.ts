@@ -83,6 +83,8 @@ import {CheckboxModule} from "primeng/components/checkbox/checkbox";
 import {ButtonModule} from "primeng/components/button/button";
 import {CalendarModule} from "primeng/components/calendar/calendar";
 import {InputTextareaModule} from "primeng/components/inputtextarea/inputtextarea";
+import {Schedule} from "./activity/shedule/schedule.component";
+import {DropdownModule} from "primeng/components/dropdown/dropdown";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -139,7 +141,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     DoughnutChartDemoComponent,
     CreateActivity,
     ActivityCard,
-    Activity
+    Activity,
+    Schedule
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -170,6 +173,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     ButtonModule,
     CalendarModule,
     InputTextareaModule,
+    DropdownModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
