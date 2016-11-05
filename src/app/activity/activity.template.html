@@ -10,20 +10,21 @@
       <div class="box start-xs home-wrapper shadow-3">
         <hr>
         <h1>Activities</h1>
-        <create-activity (createActivity)="onCreateActivity($event)"></create-activity>
+        <!--<create-activity (createActivity)="onCreateActivity($event)"></create-activity>-->
 
         <hr>
         <div class="notes col-xs-12" >
-
+<schedule></schedule>
 
           <div class="row between-xs"
+               *ngFor="let activity of activities; let i = index"
                class="col-xs-12"
                @fade>
-            <activity-card
-              [activity]="activity"
-
-            >
-            </activity-card>
+            <!--<activity-card-->
+              <!--[activity]="activity"-->
+              <!--(checked)="onActivityChecked($event,i)"-->
+            <!--&gt;-->
+            <!--</activity-card>-->
 
           </div>
         </div>
