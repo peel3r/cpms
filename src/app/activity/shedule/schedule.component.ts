@@ -41,6 +41,8 @@ export class Schedule implements OnInit {
   date: any;
   goals = []
   date6:  Date;
+  date7:  Date;
+
   minDate: Date;
   maxDate: Date;
 
@@ -95,15 +97,16 @@ export class Schedule implements OnInit {
   handleEventClick(e) {
     this.event = new MyEvent();
     this.event.title = e.calEvent.title;
-console.log('**',event)
     let start = e.calEvent.start;
     let end = e.calEvent.end;
-    if(e.view.name === 'month') {
-      start.stripTime();
-    }
 
+
+
+    if(start) {
+      this.event.start = start.format('llll');
+    }
     if(end) {
-      this.event.end = end.format();
+      this.event.end = end.format('llll');
     }
 
     this.event._id = e.calEvent._id;
@@ -116,8 +119,6 @@ console.log('**',event)
     this.event.color = e.calEvent.color;
     this.event.duration = e.calEvent.duration;
 
-    this.event.start = start.format();
-    // this.event.end = end.format();
 
     this.event.allDay = e.calEvent.allDay;
     this.dialogVisible = true;
@@ -127,7 +128,11 @@ console.log('**',event)
     //update
     if(this.event._id) {
       let index: number = this.findEventIndexById(this.event._id);
+
+
       if(index >= 0) {
+        this.event.start = this.date6.toISOString();
+        this.event.end = this.date7.toISOString();
         this.activityService.completeActivity(this.event)
           .subscribe();
         this.events[index] = this.event;
@@ -136,7 +141,9 @@ console.log('**',event)
     }
     //new
     else {
-
+      this.event.start = this.date6.toISOString();
+      this.event.end = this.date7.toISOString();
+      console.log('this.event',this.event)
       this.activityService.createActivity(this.event)
         .subscribe()
       this.event._id = this.idGen;
@@ -154,8 +161,7 @@ console.log('**',event)
   deleteEvent(e) {
 
     let index: number = this.findEventIndexById(this.event._id);
-    console.log('event id',this.event)
-    console.log('index',index)
+
     this.activityService.deleteActivity(this.event)
       .subscribe();
     if(index >= 0) {
@@ -188,7 +194,7 @@ export class MyEvent {
   relatedGoal: string
   color: string;
   start: string ;
-  end: number;
+  end: string;
   duration: string;
   allDay: boolean = false;
 }
