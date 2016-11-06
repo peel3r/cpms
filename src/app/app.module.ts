@@ -85,6 +85,7 @@ import {CalendarModule} from "primeng/components/calendar/calendar";
 import {InputTextareaModule} from "primeng/components/inputtextarea/inputtextarea";
 import {Schedule} from "./activity/shedule/schedule.component";
 import {DropdownModule} from "primeng/components/dropdown/dropdown";
+import {LightboxModule} from "primeng/components/lightbox/lightbox";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -174,6 +175,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     CalendarModule,
     InputTextareaModule,
     DropdownModule,
+    LightboxModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
