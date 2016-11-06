@@ -40,7 +40,9 @@ export class Schedule implements OnInit {
   USER_ID = window.localStorage.getItem('cpms_user_id')
   date: any;
   goals = []
-
+  date6:  Date;
+  minDate: Date;
+  maxDate: Date;
 
   colors: Array<string> = ['#B19C09', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
   duration = [5,10,15,20,30,45,60,90,120]
@@ -57,7 +59,6 @@ export class Schedule implements OnInit {
     this.activityService.getUserActivities(this.USER_ID)
       .subscribe(events => {this.events = events;
       })
-
     this.date = moment().toISOString();
 
     this.header = {
@@ -65,6 +66,16 @@ export class Schedule implements OnInit {
       center: 'title',
       right: 'month,agendaWeek,agendaDay'
     };
+
+
+    // let today = new Date();
+    // let month = today.getMonth();
+    // let prevMonth = (month === 0) ? 11 : month -1;
+    // let nextMonth = (month === 11) ? 0 : month + 1;
+    // this.minDate = new Date();
+    // this.minDate.setMonth(prevMonth);
+    // this.maxDate = new Date();
+    // this.maxDate.setMonth(nextMonth);
   }
 
   onColorSelect(color: string) {
@@ -75,7 +86,6 @@ export class Schedule implements OnInit {
     this.event = new MyEvent();
     this.event.start = event.date.format();
     this.event.end = event.date.format();
-
     this.dialogVisible = true;
 
     //trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
@@ -85,7 +95,7 @@ export class Schedule implements OnInit {
   handleEventClick(e) {
     this.event = new MyEvent();
     this.event.title = e.calEvent.title;
-
+console.log('**',event)
     let start = e.calEvent.start;
     let end = e.calEvent.end;
     if(e.view.name === 'month') {
@@ -93,7 +103,7 @@ export class Schedule implements OnInit {
     }
 
     if(end) {
-      end.stripTime();
+      this.event.end = end.format();
     }
 
     this.event._id = e.calEvent._id;
@@ -107,16 +117,13 @@ export class Schedule implements OnInit {
     this.event.duration = e.calEvent.duration;
 
     this.event.start = start.format();
-    this.event.end = start.format();
+    // this.event.end = end.format();
 
     this.event.allDay = e.calEvent.allDay;
     this.dialogVisible = true;
   }
 
   saveEvent() {
-    console.log('save event',this.event)
-
-
     //update
     if(this.event._id) {
       let index: number = this.findEventIndexById(this.event._id);
@@ -124,29 +131,24 @@ export class Schedule implements OnInit {
         this.activityService.completeActivity(this.event)
           .subscribe();
         this.events[index] = this.event;
-
       }
+
     }
     //new
     else {
+
       this.activityService.createActivity(this.event)
         .subscribe()
       this.event._id = this.idGen;
       this.events.push(this.event);
       this.event = null;
-
-
     }
-
     this.dialogVisible = false;
   }
 
   refresh() {
     this.activityService.getUserActivities(this.USER_ID)
-      .subscribe(events => {this.events = events;
-        console.log('events',this.events)
-
-      })
+      .subscribe( )
   }
 
   deleteEvent(e) {
@@ -185,8 +187,8 @@ export class MyEvent {
   comments: string;
   relatedGoal: string
   color: string;
-  duration?: string;
-  start: string;
-  end: string;
-  allDay: boolean = true;
+  start: string ;
+  end: number;
+  duration: string;
+  allDay: boolean = false;
 }

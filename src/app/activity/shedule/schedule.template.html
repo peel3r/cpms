@@ -82,14 +82,22 @@
       </select>
 
     </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="pain">Duration in min</label></div>
+      <div class="ui-grid-col-6"><label for="start">Current: <a style="background-color: white;">{{event.duration}}</a> change:</label></div>
 
+      <select
+        [(ngModel)]="event.duration" name="duration"
+        class="col-xs-2"
+
+      >
+        <option *ngFor="let p of duration" [ngValue]="p">{{p}}</option>
+      </select>
+
+    </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="comments">Comments</label></div>
       <div class="ui-grid-col-8"><textarea pInputTextArea id="comments" [(ngModel)]="event.comments" ></textarea></div>
-    </div>
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
-      <div class="ui-grid-col-8"><p-checkbox [(ngModel)]="event.allDay" binary="binary"></p-checkbox></div>
     </div>
   </div>
   <footer>
