@@ -131,7 +131,10 @@ export class Schedule implements OnInit {
 
 
       if(index >= 0) {
-        this.event.start = this.date6.toISOString();
+        if(this.date6) {
+          this.event.start = this.date6.toISOString();
+        }
+
         this.event.end = this.date7.toISOString();
         this.activityService.completeActivity(this.event)
           .subscribe();
@@ -143,7 +146,6 @@ export class Schedule implements OnInit {
     else {
       this.event.start = this.date6.toISOString();
       this.event.end = this.date7.toISOString();
-      console.log('this.event',this.event)
       this.activityService.createActivity(this.event)
         .subscribe()
       this.event._id = this.idGen;

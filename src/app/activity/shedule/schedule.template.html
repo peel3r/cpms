@@ -16,14 +16,10 @@
     </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="start">Start Date</label></div>
-      <div class="ui-grid-col-8"> <p-calendar name="startDate" [(ngModel)]="date6" [showTime]="true"></p-calendar></div>
+      <div class="ui-grid-col-8"> <p-calendar  name="startDate" [(ngModel)]="date6" [showTime]="true"></p-calendar></div>
     </div>
 
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-4">Actual End Date</div>
 
-      <div class="ui-grid-col-8"><label for="end"><a style="background-color: white;">{{event.end}}</a></label></div>
-    </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="end">End Date</label></div>
       <div class="ui-grid-col-8"><p-calendar name="end" [(ngModel)]="date7" [showTime]="true"></p-calendar></div>
