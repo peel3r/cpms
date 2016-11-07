@@ -1,28 +1,28 @@
-<p-schedule [events]="events" [header]="header" defaultDate="{{date}}" [eventLimit]="4" [editable]="true"
+<p-schedule [events]="events" [header]="header" defaultDate="{{date}}" [eventLimit]="4" [editable]="true" defaultView="agendaDay"
 
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
-
 <p-dialog header="Event Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
   <div class="ui-grid ui-grid-responsive ui-fluid"              [ngStyle]="{'background-color': event.color}"
         *ngIf="event">
+
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="vin">Title</label></div>
       <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
     </div>
     <div class="ui-grid-row">
-      <div class="ui-grid-col-4">Actual Start Date</div>
+      <div class="ui-grid-col-4">Date Set</div>
 
       <div class="ui-grid-col-8"><label for="start"><a style="background-color: white;"> {{event.start}}</a></label></div>
     </div>
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-4"><label for="start">Start Date</label></div>
-      <div class="ui-grid-col-8"> <p-calendar  name="startDate" [(ngModel)]="date6" [showTime]="true"></p-calendar></div>
-    </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-4"><label for="start">Start Date</label></div>
+        <div class="ui-grid-col-8"><p-calendar name="start"  [(ngModel)]="date6" [showTime]="true"></p-calendar></div>
+      </div>
 
 
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="end">End Date</label></div>
-      <div class="ui-grid-col-8"><p-calendar name="end" [(ngModel)]="date7" [showTime]="true"></p-calendar></div>
+      <div class="ui-grid-col-8"><p-calendar name="end"  [(ngModel)]="date7" [showTime]="true"></p-calendar></div>
     </div>
 
     <div class="ui-grid-row">
@@ -106,6 +106,7 @@
       <div class="ui-grid-col-8"><textarea pInputTextArea id="comments" [(ngModel)]="event.comments" ></textarea></div>
     </div>
   </div>
+
   <footer>
 
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
@@ -116,7 +117,8 @@
       >
       </color-picker>
       <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete"></button>
-      <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save"></button>
+      <button type="submit" pButton icon="fa-check" (click)="saveEvent()" label="Save"></button>
     </div>
   </footer>
+
 </p-dialog>

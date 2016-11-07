@@ -43,8 +43,6 @@ export class Schedule implements OnInit {
   date6:  Date;
   date7:  Date;
 
-  minDate: Date;
-  maxDate: Date;
 
   colors: Array<string> = ['#B19C09', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
   duration = [5,10,15,20,30,45,60,90,120]
@@ -68,16 +66,6 @@ export class Schedule implements OnInit {
       center: 'title',
       right: 'month,agendaWeek,agendaDay'
     };
-
-
-    // let today = new Date();
-    // let month = today.getMonth();
-    // let prevMonth = (month === 0) ? 11 : month -1;
-    // let nextMonth = (month === 11) ? 0 : month + 1;
-    // this.minDate = new Date();
-    // this.minDate.setMonth(prevMonth);
-    // this.maxDate = new Date();
-    // this.maxDate.setMonth(nextMonth);
   }
 
   onColorSelect(color: string) {
@@ -86,8 +74,8 @@ export class Schedule implements OnInit {
 
   handleDayClick(event) {
     this.event = new MyEvent();
-    this.event.start = event.date.format();
-    this.event.end = event.date.format();
+    this.event.start = event.date;
+    this.event.end = event.date;
     this.dialogVisible = true;
 
     //trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
@@ -131,11 +119,12 @@ export class Schedule implements OnInit {
 
 
       if(index >= 0) {
-        if(this.date6) {
+        if (this.date6) {
           this.event.start = this.date6.toISOString();
-        }
-
+      }
+      if (this.date7) {
         this.event.end = this.date7.toISOString();
+      }
         this.activityService.completeActivity(this.event)
           .subscribe();
         this.events[index] = this.event;
@@ -144,8 +133,16 @@ export class Schedule implements OnInit {
     }
     //new
     else {
-      this.event.start = this.date6.toISOString();
-      this.event.end = this.date7.toISOString();
+      if (!this.event.date6) {
+        this.event.start = this.date;
+      } else {
+        this.event.start = this.date6.toISOString();
+      }
+      if (!this.event.date7) {
+        this.event.end = this.date
+      } else {
+        this.event.end = this.date7.toISOString();
+      }
       this.activityService.createActivity(this.event)
         .subscribe()
       this.event._id = this.idGen;
@@ -198,5 +195,7 @@ export class MyEvent {
   start: string ;
   end: string;
   duration: string;
+  date6: string;
+  date7: string;
   allDay: boolean = false;
 }
