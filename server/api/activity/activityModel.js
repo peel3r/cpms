@@ -43,11 +43,11 @@ var ActivitySchema = new Schema({
     required: false
   },
   start: {
-    type: String,
+    type: Date,
     required: false
   },
   end: {
-    type: String,
+    type: Date,
     required: false
   },
 
