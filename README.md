@@ -1,10 +1,16 @@
 # about
-this is a pain assessment system where user can come and log his pain records
-user can see charts displaying pain mood and cognitive performance 
+this is a chronic pain management system where user can come and log his symptoms goals and activities in order to understand correlations between them. 
+user can see charts displaying pain mood and cognitive performance against daily activities
 [![Build Status](https://travis-ci.org/peel3r/cpms.svg?branch=master)](https://travis-ci.org/peel3r/cpms)
 #to do
 update readme file
 create articles for services
+add help button on goals and activities 
+revamp targets view
+add % of target completed for a day
+add remaining time to achieve daily target
+add more data about activity on the activities view
+
 
 new feature
 -----------
@@ -15,9 +21,9 @@ add quantitative chart for body parts pain
 ~~rearange show pain log~~
 add other types data recording services
 
-activity log
+~~activity log~~
 envelope log
-symptom log
+~~symptom log~~
 
 -------------
 ~~finish charts~~
