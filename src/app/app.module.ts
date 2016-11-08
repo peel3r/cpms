@@ -86,6 +86,8 @@ import {InputTextareaModule} from "primeng/components/inputtextarea/inputtextare
 import {Schedule} from "./activity/shedule/schedule.component";
 import {DropdownModule} from "primeng/components/dropdown/dropdown";
 import {LightboxModule} from "primeng/components/lightbox/lightbox";
+import {DataListModule} from "primeng/components/datalist/datalist";
+import {DataListDemo} from "./goal/activityList/activityList.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -143,7 +145,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     CreateActivity,
     ActivityCard,
     Activity,
-    Schedule
+    Schedule,
+    DataListDemo
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -176,6 +179,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     InputTextareaModule,
     DropdownModule,
     LightboxModule,
+    DataListModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
 
