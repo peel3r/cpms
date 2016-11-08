@@ -87,7 +87,7 @@ import {Schedule} from "./activity/shedule/schedule.component";
 import {DropdownModule} from "primeng/components/dropdown/dropdown";
 import {LightboxModule} from "primeng/components/lightbox/lightbox";
 import {DataListModule} from "primeng/components/datalist/datalist";
-import {DataListDemo} from "./goal/activityList/activityList.component";
+import {DataListDemo} from "./goal/activityList/goalList.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
