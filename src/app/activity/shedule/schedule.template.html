@@ -1,5 +1,6 @@
 <p-schedule [events]="events" [header]="header" defaultDate="{{date}}" [eventLimit]="4" [editable]="true" defaultView="agendaDay"
 
+
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
 <p-dialog header="Event Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
   <div class="ui-grid ui-grid-responsive ui-fluid"              [ngStyle]="{'background-color': event.color}"

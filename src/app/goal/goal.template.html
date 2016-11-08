@@ -24,63 +24,73 @@
         <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
 
         <hr>
-        <div class="row note-card ">
-          <div class="col-xs">
-            <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-              Title
+        <goal-list
+          [goals]="goals"
+        >
 
-            </div>
-          </div>
-          <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-            <div class="box">
-              Activity Type
+        </goal-list>
+        <!--<div class="row note-card ">-->
+          <!--<div class="col-xs">-->
+            <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+              <!--Title-->
 
-            </div>
-          </div>
-          <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-            <div class="box">
-              Duration
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+            <!--<div class="box">-->
+              <!--Activity Type-->
 
-            </div>
-          </div>
-          <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-            <div class="box">
-              Confidence L
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+            <!--<div class="box">-->
+              <!--Duration-->
 
-            </div>
-          </div>
-          <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-            <div class="box">
-              How Often
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+            <!--<div class="box">-->
+              <!--Confidence L-->
 
-            </div>
-          </div>
-          <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-            <div class="box">
-              When
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+            <!--<div class="box">-->
+              <!--How Often-->
 
-            </div>
-          </div>
-          <div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">
-            <div class="box">
-              Comments
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+            <!--<div class="box">-->
+              <!--When-->
 
-            </div>
-          </div>
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
+            <!--<div class="box">-->
+              <!--Comments-->
 
-        <div>
-          <div class="row"
-               *ngFor="let goal of goals; let i = index"
-               class="col-xs-12"
-               @fade>
-            <goal-card
-              [goal]="goal"
-              (checked)="onGoalChecked($event,i)"
-            >
-            </goal-card>
-          </div>
-        </div>
-      </div>
+            <!--</div>-->
+          <!--</div>-->
+
+        <!--<div>-->
+
+<!--<goal-list ></goal-list>-->
+          <!--<div class="row"-->
+               <!--*ngFor="let goal of goals; let i = index"-->
+               <!--class="col-xs-12"-->
+               <!--@fade>-->
+            <!--<goal-card-->
+              <!--[goal]="goal"-->
+              <!--[goals]="goals"-->
+              <!--(checked)="onGoalChecked($event,i)"-->
+            <!--&gt;-->
+            <!--</goal-card>-->
+
+
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
       </div>
     </div>
 
@@ -89,8 +99,12 @@
                 col-md-6
                 col-lg-6">
 
+<schedule
+></schedule>
+               <!--<activity-->
+               <!--&gt;-->
 
-               <activity></activity>
+               <!--</activity>-->
 
 
     </div>

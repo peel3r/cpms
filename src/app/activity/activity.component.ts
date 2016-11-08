@@ -5,7 +5,7 @@ import {
   style,
   animate,
   state,
-  transition } from '@angular/core';
+  transition, Input } from '@angular/core';
 import { ActivityService } from '../services'
 import { Router } from "@angular/router";
 import { XLarge } from './x-large';
@@ -31,6 +31,7 @@ import {ActivityCard} from "./activity-card.component";
 })
 
 export class Activity {
+
   activities = [];
   events: any[];
   header: any;

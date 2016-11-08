@@ -6,7 +6,7 @@ OnInit,
   style,
   animate,
   state,
-  transition } from '@angular/core';
+  transition, Input } from '@angular/core';
 import { ActivityService } from '../../services'
 import { Router } from "@angular/router";
 import { XLarge } from './x-large';
@@ -15,7 +15,6 @@ import 'rxjs/Rx'
 import {ChangeDetectorRef} from "@angular/core";
 import * as moment from 'moment'
 import {GoalService} from "../../services/goal.service";
-
 @Component({
   selector: 'schedule',
 
@@ -26,9 +25,8 @@ import {GoalService} from "../../services/goal.service";
 
 
 export class Schedule implements OnInit {
-
   events: any[];
-
+  goals =[]
   header: any;
 
   event: MyEvent;
@@ -39,12 +37,23 @@ export class Schedule implements OnInit {
 
   USER_ID = window.localStorage.getItem('cpms_user_id')
   date: any;
-  goals = []
+
+
   date6:  Date;
   date7:  Date;
 
-
-  colors: Array<string> = ['#B19C09', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
+  colors: Array<string> = [
+    '#06CA85',
+    '#07CAA6',
+    '#0ACAC9',
+    '#0DA7CA',
+    '#097CCA',
+    '#0C57CA',
+    '#9708CA',
+    '#BB04CA',
+    '#CA0AA4',
+    'white'
+  ];
   duration = [5,10,15,20,30,45,60,90,120]
   rating = [1,2,3,4,5,6,7,8,9,10]
 
@@ -88,7 +97,10 @@ export class Schedule implements OnInit {
     let start = e.calEvent.start;
     let end = e.calEvent.end;
 
-
+    this.goalService.getUserGoals(this.USER_ID)
+      .subscribe(res => {
+        this.goals = res
+      })
 
     if(start) {
       this.event.start = start.format('llll');
@@ -133,10 +145,11 @@ export class Schedule implements OnInit {
     }
     //new
     else {
-      if (!this.event.date6) {
-        this.event.start = this.date;
-      } else {
+      if (this.date6) {
         this.event.start = this.date6.toISOString();
+
+      } else {
+        this.event.start = this.date;
       }
       if (!this.event.date7) {
         this.event.end = this.date
@@ -150,11 +163,6 @@ export class Schedule implements OnInit {
       this.event = null;
     }
     this.dialogVisible = false;
-  }
-
-  refresh() {
-    this.activityService.getUserActivities(this.USER_ID)
-      .subscribe( )
   }
 
   deleteEvent(e) {

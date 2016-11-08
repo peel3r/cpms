@@ -27,6 +27,7 @@ export class GoalService {
       .map(goals => goals.filter(d => d.author._id === userId))
 
 
+
   }
 
   getGoal(id) {

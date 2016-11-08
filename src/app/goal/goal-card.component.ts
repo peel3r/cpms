@@ -37,7 +37,7 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
   `],
   template: `
 
-
+{{goals | json}}
 <div class="row shadow-1" 
      [ngStyle]="{'background-color': goal.color}"
      (mouseenter)="toggleCheck()"

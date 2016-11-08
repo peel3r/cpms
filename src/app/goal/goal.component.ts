@@ -12,7 +12,6 @@ import { XLarge } from './x-large';
 import { Store } from "../store";
 import 'rxjs/Rx'
 
-
 @Component({
   selector: 'goal',
   styleUrls: ['./goal.style.css'],
@@ -36,14 +35,12 @@ export class Goal {
   constructor(
     public goalService: GoalService,
     public router: Router,
-    private store: Store
+    private store: Store,
   ) {
     this.goalService.getUserGoals(this.USER_ID)
       .subscribe(res => {
         this.goals =  res
       })
-
-
 
     this.store.changes.pluck('goals')
       .subscribe();
@@ -53,12 +50,16 @@ export class Goal {
     },1000)
   }
 
-
   onCreateGoal(goal) {
     this.goalService.createGoal(goal)
       .subscribe(goal => {
         this.goals.push(goal)
       });
+    // this.goalService.getUserGoals(this.USER_ID)
+    //   .subscribe(res => {
+    //     this.goals =  res
+    //   })
+
   }
 
   onGoalChecked(goal,i) {
@@ -66,6 +67,7 @@ export class Goal {
     this.goalService.deleteGoal(goal)
       .subscribe();
     this.goals.splice(i, 1);
+
 
   }
 
