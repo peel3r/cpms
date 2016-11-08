@@ -6,13 +6,14 @@ user can see charts displaying pain mood and cognitive performance against daily
 update readme file
 create articles for services
 add help button on goals and activities 
-revamp targets view
+~~revamp targets view~~
 add % of target completed for a day
 add remaining time to achieve daily target
 add more data about activity on the activities view
 
 
 new feature
+think about dashboard service
 -----------
 ~~add esa assessment service~~
 ~~add pip assessment service - started~~
@@ -65,9 +66,7 @@ charts dashboard
 ~~dashboard with charts for all symptoms and pains~~
 
 ~~implement per user pain log~~
----------------------------
-**routes as**
-profile/user_id/diaries/diary_id ????
+
 
 # Angular2 Webpack Starter 
 
