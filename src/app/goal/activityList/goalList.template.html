@@ -2,17 +2,20 @@
   <header>
     List of Goals
   </header>
-  <template let-goal>
+  <template let-goal >
     <div class="ui-grid ui-grid-responsive ui-fluid"
          [ngStyle]="{'background-color': goal.color}"
          style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-2" style="text-align:center"><i class="fa fa-search" (click)="selectGoal(goal)" style="cursor:pointer;float:left;margin-top:40px"></i></div>
+      <div class="ui-grid-row"  >
+        <div class="ui-grid-col-2" style="text-align:center">
+          <i class="fa fa-search"  (click)="selectGoal(goal)" style="cursor:pointer;float:left;margin-top:40px"></i>
+          <i class="fa fa-trash-o"  (click)="deleteGoal(goal)" style="cursor:pointer;float:left;margin-top:40px"></i>
+        </div>
+
         <div class="ui-grid-col-9">
           <div class="ui-grid ui-grid-responsive ui-fluid">
             <div class="ui-grid-row">
-              <div class="ui-grid-col-8">Goal Name </div>
-              <div class="ui-grid-col-4">{{goal.title}}</div>
+              <div class="ui-grid-col-12"><h2>{{goal.title}}</h2></div>
             </div>
             <div class="ui-grid-row">
               <div class="ui-grid-col-8">Goal Type </div>
@@ -33,25 +36,54 @@
   </template>
 </p-dataList>
 
-<p-dialog header="Goal Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()">
-  <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="selectedGoal" style="font-size:15px;text-align:center;"
+<p-dialog header="Goal Details" [(visible)]="displayDialog" [minHeight]="300" [responsive]="true" [modal]="false"    showEffect="fade" (onAfterHide)="onDialogHide()">
+  <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="selectedGoal" style="font-size:15px;text-align:left;"
   >
     <div [ngStyle]="{'background-color': selectedGoal.color}">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">Name</div>
+        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.title}}" /></div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6" *ngIf="selectedGoal.howOften">How Often</div>
+        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.howOften}}" /></div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">When</div>
+        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.when}}" /></div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">Goal type</div>
+        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.type}}" /></div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-6" *ngIf="selectedGoal.confidenceLevel">Level of confidence</div>
+        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.confidenceLevel}}" /></div>
+      </div>
     <div class="ui-grid-row">
-      <div class="ui-grid-col-12" style="text-align:center"><i class="fa fa-check"></i></div>
+      <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">How Much</div>
+      <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.duration}}" /></div>
     </div>
     <div class="ui-grid-row">
-      <div class="ui-grid-col-8">Goal Name </div>
-      <div class="ui-grid-col-4">{{selectedGoal.title}}</div>
+      <div class="ui-grid-col-12" *ngIf="selectedGoal.comments">Comments</div>
+
     </div>
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-8">Duration</div>
-      <div class="ui-grid-col-4">{{selectedGoal.duration}}</div>
-    </div>
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-8">Comments</div>
-      <div class="ui-grid-col-4">{{selectedGoal.comments}}</div>
-    </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-4"><textarea pInputTextArea *ngIf="selectedGoal.comments" value="{{selectedGoal.comments}}"></textarea></div>
+      </div>
     </div>
   </div>
+  <footer>
+
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <color-picker
+        class="end-xs"
+        (selected)="onColorSelect($event)"
+        [colors]="colors"
+      >
+      </color-picker>
+      <button type="button" pButton icon="fa-close" (click)="deleteGoal(selectedGoal)" label="Delete"></button>
+      <!--<button type="submit" pButton icon="fa-check" (click)="saveGoal(selectedGoal)" label="Update"></button>-->
+    </div>
+  </footer>
 </p-dialog>
