@@ -36,6 +36,7 @@ export class GoalService {
 
   }
   completeGoal(goal: GoalList) {
+    console.log("goal",goal)
     return this.apiService.put(`${this.path}/${goal._id}`, goal)
       .do(res => this.storeHelper.findAndDelete('goals', res._id));
 
