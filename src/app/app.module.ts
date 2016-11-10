@@ -88,6 +88,8 @@ import {DropdownModule} from "primeng/components/dropdown/dropdown";
 import {LightboxModule} from "primeng/components/lightbox/lightbox";
 import {DataListModule} from "primeng/components/datalist/datalist";
 import {DataListDemo} from "./goal/activityList/goalList.component";
+import {Summary} from "./goal/summary/summary.component";
+import {ChartModule} from "primeng/components/chart/chart";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -146,7 +148,9 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     ActivityCard,
     Activity,
     Schedule,
-    DataListDemo
+    DataListDemo,
+    Summary,
+
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -164,6 +168,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdSlideToggleModule,
       MdProgressBarModule,
       MdTabsModule,
+      ChartModule,
     ],
     ShareButtonsModule,
     NavbarModule,
