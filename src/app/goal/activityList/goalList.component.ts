@@ -22,6 +22,7 @@ export class DataListDemo {
   @Input() goals = [];
   selectedGoal: Goal;
   updatedGoals = []
+
   displayDialog: boolean;
 
   constructor(private goalService: GoalService) { }
@@ -32,19 +33,45 @@ export class DataListDemo {
     this.displayDialog = !this.displayDialog;
   }
 
-
+  // handleEventClick(e) {
+  //   this.selectedGoal = new MyGoal();
+  //   this.selectedGoal.title = e.calEvent.title;
+  //   console.log('this goal title',this.selectedGoal.title)
+  //   // let start = e.calEvent.start;
+  //   // let end = e.calEvent.end;
+  //
+  //   // this.goalService.getUserGoals(this.USER_ID)
+  //   //   .subscribe(res => {
+  //   //     this.goals = res
+  //   //   })
+  //
+  //
+  //
+  //   this.selectedGoal._id = e.calEvent._id;
+  //   this.selectedGoal.howOften = e.calEvent.howOften;
+  //   this.selectedGoal.type = e.calEvent.type;
+  //   this.selectedGoal.when = e.calEvent.when;
+  //   this.selectedGoal.comments = e.calEvent.comments;
+  //   this.selectedGoal.duration = e.calEvent.duration;
+  //   this.selectedGoal.color = e.calEvent.color;
+  //   this.selectedGoal.confidenceLevel = e.calEvent.confidenceLevel;
+  //
+  //
+  //   this.displayDialog = true;
+  // }
 
   deleteGoal(goal,i) {
-    console.log(goal)
-    this.goals.splice(i, 1);
+    let index: number = this.findEventIndexById(goal._id);
+    this.goals.splice(index, 1);
 
     this.goalService.deleteGoal(goal)
       .subscribe()
-    // this.goalService.getUserGoals(this.USER_ID)
-    //   .subscribe(res => {
-    //     this.goals =  res.splice(i, 1);
-    //   })
-    this.displayDialog = !this.displayDialog;
+
+    this.displayDialog = false;
+
+  }
+  closeDialog() {
+    this.displayDialog = false;
 
   }
 
@@ -52,15 +79,29 @@ export class DataListDemo {
     this.selectedGoal = null;
   }
 
-  saveGoal(goal,i) {
-    //update
-    if(goal) {
-      console.log(goal)
-      this.goalService.completeGoal(goal)
-        .subscribe();
+  findEventIndexById(id: number) {
+    let index = -1;
+    for(let i = 0; i < this.goals.length; i++) {
+      if(id == this.goals[i]._id) {
+        index = i;
+        break;
+      }
     }
 
-    this.displayDialog = !this.displayDialog;
+    return index;
   }
+
+  // saveGoal(goal,i) {
+  //   console.log(goal)
+  //
+  //   //update
+  //   if(goal) {
+  //     console.log(goal)
+  //     this.goalService.completeGoal(goal)
+  //       .subscribe();
+  //   }
+  //
+  //   this.displayDialog = false;
+  // }
 }
 
