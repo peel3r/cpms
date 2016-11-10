@@ -109,6 +109,10 @@ export class Schedule implements OnInit {
       this.event.end = end.format('llll');
     }
 
+
+      this.event.duration = e.calEvent.duration
+
+
     this.event._id = e.calEvent._id;
     this.event.fatigue = e.calEvent.fatigue;
     this.event.pain = e.calEvent.pain;
@@ -117,7 +121,7 @@ export class Schedule implements OnInit {
     this.event.comments = e.calEvent.comments;
     this.event.relatedGoal = e.calEvent.relatedGoal;
     this.event.color = e.calEvent.color;
-    this.event.duration = e.calEvent.duration;
+
 
 
     this.event.allDay = e.calEvent.allDay;
@@ -202,7 +206,7 @@ export class MyEvent {
   color: string;
   start: string ;
   end: string;
-  duration: string;
+  duration: number;
   date6: string;
   date7: string;
   allDay: boolean = false;
