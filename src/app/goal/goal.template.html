@@ -5,7 +5,7 @@
     <div class="col-xs-12
                 col-sm-8
                 col-md-6
-                col-lg-6">
+                col-lg-3">
 
       <div class="box start-xs home-wrapper shadow-3">
         <button
@@ -29,68 +29,7 @@
         >
 
         </goal-list>
-        <!--<div class="row note-card ">-->
-          <!--<div class="col-xs">-->
-            <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-              <!--Title-->
 
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-            <!--<div class="box">-->
-              <!--Activity Type-->
-
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-            <!--<div class="box">-->
-              <!--Duration-->
-
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-            <!--<div class="box">-->
-              <!--Confidence L-->
-
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-            <!--<div class="box">-->
-              <!--How Often-->
-
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-            <!--<div class="box">-->
-              <!--When-->
-
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-xs start-xs" style="font-size: 10px; font-style: oblique">-->
-            <!--<div class="box">-->
-              <!--Comments-->
-
-            <!--</div>-->
-          <!--</div>-->
-
-        <!--<div>-->
-
-<!--<goal-list ></goal-list>-->
-          <!--<div class="row"-->
-               <!--*ngFor="let goal of goals; let i = index"-->
-               <!--class="col-xs-12"-->
-               <!--@fade>-->
-            <!--<goal-card-->
-              <!--[goal]="goal"-->
-              <!--[goals]="goals"-->
-              <!--(checked)="onGoalChecked($event,i)"-->
-            <!--&gt;-->
-            <!--</goal-card>-->
-
-
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</div>-->
-      <!--</div>-->
       </div>
     </div>
 
@@ -98,15 +37,29 @@
                 col-sm-8
                 col-md-6
                 col-lg-6">
+    <div class="box start-xs home-wrapper shadow-3">
+<!--<schedule-->
+<!--&gt;</schedule>-->
+               <activity
+               >
 
-<schedule
-></schedule>
-               <!--<activity-->
-               <!--&gt;-->
+               </activity>
 
-               <!--</activity>-->
+</div>
+    </div>
+    <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-3">
+      <div class="box start-xs home-wrapper shadow-3">
 
+        <summary
+          [goals]="goals"
+        >
 
+        </summary>
+
+      </div>
     </div>
   </div>
 </div>

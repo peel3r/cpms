@@ -25,6 +25,7 @@ export class GoalService {
   getUserGoals(userId) {
     return this.getGoals()
       .map(goals => goals.filter(d => d.author._id === userId))
+      .do(res => this.storeHelper.update('goals', res));
 
 
 
@@ -32,7 +33,8 @@ export class GoalService {
 
   getGoal(id) {
     return this.getGoals()
-      .map(goals => goals.find(d => d._id === id));
+      .map(goals => goals.find(d => d._id === id))
+      .do(res => this.storeHelper.update('goals', res));
 
   }
   completeGoal(goal: GoalList) {

@@ -29,6 +29,7 @@ import 'rxjs/Rx'
 
 export class Goal {
   goals = [];
+  goal = {}
   date = Date.now()
   USER_ID = window.localStorage.getItem('cpms_user_id')
   onLeave: boolean  = true
@@ -39,12 +40,12 @@ export class Goal {
   ) {
     this.goalService.getUserGoals(this.USER_ID)
       .subscribe(res => {
-        this.goals =  res
+        return this.goals =  res
       })
 
     this.store.changes.pluck('goals')
       .subscribe();
-
+console.log(this.goals)
     setTimeout(() => {
       this.toggle()
     },1000)

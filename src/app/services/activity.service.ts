@@ -30,13 +30,17 @@ export class ActivityService {
   getUserActivities(userId) {
     return this.getActivities()
       .map(activities => activities.filter(d => d.author._id === userId))
+      .do(res => this.storeHelper.update('activities', res));
+
 
 
   }
 
   getActivity(id) {
     return this.getActivities()
-      .map(activities => activities.find(d => d._id === id));
+      .map(activities => activities.find(d => d._id === id))
+      .do(res => this.storeHelper.update('activities', res));
+
 
   }
   completeActivity(activity: ActivityList) {
