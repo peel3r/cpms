@@ -90,6 +90,7 @@ import {DataListModule} from "primeng/components/datalist/datalist";
 import {DataListDemo} from "./goal/activityList/goalList.component";
 import {Summary} from "./goal/summary/summary.component";
 import {ChartModule} from "primeng/components/chart/chart";
+import {SummaryChartComponent} from "./goal/summary/charts/chart.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -150,6 +151,7 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Schedule,
     DataListDemo,
     Summary,
+    SummaryChartComponent
 
   ],
   imports: [ // import Angular's modules
