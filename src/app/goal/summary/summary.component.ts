@@ -35,32 +35,7 @@ export class Summary {
     private activityService: ActivityService,
     private store: Store
   ) {
-
-
-    // this.activityService.getUserActivities(this.USER_ID)
-    //
-    //   .subscribe(activities => {
-    //
-    //     this.activities = activities.length
-    //
-    //   });
-    //
-    // this.goalService.getUserGoals(this.USER_ID)
-    //   .subscribe(res => this.goals = res.length)
-
   }
-
-
-
-
-// ngOnChanges() {
-//   this.goalService.getUserGoals(this.USER_ID)
-//     .subscribe(res => {
-//       if (this.goals !== this.goalsUpdated) {
-//         this.goalsUpdated = res
-//       }
-//     });
-// }
 
 
 
@@ -72,7 +47,7 @@ console.log(this.goals)
       datasets: [
         {
 
-          data: [this.activities.length,this.goals.length],
+          data: [1,2],
           backgroundColor: [
             "#FF6384",
             "#36A2EB"
