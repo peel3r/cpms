@@ -45,7 +45,6 @@ export class Goal {
 
     this.store.changes.pluck('goals')
       .subscribe();
-console.log(this.goals)
     setTimeout(() => {
       this.toggle()
     },1000)
@@ -56,11 +55,6 @@ console.log(this.goals)
       .subscribe(goal => {
         this.goals.push(goal)
       });
-    // this.goalService.getUserGoals(this.USER_ID)
-    //   .subscribe(res => {
-    //     this.goals =  res
-    //   })
-
   }
 
   onGoalChecked(goal,i) {
@@ -68,8 +62,6 @@ console.log(this.goals)
     this.goalService.deleteGoal(goal)
       .subscribe();
     this.goals.splice(i, 1);
-
-
   }
 
   onBackGoalChecked(goal,i) {
@@ -79,8 +71,6 @@ console.log(this.goals)
     this.goals.push(i, 1);
 
   }
-
-
 
   toggle() {
     this.onLeave = !this.onLeave;

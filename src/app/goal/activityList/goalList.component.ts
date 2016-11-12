@@ -33,32 +33,6 @@ export class DataListDemo {
     this.displayDialog = !this.displayDialog;
   }
 
-  // handleEventClick(e) {
-  //   this.selectedGoal = new MyGoal();
-  //   this.selectedGoal.title = e.calEvent.title;
-  //   console.log('this goal title',this.selectedGoal.title)
-  //   // let start = e.calEvent.start;
-  //   // let end = e.calEvent.end;
-  //
-  //   // this.goalService.getUserGoals(this.USER_ID)
-  //   //   .subscribe(res => {
-  //   //     this.goals = res
-  //   //   })
-  //
-  //
-  //
-  //   this.selectedGoal._id = e.calEvent._id;
-  //   this.selectedGoal.howOften = e.calEvent.howOften;
-  //   this.selectedGoal.type = e.calEvent.type;
-  //   this.selectedGoal.when = e.calEvent.when;
-  //   this.selectedGoal.comments = e.calEvent.comments;
-  //   this.selectedGoal.duration = e.calEvent.duration;
-  //   this.selectedGoal.color = e.calEvent.color;
-  //   this.selectedGoal.confidenceLevel = e.calEvent.confidenceLevel;
-  //
-  //
-  //   this.displayDialog = true;
-  // }
 
   deleteGoal(goal,i) {
     let index: number = this.findEventIndexById(goal._id);
