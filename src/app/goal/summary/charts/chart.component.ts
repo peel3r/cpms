@@ -73,8 +73,10 @@ export class SummaryChartComponent {
             },0)
 
           })
-
         this.x.push(this.z)
+        this.z = 0
+        this.goalActivityDurations = []
+
 
         console.log('activity duration',this.x)
 
@@ -89,7 +91,7 @@ export class SummaryChartComponent {
 
   };
   public barChartLabels:string[] = this.dateCount;
-  public barChartType:string = 'bar';
+  public barChartType:string = 'line';
   public barChartLegend:boolean = true;
 
   public barChartData:any = [
