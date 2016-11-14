@@ -74,7 +74,7 @@ export class SummaryChartComponent {
 
           })
         this.x.push(this.z)
-        this.z = 0
+        this.z = [0]
         this.goalActivityDurations = []
 
 
