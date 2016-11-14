@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {DiaryService} from '../../services'
 import {ActivityService} from "../../../services/activity.service";
 import {GoalService} from "../../../services/goal.service";
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'summary-chart',
@@ -26,103 +27,74 @@ export class SummaryChartComponent {
 
   x = []
   y =[]
+  z = []
+  goalActivityDurations = []
   constructor( private activityService: ActivityService,
                private goalService: GoalService) {
 
   }
 
   ngOnInit() {
+    // Uses Observable.forkJoin() to run multiple concurrent http.get() requests.
+    // The entire operation will result in an error state if any single request fails.
+    Observable.forkJoin(
+      this.goalService.getUserGoals(this.user_id),
 
+      this.activityService.getUserActivities(this.user_id)
 
-      // .subscribe(res => this.activities = res)
+    ).map(data => {
+      this.activities = data[1]
+      this.goals = data[0]
 
-    this.goalService.getUserGoals(this.user_id)
-      .map(goals => {
-        this.goals = goals
+      this.goals.forEach((goal,index) => {
+        this.goalsS.push(+goal.duration)
+        this.y.push(+goal.duration)
+        console.log('goals duration',this.y)
+        this.dateCount.push(goal.title);
+
+        this.goalActivities.push(this.activities.filter(( activity, i ) => activity.relatedGoal === this.goals[index].title))
       })
-      .subscribe()
+        console.log('goal activities', this.goalActivities)
+      this.goalActivities.forEach((goalActivity,i) => {
+        console.log('goal activity', goalActivity)
 
-    this.activityService.getUserActivities(this.user_id)
-      .map(activities => {
-        this.activities = activities
+          goalActivity.forEach((duration, i) => {
 
 
-        this.goals.forEach((goal,index) => {
-          this.goalsS.push(+goal.duration)
-          this.y.push(+goal.duration)
-          this.goalActivities.push(this.activities.filter((activity,i) => activity.relatedGoal === this.goals[index].title))
-  console.log('goal activities',this.goalActivities)
 
-          //sums goal activities duration times
+            this.goalActivityDurations.push(+duration.duration)
+            console.log('durations',this.goalActivityDurations)
+            this.goalActivitiesDuration = this.goalActivityDurations.reduce((prev, cur) => {
 
-        })
+              this.z = (prev + cur);
 
-        this.goalActivities.forEach((goalActivity, i) => {
-          this.goalActivitiesDuration = goalActivity.reduce((prev,cur) => {
+              return this.z
 
-            this.x.push(+prev.duration + +cur.duration)
-            console.log('cur',this.y)
-
-            // console.log('....',+prev[i].duration + +cur[i].duration)
+            },0)
 
           })
-        })
-        console.log('goals',this.goalsS)
 
-        // this.goals.forEach(goal => {
-        //   // console.log('goal',goal)
-        //   this.activities.forEach(activity => {
-        //     if(goal.title === activity.relatedGoal) {
-        //       this.goalActivities.push([activity,goal]
-        //       )
-        //
-        //
-        //       // console.log('goalactivities',this.goalActivities)
-        //
-        //     }
-        //
-        //     // for (var index = 0; index < this.goalActivities.length; index++){
-        //     //   this.goalActivities[index]
-        //     //   console.log(this.goalActivities[index][1])
-        //     //
-        //     // }
-        //
-        //   })
-        //
-        // })
-        console.log(';',this.goalsS)
+        this.x.push(this.z)
+
+        console.log('activity duration',this.x)
+
       })
-      .subscribe()
 
-    setTimeout(() => {
+    }).subscribe( );
 
-      // this.randomize()
-    }, 1000);
   }
-
-
-
-  // findEventIndexByRelatedGoal(title: string) {
-  //   for (let i = 0; i < this.activities.length; i++) {
-  //     if (title == this.activities[i].relatedGoal) {
-  //       this.dailyActivities.push(this.activities[i].relatedGoal)
-  //       break;
-  //     }
-  //   }
-  // }
-
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true
 
   };
-  public barChartLabels:string[] = this.goalsS;
-  public barChartType:string = 'line';
+  public barChartLabels:string[] = this.dateCount;
+  public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
 
   public barChartData:any = [
-    {data: [30,23], label: 'Goals'},
-    {data: [45,11], label: 'Activities'},
+    {data: this.y, label: 'Target'},
+    {data: this.x, label: 'Achieved'},
   ];
 
   // events
@@ -136,11 +108,23 @@ export class SummaryChartComponent {
 
   public randomize() {
     // Only Change 3 values
-    let data = this.x;
+    let data = this.y;
     let clone = JSON.parse(JSON.stringify(this.barChartData));
     clone[0].data = data;
     this.barChartData = clone;
 
   }
+
+
+  // findEventIndexByRelatedGoal(title: string) {
+  //   for (let i = 0; i < this.activities.length; i++) {
+  //     if (title == this.activities[i].relatedGoal) {
+  //       this.dailyActivities.push(this.activities[i].relatedGoal)
+  //       break;
+  //     }
+  //   }
+  // }
+
+
 }
 
