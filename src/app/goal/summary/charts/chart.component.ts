@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {DiaryService} from '../../services'
 import {ActivityService} from "../../../services/activity.service";
 import {GoalService} from "../../../services/goal.service";
 import {Observable} from 'rxjs/Rx';
+import {NgZone} from "@angular/core";
 
 @Component({
   selector: 'summary-chart',
@@ -10,13 +11,11 @@ import {Observable} from 'rxjs/Rx';
 })
 export class SummaryChartComponent {
 
-  goals = []
+  @Input() goals = []
   goalsS = []
 
-  activities = []
-  goalsLength = []
-  activitiesLength = []
-  dateCount = []
+  @Input() activities = []
+  dateCount = this.goals
   user_id = window.localStorage.getItem('cpms_user_id')
 
   dailyActivities = []
@@ -30,21 +29,28 @@ export class SummaryChartComponent {
   z = []
   goalActivityDurations = []
   constructor( private activityService: ActivityService,
-               private goalService: GoalService) {
+               private goalService: GoalService,
+               private zone:NgZone
+  ) {
+    setTimeout(() => {
+      this.randomize()
+    }, 1000);
 
   }
 
   ngOnInit() {
     // Uses Observable.forkJoin() to run multiple concurrent http.get() requests.
     // The entire operation will result in an error state if any single request fails.
+    this.goals = []
+
+
     Observable.forkJoin(
-      this.goalService.getUserGoals(this.user_id),
 
       this.activityService.getUserActivities(this.user_id)
 
     ).map(data => {
-      this.activities = data[1]
-      this.goals = data[0]
+      this.activities = data[0]
+
 
       this.goals.forEach((goal,index) => {
         this.goalsS.push(+goal.duration)
@@ -56,11 +62,7 @@ export class SummaryChartComponent {
       })
         console.log('goal activities', this.goalActivities)
       this.goalActivities.forEach((goalActivity,i) => {
-        console.log('goal activity', goalActivity)
-
           goalActivity.forEach((duration, i) => {
-
-
 
             this.goalActivityDurations.push(+duration.duration)
             console.log('durations',this.goalActivityDurations)
@@ -74,8 +76,8 @@ export class SummaryChartComponent {
 
           })
         this.x.push(this.z)
-        this.z = [0];
-        this.goalActivityDurations = [];
+        this.z = [0]
+        this.goalActivityDurations = []
 
 
         console.log('activity duration',this.x)
@@ -115,17 +117,10 @@ export class SummaryChartComponent {
     clone[0].data = data;
     this.barChartData = clone;
 
+
+
+
   }
-
-
-  // findEventIndexByRelatedGoal(title: string) {
-  //   for (let i = 0; i < this.activities.length; i++) {
-  //     if (title == this.activities[i].relatedGoal) {
-  //       this.dailyActivities.push(this.activities[i].relatedGoal)
-  //       break;
-  //     }
-  //   }
-  // }
 
 
 }
