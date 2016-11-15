@@ -12,7 +12,15 @@ import {Router} from "@angular/router";
 export class CreateGoal {
   @Output() createGoal = new EventEmitter();
 
-  colors: Array<string> = ['#B19CD9', '#FF6961', '#77DD77', '#AEC6CF', '#F49AC2', 'white'];
+  colors: Array<string> = [
+    '#06CA85',
+    '#0ACAC9',
+    '#0DA7CA',
+    '#097CCA',
+    '#BB04CA',
+    '#CA0AA4',
+    'white'
+  ];
   goalTypes = ['physical activity', 'mental activity', 'social activity'];
   duration = ['5','10','15','20','30','45','60','90','120']
   howOften = ['every day', 'every two days','twice a week', 'once a week', 'every fortnight'  ]
