@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 import { XLarge } from './x-large';
 import { Store } from "../store";
 import 'rxjs/Rx'
+import {ActivityService} from "../services/activity.service";
 
 @Component({
   selector: 'goal',
@@ -28,16 +29,23 @@ import 'rxjs/Rx'
 })
 
 export class Goal {
+
   goals = [];
+  activities = []
   goal = {}
   date = Date.now()
   USER_ID = window.localStorage.getItem('cpms_user_id')
   onLeave: boolean  = true
   constructor(
     public goalService: GoalService,
+    public activityService: ActivityService,
     public router: Router,
     private store: Store,
   ) {
+    this.activityService.getUserActivities(this.USER_ID)
+      .subscribe(res => {
+        return this.activities =  res
+      })
     this.goalService.getUserGoals(this.USER_ID)
       .subscribe(res => {
         return this.goals =  res
@@ -79,5 +87,7 @@ export class Goal {
   toUserProfile(): void {
     this.router.navigate(['','users', this.USER_ID]);
   }
+
+
 
 }
