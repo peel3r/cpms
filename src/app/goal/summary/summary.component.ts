@@ -12,7 +12,7 @@ achievedWeeklyTarget = weeklyActivityDuration / weeklyGoalDuration
 
  */
 
-import { Component , Input} from '@angular/core';
+import { Component , ViewChild, Input} from '@angular/core';
 import { Store } from '../../store';
 import {GoalService} from "../../services/goal.service";
 import {ActivityService} from "../../services/activity.service";
@@ -24,9 +24,10 @@ import {ActivityService} from "../../services/activity.service";
 })
 
 export class Summary {
-  @Input() goals;
+  @Input() goals = []
+  @Input() activities = []
+
   goalsUpdated = []
-  activities = []
   USER_ID = window.localStorage.getItem('cpms_user_id')
   data: any;
 
@@ -35,33 +36,7 @@ export class Summary {
     private activityService: ActivityService,
     private store: Store
   ) {
+
   }
-
-
-
-
-  ngOnInit() {
-console.log(this.goals)
-    this.data = {
-      labels: ['Weekly Goals Target','Activities Duration'],
-      datasets: [
-        {
-
-          data: [1,2],
-          backgroundColor: [
-            "#FF6384",
-            "#36A2EB"
-          ],
-          hoverBackgroundColor: [
-            "#FF6384",
-            "#36A2EB"
-          ]
-        }]
-    }
-    console.log('hello `Article` component');
-    // this.title.getData().subscribe(data => this.data = data);
-  }
-
-
 }
 
