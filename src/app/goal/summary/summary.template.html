@@ -1,3 +1,6 @@
 <!--<p-chart type="doughnut" [data]="data"></p-chart>-->
-{{goals.length}}
-<summary-chart></summary-chart>
+{{goals.length}}|{{activities.length}}
+<summary-chart
+[goals]="goals"
+[activities]="activities"
+></summary-chart>
