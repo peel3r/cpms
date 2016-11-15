@@ -6,7 +6,7 @@ OnInit,
   style,
   animate,
   state,
-  transition, Input } from '@angular/core';
+  transition, Input, ViewChild } from '@angular/core';
 import { ActivityService } from '../../services'
 import { Router } from "@angular/router";
 import { XLarge } from './x-large';
@@ -15,6 +15,7 @@ import 'rxjs/Rx'
 import {ChangeDetectorRef} from "@angular/core";
 import * as moment from 'moment'
 import {GoalService} from "../../services/goal.service";
+import {SummaryChartComponent} from "../../goal/summary/charts/chart.component";
 @Component({
   selector: 'schedule',
 
@@ -38,18 +39,14 @@ export class Schedule implements OnInit {
   USER_ID = window.localStorage.getItem('cpms_user_id')
   date: any;
 
-
   date6:  Date;
   date7:  Date;
 
   colors: Array<string> = [
     '#06CA85',
-    '#07CAA6',
     '#0ACAC9',
     '#0DA7CA',
     '#097CCA',
-    '#0C57CA',
-    '#9708CA',
     '#BB04CA',
     '#CA0AA4',
     'white'
@@ -110,7 +107,7 @@ export class Schedule implements OnInit {
     }
 
 
-      this.event.duration = e.calEvent.duration
+    this.event.duration = e.calEvent.duration
 
 
     this.event._id = e.calEvent._id;
@@ -167,6 +164,7 @@ export class Schedule implements OnInit {
       this.event = null;
     }
     this.dialogVisible = false;
+
   }
 
   deleteEvent(e) {
@@ -189,7 +187,6 @@ export class Schedule implements OnInit {
         break;
       }
     }
-
     return index;
   }
 }
