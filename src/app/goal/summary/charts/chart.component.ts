@@ -66,7 +66,7 @@ export class SummaryChartComponent {
             console.log('durations',this.goalActivityDurations)
             this.goalActivitiesDuration = this.goalActivityDurations.reduce((prev, cur) => {
 
-              this.z = (prev + cur);
+              this.z = (prev + cur/this.goalActivityDurations.length);
 
               return this.z
 
@@ -74,8 +74,8 @@ export class SummaryChartComponent {
 
           })
         this.x.push(this.z)
-        this.z = [0]
-        this.goalActivityDurations = []
+        this.z = [0];
+        this.goalActivityDurations = [];
 
 
         console.log('activity duration',this.x)
