@@ -2,7 +2,7 @@
 
 
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
-<p-dialog header="Event Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
+<p-dialog header="Activity Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
   <div class="ui-grid ui-grid-responsive ui-fluid"              [ngStyle]="{'background-color': event.color}"
         *ngIf="event">
 
@@ -117,7 +117,7 @@
         [colors]="colors"
       >
       </color-picker>
-      <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete"></button>
+      <button type="button" pButton icon="fa-close"  (click)="deleteEvent()" label="Delete"></button>
       <button type="submit" pButton icon="fa-check" (click)="saveEvent()" label="Save"></button>
     </div>
   </footer>
