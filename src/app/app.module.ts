@@ -91,6 +91,10 @@ import {DataListDemo} from "./goal/activityList/goalList.component";
 import {Summary} from "./goal/summary/summary.component";
 import {ChartModule} from "primeng/components/chart/chart";
 import {SummaryChartComponent} from "./goal/summary/charts/chart.component";
+import {SharedModule} from "primeng/components/common/shared";
+import {EditorModule} from "primeng/components/editor/editor";
+import {ArticleList} from "./article/article-list.module";
+import {ShowArticle} from "./article/showArticle..component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -151,14 +155,16 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Schedule,
     DataListDemo,
     Summary,
-    SummaryChartComponent
+    SummaryChartComponent,
+    ArticleList,
+    ShowArticle
+
 
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-
     [
       MdButtonModule,
       MdCardModule,
@@ -171,6 +177,8 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
       MdProgressBarModule,
       MdTabsModule,
       ChartModule,
+      EditorModule,
+      SharedModule
     ],
     ShareButtonsModule,
     NavbarModule,
