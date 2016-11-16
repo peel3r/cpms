@@ -1,0 +1,71 @@
+<div  class="card-container">
+<div class="row shadow-3 center-xs" >
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-8">
+        <div class="box start-xs home-wrapper shadow-2"style="margin-bottom: 40px" >
+
+        <div class="row note-card" style="margin-bottom: 40px">
+         <button
+           color="accent"
+           md-raised-button
+           (click)='onBack()'
+           class="shadow-1"
+         >
+           Back
+
+         </button>
+        <button
+          md-raised-button
+          (click)='onBack()'
+          class="shadow-1"
+        >
+          Article List
+
+        </button>
+
+        <button
+          md-raised-button
+          (click)='toUserProfile()'
+          class="shadow-1"
+        >
+          Profile
+
+        </button>
+
+       </div>
+
+
+        <div>
+          <div>{{article.title}}</div>
+          <div [innerHTML]="article.text">
+          {{article.text}}
+          </div>
+        </div>
+      </div>
+
+</div>
+
+      <div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4">
+
+
+
+
+        </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
