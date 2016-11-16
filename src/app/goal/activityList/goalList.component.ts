@@ -44,14 +44,6 @@ export class DataListDemo {
     this.displayDialog = false;
 
   }
-  closeDialog() {
-    this.displayDialog = false;
-
-  }
-
-  onDialogHide() {
-    this.selectedGoal = null;
-  }
 
   findEventIndexById(id: number) {
     let index = -1;
@@ -64,6 +56,18 @@ export class DataListDemo {
 
     return index;
   }
+
+
+  closeDialog() {
+    this.displayDialog = false;
+
+  }
+
+  onDialogHide() {
+    this.selectedGoal = null;
+  }
+
+
 
   // saveGoal(goal,i) {
   //   console.log(goal)

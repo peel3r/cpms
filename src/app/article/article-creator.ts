@@ -31,19 +31,20 @@ import {  Component,
           placeholder="Title"
           class="col-xs-10 title"
         >
-        <input
-          type="text"
-          [(ngModel)]="newArticle.text"
-          name="newArticleValue"
-          placeholder="Write new article"
-          class="col-xs-10 tinyMCE"
-        >
+        <p-editor [(ngModel)]="newArticle.text" name="newArticleValue" [style]="{'height':'320px'}" toolbar="true" link-tooltip="true" image-tooltip="false" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error"></p-editor>
+
+
+<hr style="border-top:0px;border-color:#dde3e6">
+
+
+
+
         <div class="actions col-xs-12 row between-xs">
-          <button
+        <button pButton type="button" label="Clear" icon="fa-close" (click)="text2=null"></button>
+
+          <button pButton type="button" label="Submit" icon="fa-close"
             type="submit"
-            class="btn-light"
            >
-            Done
           </button>
         </div>
       </form>
@@ -61,23 +62,23 @@ export class ArticleCreator implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     console.log('id', this.elementId)
 
-    tinymce.init({
-      selector: ".tinyMCE",
-      plugins: ['link', 'paste', 'table', 'image'],
-      skin_url: 'assets/skins/lightgray',
-      setup: editor => {
-        this.editor = editor;
-        editor.on('keyup', () => {
-          this.newArticle.text = editor.getContent();
-          this.onEditorKeyup.emit(this.newArticle.text);
-
-        });
-      },
-    });
+    // tinymce.init({
+    //   selector: ".tinyMCE",
+    //   plugins: ['link', 'paste', 'table', 'image'],
+    //   skin_url: 'assets/skins/lightgray',
+    //   setup: editor => {
+    //     this.editor = editor;
+    //     editor.on('keyup', () => {
+    //       this.newArticle.text = editor.getContent();
+    //       this.onEditorKeyup.emit(this.newArticle.text);
+    //
+    //     });
+    //   },
+    // });
   }
 
   ngOnDestroy() {
-    tinymce.remove(this.editor);
+    // tinymce.remove(this.editor);
   }
 
   newArticle = {
