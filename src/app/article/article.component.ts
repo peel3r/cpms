@@ -34,7 +34,7 @@ export class Article {
   }
 
   onArticleDeleted(article) {
-    this.articleService.completeArticle(article)
+    this.articleService.deleteArticle(article)
       .subscribe();
   }
 
