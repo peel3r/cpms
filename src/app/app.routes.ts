@@ -22,6 +22,8 @@ import {EsaCreator} from "./esa/esa-creator";
 import {Pip} from "./pip/pip.component";
 import {Goal} from "./goal/goal.component";
 import {Activity} from "./activity/activity.component";
+import {ArticleList} from "./article/article-list.module";
+import {ShowArticle} from "./article/showArticle..component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -30,8 +32,11 @@ export const ROUTES: Routes = [
   {
     path: 'detail', loadChildren: () => System.import('./+detail')
   },
-  { path: 'articles',  component: Article , canActivate:[AuthService]},
-  { path: 'articles/new', component: NewArticle , canActivate:[AuthService]},
+  { path: 'articles',  component: ArticleList , canActivate:[AuthService]},
+  { path: 'articles',  component: ArticleList , canActivate:[AuthService]},
+  { path: 'articles/:id',  component: ShowArticle , canActivate:[AuthService]},
+
+  { path: 'article/new', component: NewArticle , canActivate:[AuthService]},
 
   { path: 'goals',  component: Goal , canActivate:[AuthService]},
   { path: 'activities',  component: Activity , canActivate:[AuthService]},
