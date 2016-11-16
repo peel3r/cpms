@@ -21,9 +21,15 @@ export class ArticleService {
     return this.apiService.get(this.path)
       .do(res => this.storeHelper.update('articles', res));
   }
+  getArticle(id) {
+    return this.getArticles()
+      .map(articles => articles.find(a => a._id === id));
 
-  completeArticle(article) {
-    return this.apiService.delete(`${this.path}/${article.id}`)
-      .do(res => this.storeHelper.findAndDelete('articles', res.id));
+  }
+
+  deleteArticle(article) {
+    console.log(article)
+    return this.apiService.delete(`${this.path}/${article._id}`)
+      .do(res => this.storeHelper.findAndDelete('articles', res._id));
   }
 }
