@@ -11,6 +11,7 @@ import 'rxjs/Rx'
 import {GoalService} from "../../services/goal.service";
 import {Goal} from "../goal.component";
 import {EventEmitter} from "@angular/core";
+import {GoalList} from "../../store";
 
 @Component({
   selector: 'goal-list',
@@ -20,8 +21,9 @@ import {EventEmitter} from "@angular/core";
 export class DataListDemo {
   USER_ID = window.localStorage.getItem('cpms_user_id')
   @Input() goals = [];
-  selectedGoal: Goal;
+  selectedGoal: MyEvent;
   updatedGoals = []
+  event: MyEvent;
 
   displayDialog: boolean;
 
@@ -34,6 +36,7 @@ export class DataListDemo {
   }
 
 
+
   deleteGoal(goal,i) {
     let index: number = this.findEventIndexById(goal._id);
     this.goals.splice(index, 1);
@@ -41,8 +44,8 @@ export class DataListDemo {
     this.goalService.deleteGoal(goal)
       .subscribe()
 
-    this.displayDialog = false;
 
+    this.displayDialog = false;
   }
 
   findEventIndexById(id: number) {
@@ -58,8 +61,21 @@ export class DataListDemo {
   }
 
 
+
+  saveEvent() {
+    //update
+
+        this.goalService.completeGoal(this.selectedGoal)
+          .subscribe();
+
+
+    this.displayDialog = false;
+
+  }
+
   closeDialog() {
     this.displayDialog = false;
+
 
   }
 
@@ -83,3 +99,18 @@ export class DataListDemo {
   // }
 }
 
+export class MyEvent {
+  title: string
+  type: string
+  color?: string
+  duration?: string
+  howOften?: string
+  when?: string
+  comments?: string
+  confidenceLevel?: string
+  done: boolean
+  _id?: number
+  createdAt?: string
+  updatedAt?: string
+  userId?: string
+}
