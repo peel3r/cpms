@@ -31,7 +31,7 @@ import {ActivityCard} from "./activity-card.component";
 })
 
 export class Activity {
-
+  @Input() goals = []
   activities = [];
   events: any[];
   header: any;
@@ -58,7 +58,7 @@ export class Activity {
 
     this.store.changes.pluck('activities')
       .subscribe();
-
+console.log('::::2', this.goals)
     setTimeout(() => {
       this.toggle()
     },1000)

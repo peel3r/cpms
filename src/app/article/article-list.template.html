@@ -14,7 +14,7 @@
                 col-lg-6">
         <p-dataList [value]="articles" [paginator]="true" [rows]="5">
           <header>
-            Articles List
+            Reading List
           </header>
           <template let-article >
             <div class="ui-grid ui-grid-responsive ui-fluid"
@@ -29,7 +29,7 @@
                   <div class="ui-grid ui-grid-responsive ui-fluid">
                     <div class="ui-grid-row">
                       <div class="ui-grid-col-12"
-                           [routerLink]=" ['','articles', article._id]">
+                           [routerLink]=" ['','articles', article._id]" style="cursor:pointer;">
                         <h2><i class="fa fa-search" aria-hidden="true"></i>
                           {{article.title}}
                         </h2>

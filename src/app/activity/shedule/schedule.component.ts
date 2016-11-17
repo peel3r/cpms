@@ -26,8 +26,10 @@ import {SummaryChartComponent} from "../../goal/summary/charts/chart.component";
 
 
 export class Schedule implements OnInit {
+
+  @Input() activities = []
   events: any[];
-  goals =[]
+  @Input() goals =[]
   header: any;
 
   event: MyEvent;
@@ -55,10 +57,12 @@ export class Schedule implements OnInit {
   rating = [1,2,3,4,5,6,7,8,9,10]
 
   constructor(private activityService: ActivityService, private cd: ChangeDetectorRef, private goalService: GoalService) {
-    this.goalService.getUserGoals(this.USER_ID)
-      .subscribe(res => {
-        this.goals = res
-      })
+    console.log('::::::',this.goals)
+
+    // this.goalService.getUserGoals(this.USER_ID)
+    //   .subscribe(res => {
+    //     this.goals = res
+    //   })
   }
   relatedGoals = this.goals;
   ngOnInit() {
@@ -107,7 +111,7 @@ export class Schedule implements OnInit {
     }
 
 
-    this.event.duration = e.calEvent.duration
+      this.event.duration = e.calEvent.duration
 
 
     this.event._id = e.calEvent._id;

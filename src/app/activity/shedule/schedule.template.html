@@ -1,4 +1,5 @@
-<p-schedule [events]="events" [header]="header" defaultDate="{{date}}" [eventLimit]="4" [editable]="true" defaultView="agendaDay"
+{{goals.length}}
+<p-schedule [events]="events" [header]="header" defaultDate="{{date}}" [eventLimit]="4" [editable]="true" defaultView="month"
 
 
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
