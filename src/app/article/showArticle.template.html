@@ -16,14 +16,6 @@
            Back
 
          </button>
-        <button
-          md-raised-button
-          (click)='onBack()'
-          class="shadow-1"
-        >
-          Article List
-
-        </button>
 
         <button
           md-raised-button
@@ -33,7 +25,15 @@
           Profile
 
         </button>
+          <button
+            md-raised-button
+            [routerLink]=" ['','goals']"
+            class="shadow-1"
+            color="accent"
+          >
+            Start Today
 
+          </button>
        </div>
 
 
@@ -52,9 +52,37 @@
                 col-md-6
                 col-lg-4">
 
+        <p-dataList [value]="articles" [paginator]="true" [rows]="5">
+          <header>
+            Article List
+          </header>
+          <template let-article >
+            <div class="ui-grid ui-grid-responsive ui-fluid"
+                 style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+              <div class="ui-grid-row"  >
+                <div class="ui-grid-col-2" style="text-align:center" *ngIf="user_name === admin_id">
+                  <!--<i class="fa fa-search"  (click)="selectGoal(goal)"  style="cursor:pointer;float:left;margin-top:40px"></i>-->
+                  <i class="fa fa-trash-o"  (click)="deleteArticle(article)" style="cursor:pointer;float:left;margin-top:40px"></i>
+                </div>
 
+                <div class="ui-grid-col-9">
+                  <div class="ui-grid ui-grid-responsive ui-fluid">
+                    <div class="ui-grid-row">
+                      <div class="ui-grid-col-12"
+                           [routerLink]=" ['','articles', article._id]" style="cursor:pointer;">
+                        <h2><i class="fa fa-search" aria-hidden="true"></i>
+                          {{article.title}}
+                        </h2>
 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
 
+</p-dataList>
         </div>
     </div>
 
