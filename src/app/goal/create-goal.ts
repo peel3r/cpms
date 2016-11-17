@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 
 export class CreateGoal {
   @Output() createGoal = new EventEmitter();
-
+  goals = []
   colors: Array<string> = [
     '#06CA85',
     '#0ACAC9',
@@ -47,6 +47,8 @@ export class CreateGoal {
     if (title) {
       this.createGoal.next({ title, type, color, duration, howOften, when, comments, confidenceLevel, done });
     }
+
+
       this.reset();
       this.fullForm = false;
 

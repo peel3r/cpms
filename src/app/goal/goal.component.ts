@@ -60,9 +60,10 @@ export class Goal {
 
   onCreateGoal(goal) {
     this.goalService.createGoal(goal)
-      .subscribe(goal => {
-        this.goals.push(goal)
-      });
+      .subscribe(
+      );
+
+    this.goals.push(goal)
   }
 
   onGoalChecked(goal,i) {
