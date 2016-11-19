@@ -32,9 +32,9 @@ export const ROUTES: Routes = [
   {
     path: 'detail', loadChildren: () => System.import('./+detail')
   },
-  { path: 'articles',  component: ArticleList , canActivate:[AuthService]},
-  { path: 'articles',  component: ArticleList , canActivate:[AuthService]},
-  { path: 'articles/:id',  component: ShowArticle , canActivate:[AuthService]},
+  { path: 'articles',  component: ArticleList },
+  { path: 'articles',  component: ArticleList },
+  { path: 'articles/:id',  component: ShowArticle },
 
   { path: 'article/new', component: NewArticle , canActivate:[AuthService]},
 

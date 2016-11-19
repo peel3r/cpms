@@ -3,6 +3,7 @@ import {UserService} from '../services'
 import {Observable} from 'rxjs/Rx';
 import {ArticleService} from "../services/articles";
 import {Store} from "../store";
+import {Router} from "@angular/router";
 
 
 
@@ -27,7 +28,7 @@ export class ArticleList {
     text: ''
   };
 
-  constructor( private articleService: ArticleService, private store: Store) {
+  constructor( private articleService: ArticleService, private store: Store, private router: Router) {
 
     this.store.changes.pluck('articles')
       .subscribe((articles: any) => this.articles = articles);
@@ -73,6 +74,12 @@ export class ArticleList {
     setTimeout(() => {
       this.toggle()
     },1000)
+  }
+
+  onArticle(article): void {
+    console.log(article)
+    this.router.navigate(['/articles', article._id]);
+    
   }
 
 }

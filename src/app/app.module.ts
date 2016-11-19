@@ -95,6 +95,8 @@ import {SharedModule} from "primeng/components/common/shared";
 import {EditorModule} from "primeng/components/editor/editor";
 import {ArticleList} from "./article/article-list.module";
 import {ShowArticle} from "./article/showArticle..component";
+import {FatigueChartComponent} from "./goal/summary/charts/fatigue-chart.component";
+import {DurationChartComponent} from "./goal/summary/charts/duration-chart.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -157,7 +159,9 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     Summary,
     SummaryChartComponent,
     ArticleList,
-    ShowArticle
+    ShowArticle,
+    FatigueChartComponent,
+    DurationChartComponent
 
 
   ],
