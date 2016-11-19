@@ -1,5 +1,5 @@
-<div class="note-creator shadow-2 " [ngStyle]="{'background-color': newGoal.color}">
-  <form class="row" (submit)="onCreateGoal()">
+<div class="note-creator shadow-2 " (mouseleave)="closeDialog()" (mouseenter)="closeDialog()" [ngStyle]="{'background-color': newGoal.color}">
+  <form class="row" (submit)="onCreateGoal()" >
         <input
           required
           type="text"
