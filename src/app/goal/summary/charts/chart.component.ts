@@ -13,7 +13,7 @@ export class SummaryChartComponent {
 
   @Input() goals = []
   @Input() activities = []
-
+  _activities = []
   dateCount = this.goals
   user_id = window.localStorage.getItem('cpms_user_id')
 
@@ -29,6 +29,7 @@ export class SummaryChartComponent {
                private zone:NgZone
 
   ) {
+
     setTimeout(() => {
       this.randomize()
     }, 1000);
@@ -67,8 +68,17 @@ export class SummaryChartComponent {
         this.relatedGoalActivityDurations = [0]
         this.goalActivityDurations = []
       })
-
      }).subscribe( );
+
+  }
+
+
+  public randomize() {
+    // Only Change 3 values
+    let data = this.goalDurations;
+    let clone = JSON.parse(JSON.stringify(this.barChartData));
+    clone[0].data = data;
+    this.barChartData = clone;
 
   }
   public barChartOptions:any = {
@@ -85,12 +95,7 @@ export class SummaryChartComponent {
     {data: this.allGoalsActivityDurations, label: 'Achieved'},
   ];
 
-  public randomize() {
-    // Only Change 3 values
-    let data = this.goalDurations;
-    let clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
-  }
+
+
 }
 

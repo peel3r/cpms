@@ -65,7 +65,7 @@ export class AuthService implements CanActivate {
       .map((res) => {
         this.setJwt(res.token, res.user_id, res.username);
         // this.router.navigate(['', 'users', res.user_id]); // to user profile
-        this.router.navigate(['', 'diaries']); // to create diary
+        this.router.navigate(['', 'goals']); // to create diary
 
       });
 
