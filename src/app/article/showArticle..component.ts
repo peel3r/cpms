@@ -34,7 +34,11 @@ export class ShowArticle {
   toUserProfile(): void {
     this.router.navigate(['','users', this.user_id]);
   }
+  onArticle(article): void {
+    console.log(article)
+    this.router.navigate(['/articles', article._id]);
 
+  }
   onBack(): void {
     this.router.navigate(['/articles']);
   }
