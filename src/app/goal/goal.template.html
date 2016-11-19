@@ -8,18 +8,37 @@
                 col-lg-3">
 
       <div class="box start-xs home-wrapper shadow-3">
-        <button
-          md-raised-button
-          (click)='toUserProfile()'
-          class="shadow-1"
-          color="accent"
-        >
-          Profile
+        <!--<button-->
+          <!--md-raised-button-->
+          <!--(click)='toUserProfile()'-->
+          <!--class="shadow-1"-->
+          <!--color="accent"-->
+        <!--&gt;-->
+          <!--Profile-->
 
-        </button>
+        <!--</button>-->
 
-        <hr>
-        <h1>Goals</h1>
+        <!--<hr>-->
+        <div class="row">
+          <div class="col-xs-6">
+            <h1>Goals</h1>
+          </div>
+          <div class="col-xs-6">
+            <div class="end-xs"
+                 (click)="toggleHelp()"
+                 ><i class="fa fa-info-circle fa-2x shadow-1" aria-hidden="true" style="color: #00AAAA;cursor:pointer;"></i>
+            </div>
+        </div>
+          <div class="note-creator shadow-2" [hidden]="help">
+            <div style="font-size: small" >
+            <h5>What specifically will you do?</h5> For example, will you rest, phone a friend or take a series of walks?
+              <h5>How much? </h5>If your target is to rest, will you rest for 15 minutes, an hour or some other length of time?
+              <h5>When? </h5>Will you rest in the morning, afternoon, evening or some combination?
+              <h5>How often? </h5>How many days a week will you do your target? You may want to do something daily, but it's good to allow yourself some "breathing room" by aiming to do something several times a week rather than every day.
+              <h5>To judge whether a goal is doable</h5>, ask yourself "how confident am I that I can complete this target as stated?" Answer by giving a number between 0 and 10, where 0 means "not confident at all" and 10 means "totally confident.
+            </div>
+          </div>
+        </div>
         <create-goal (createGoal)="onCreateGoal($event)"></create-goal>
 
         <hr>

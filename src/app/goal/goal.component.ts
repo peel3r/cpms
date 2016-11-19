@@ -29,6 +29,7 @@ import {ActivityService} from "../services/activity.service";
 })
 
 export class Goal {
+  help: boolean = true
 
   goals = [];
   activities = []
@@ -85,6 +86,9 @@ export class Goal {
     this.onLeave = !this.onLeave;
   }
 
+  toggleHelp() {
+    this.help = !this.help
+  }
   toUserProfile(): void {
     this.router.navigate(['','users', this.USER_ID]);
   }

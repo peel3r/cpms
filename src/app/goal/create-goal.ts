@@ -62,6 +62,8 @@ export class CreateGoal {
     this.fullForm = value;
   }
 
+
+
   onColorSelect(color: string) {
     this.newGoal.color = color;
   }
