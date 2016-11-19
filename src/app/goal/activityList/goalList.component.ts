@@ -24,8 +24,13 @@ export class DataListDemo {
   selectedGoal: MyEvent;
   updatedGoals = []
   event: MyEvent;
-
+  goal = {}
   displayDialog: boolean;
+  goalTypes = ['physical activity', 'mental activity', 'social activity'];
+  duration = ['5','10','15','20','30','45','60','90','120']
+  howOften = ['every day', 'every two days','twice a week', 'once a week', 'every fortnight'  ]
+  days = ['Morning','Noon', 'Afternoon','Evening','Late Evening','Night']
+  ratings = ['1','2','3','4','5','6','7','8','9','10']
 
   constructor(private goalService: GoalService) { }
 
@@ -63,8 +68,9 @@ export class DataListDemo {
 
 
   saveEvent() {
-    //update
 
+    //update
+console.log('this.selectedGoal', this.selectedGoal)
         this.goalService.completeGoal(this.selectedGoal)
           .subscribe();
 
