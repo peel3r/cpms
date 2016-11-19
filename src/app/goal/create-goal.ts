@@ -54,6 +54,10 @@ export class CreateGoal {
 
   }
 
+  closeDialog() {
+    this.fullForm = !this.fullForm;
+  }
+
   toggle(value: boolean) {
     this.fullForm = value;
   }
