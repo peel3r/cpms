@@ -52,41 +52,71 @@
     <div [ngStyle]="{'background-color': selectedGoal.color}">
       <div class="ui-grid-row">
         <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">Name</div>
-        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.title}}" /></div>
+        <div class="ui-grid-col-6"><input  disabled pInputText [(ngModel)]="selectedGoal.title" /></div>
       </div>
       <div class="ui-grid-row">
         <div class="ui-grid-col-6" *ngIf="selectedGoal.howOften">How Often</div>
-        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.howOften}}" /></div>
+        <div class="ui-grid-col-6"><select
+          [(ngModel)]="selectedGoal.howOften" name="first"
+          class="col-xs-10"
+
+        >
+          <option *ngFor="let p of howOften" [ngValue]="p">{{p}}</option>
+        </select></div>
       </div>
       <div class="ui-grid-row">
         <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">When</div>
-        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.when}}" /></div>
+        <div class="ui-grid-col-6"><select
+          [(ngModel)]="selectedGoal.when" name="first"
+          class="col-xs-10"
+
+        >
+          <option *ngFor="let p of days" [ngValue]="p">{{p}}</option>
+        </select></div>
       </div>
       <div class="ui-grid-row">
         <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">Goal type</div>
-        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.type}}" /></div>
+        <div class="ui-grid-col-6"><select
+          [(ngModel)]="selectedGoal.type" name="first"
+          class="col-xs-8"
+
+        >
+          <option *ngFor="let p of goalTypes" [ngValue]="p">{{p}}</option>
+        </select></div>
       </div>
       <div class="ui-grid-row">
         <div class="ui-grid-col-6" *ngIf="selectedGoal.confidenceLevel">Level of confidence</div>
-        <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.confidenceLevel}}" /></div>
+        <div class="ui-grid-col-6"><select
+          [(ngModel)]="selectedGoal.confidenceLevel" name="first"
+          class="col-xs-10"
+
+        >
+          <option *ngFor="let p of ratings" [ngValue]="p">{{p}}</option>
+        </select></div>
       </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-6" *ngIf="selectedGoal.duration">How Much</div>
-      <div class="ui-grid-col-6"><input pInputText value="{{selectedGoal.duration}}" /></div>
+      <div class="ui-grid-col-6"><select
+        [(ngModel)]="selectedGoal.duration" name="first"
+        class="col-xs-10"
+
+      >
+        <option *ngFor="let p of duration" [ngValue]="p">{{p}}</option>
+      </select></div>
     </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-12" *ngIf="selectedGoal.comments">Comments</div>
 
     </div>
       <div class="ui-grid-row">
-        <div class="ui-grid-col-4"><textarea pInputTextArea *ngIf="selectedGoal.comments" value="{{selectedGoal.comments}}"></textarea></div>
+        <div class="ui-grid-col-4"><textarea pInputTextArea *ngIf="selectedGoal.comments" [(ngModel)]="selectedGoal.comments"></textarea></div>
       </div>
     </div>
   </div>
   <footer>
 
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-      <button type="submit" pButton icon="fa-check" (click)="saveEvent(selectedGoal)" label="Save"></button>
+      <button type="submit" pButton icon="fa-check" (click)="saveEvent(selectedGoal)" label="Update"></button>
 
       <button type="button" pButton icon="fa-close"  (click)="deleteGoal(selectedGoal)" label="Delete"></button>
       <button  pButton icon="fa-check" (click)="closeDialog()" label="Close"></button>
