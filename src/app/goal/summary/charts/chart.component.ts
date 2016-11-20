@@ -34,7 +34,7 @@ export class SummaryChartComponent {
 
     setTimeout(() => {
       this.randomize()
-    }, 1000);
+    }, 1500);
   }
 
   ngOnInit() {

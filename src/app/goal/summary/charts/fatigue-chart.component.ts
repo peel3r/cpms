@@ -33,7 +33,7 @@ export class FatigueChartComponent {
 
     setTimeout(() => {
       this.randomize()
-    }, 1000);
+    }, 2000);
   }
 
   ngOnInit() {
