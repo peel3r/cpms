@@ -29,7 +29,11 @@
                   <div class="ui-grid ui-grid-responsive ui-fluid">
                     <div class="ui-grid-row">
                       <div class="ui-grid-col-12"
-                           (click)="onArticle(article)" style="cursor:pointer;">
+                           [routerLink]=" ['','articles', article._id]" routerLinkActive="active" style="cursor:pointer;">
+                           <!--(click)="onArticle(article)" style="cursor:pointer;"-->
+                      <!--&gt;-->
+
+
                         <h2><i class="fa fa-search" aria-hidden="true"></i>
                           {{article.title}}
                         </h2>

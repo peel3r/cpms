@@ -87,7 +87,7 @@ import {Schedule} from "./activity/shedule/schedule.component";
 import {DropdownModule} from "primeng/components/dropdown/dropdown";
 import {LightboxModule} from "primeng/components/lightbox/lightbox";
 import {DataListModule} from "primeng/components/datalist/datalist";
-import {DataListDemo} from "./goal/activityList/goalList.component";
+import {DataListDemo} from "./goal/goalList/goalList.component";
 import {Summary} from "./goal/summary/summary.component";
 import {ChartModule} from "primeng/components/chart/chart";
 import {SummaryChartComponent} from "./goal/summary/charts/chart.component";
