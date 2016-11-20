@@ -55,7 +55,6 @@ export class DurationChartComponent {
       })
       this.goalActivities.forEach((goalActivity,i) => {
           goalActivity.forEach((activity, i) => {
-            console.log('activity',activity)
             this.dateCount.push(activity.title);
 
 

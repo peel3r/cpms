@@ -57,8 +57,6 @@ export class Schedule implements OnInit {
   rating = [1,2,3,4,5,6,7,8,9,10]
 
   constructor(private activityService: ActivityService, private cd: ChangeDetectorRef, private goalService: GoalService) {
-    console.log('::::::',this.goals)
-
     // this.goalService.getUserGoals(this.USER_ID)
     //   .subscribe(res => {
     //     this.goals = res

@@ -54,7 +54,6 @@ export class FatigueChartComponent {
       })
       this.goalActivities.forEach((goalActivity,i) => {
           goalActivity.forEach((activity, i) => {
-            console.log('activity',activity)
             this.dateCount.push(activity.title);
 
             this.goalActivityFatigue.push(+activity.fatigue)
