@@ -24,6 +24,7 @@ import {Goal} from "./goal/goal.component";
 import {Activity} from "./activity/activity.component";
 import {ArticleList} from "./article/article-list.module";
 import {ShowArticle} from "./article/showArticle..component";
+import {ActivityList} from "./activity/activityList.component";
 
 export const ROUTES: Routes = [
   { path: '',      component: Home },
@@ -38,7 +39,7 @@ export const ROUTES: Routes = [
   { path: 'article/new', component: NewArticle , canActivate:[AuthService]},
 
   { path: 'goals',  component: Goal , canActivate:[AuthService]},
-  { path: 'activities',  component: Activity , canActivate:[AuthService]},
+  { path: 'activities',  component: ActivityList , canActivate:[AuthService]},
 
   { path: 'auth', component: Auth },
   { path: 'users',  component: UserList , canActivate:[AuthService]},
