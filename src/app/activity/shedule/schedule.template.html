@@ -3,10 +3,24 @@
 
 
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
+<div [routerLink]="['','activities']">Activity list</div>
 <p-dialog header="Activity Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
   <div class="ui-grid ui-grid-responsive ui-fluid"              [ngStyle]="{'background-color': event.color}"
         *ngIf="event">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-4"><label for="rating">Over All Rating</label></div>
+      <div class="ui-grid-col-6"><label for="rating">Level: <a style="background-color: white;">{{event.rating}}</a> change:</label></div>
 
+      <select
+        [(ngModel)]="event.rating" name="rating"
+        class="col-xs-2"
+
+      >
+        <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
+      </select>
+
+    </div>
+    <hr>
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="vin">Title</label></div>
       <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
@@ -77,19 +91,7 @@
       </select>
 
     </div>
-    <div class="ui-grid-row">
-      <div class="ui-grid-col-4"><label for="rating">Over All Rating</label></div>
-      <div class="ui-grid-col-6"><label for="rating">Level: <a style="background-color: white;">{{event.rating}}</a> change:</label></div>
 
-      <select
-        [(ngModel)]="event.rating" name="rating"
-        class="col-xs-2"
-
-      >
-        <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
-      </select>
-
-    </div>
     <div class="ui-grid-row">
       <div class="ui-grid-col-4"><label for="pain">Duration in min</label></div>
       <div class="ui-grid-col-6"><label for="start">Current: <a style="background-color: white;">{{event.duration}}</a> change:</label></div>
