@@ -16,10 +16,12 @@ export class SummaryChartComponent {
   _activities = []
   dateCount = this.goals
   user_id = window.localStorage.getItem('cpms_user_id')
-
+  relatedGoalActivityRatings = []
   goalActivities = []
   goalActivitiesDuration = []
-
+  goalActivitiesRating = []
+  allGoalsActivityRatings = []
+  overAllRating = []
   allGoalsActivityDurations = []
   goalDurations =[]
   relatedGoalActivityDurations = []
@@ -48,12 +50,29 @@ export class SummaryChartComponent {
 
       this.goals.forEach((goal,index) => {
         this.goalDurations.push(+goal.duration)
-        this.dateCount.push(goal.title);
 
+        if(goal.title.length > 8) {
+          this.dateCount.push(goal.title.substring(0,8));
+        } else {
+          this.dateCount.push(goal.title);
+
+        }
         this.goalActivities.push(this.activities.filter(( activity, i ) => activity.relatedGoal === this.goals[index].title))
       })
       this.goalActivities.forEach((goalActivity,i) => {
+
           goalActivity.forEach((duration, i) => {
+console.log(duration)
+            if(duration.rating) {
+              this.overAllRating.push(+duration.rating)
+            }
+            this.goalActivitiesRating = this.overAllRating.reduce((prev, cur) => {
+
+              this.relatedGoalActivityRatings = (prev + cur/this.overAllRating.length);
+              return this.relatedGoalActivityRatings
+
+            },0)
+
 
             this.goalActivityDurations.push(+duration.duration)
             this.goalActivitiesDuration = this.goalActivityDurations.reduce((prev, cur) => {
@@ -64,6 +83,8 @@ export class SummaryChartComponent {
             },0)
 
           })
+        this.allGoalsActivityRatings.push(this.relatedGoalActivityRatings)
+
         this.allGoalsActivityDurations.push(this.relatedGoalActivityDurations)
         this.relatedGoalActivityDurations = [0]
         this.goalActivityDurations = []
@@ -93,6 +114,7 @@ export class SummaryChartComponent {
   public barChartData:any = [
     {data: this.goalDurations , label: 'Target'},
     {data: this.allGoalsActivityDurations, label: 'Achieved'},
+    {data: this.allGoalsActivityRatings, label: 'Over All Rating'},
   ];
 
 
