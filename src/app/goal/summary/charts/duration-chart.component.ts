@@ -55,7 +55,15 @@ export class DurationChartComponent {
       })
       this.goalActivities.forEach((goalActivity,i) => {
           goalActivity.forEach((activity, i) => {
-            this.dateCount.push(activity.title);
+            if(activity.title){
+              if (activity.title.length > 8){
+                this.dateCount.push(activity.title.substring(0,8));
+
+              } else {
+                this.dateCount.push(activity.title);
+
+              }
+            }
 
 
             this.goalActivityDuration.push(+activity.duration)
