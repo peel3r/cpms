@@ -7,6 +7,9 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
     "noEmitHelpers": true,
     "strictNullChecks": false,
     "baseUrl": "./src",
@@ -28,6 +31,8 @@
     ]
   },
   "exclude": [
+    "typings/main",
+    "typings/main.d.ts",
     "node_modules",
     "dist"
   ],
