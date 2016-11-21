@@ -33,6 +33,7 @@ export class Schedule implements OnInit {
   header: any;
 
   event: MyEvent;
+  help: boolean = true
 
   dialogVisible: boolean = false;
 
@@ -126,7 +127,9 @@ export class Schedule implements OnInit {
     this.event.allDay = e.calEvent.allDay;
     this.dialogVisible = true;
   }
-
+  toggleHelp() {
+    this.help = !this.help
+  }
   saveEvent() {
     //update
     if(this.event._id) {
