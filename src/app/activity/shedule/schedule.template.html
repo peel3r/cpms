@@ -3,13 +3,39 @@
 
 
             (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
-<div [routerLink]="['','activities']">Activity list</div>
+<div [routerLink]="['','activities']">          <i class="fa fa-link" style="cursor:pointer;">Activity List</i>
+</div>
 <p-dialog header="Activity Details" [(visible)]="dialogVisible"  [responsive]="true" showEffect="fade" [modal]="false">
   <div class="ui-grid ui-grid-responsive ui-fluid"              [ngStyle]="{'background-color': event.color}"
         *ngIf="event">
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%;padding-top: 3%"
+         (mouseenter)="toggleHelp()"
+         (mouseleave)="toggleHelp()"
+
+    ><i class="fa fa-info-circle fa-2x" aria-hidden="true" style="color: #00AAAA;cursor:pointer;"></i>
+
+    <div class="note-creator " [hidden]="help">
+      <div style="font-size: small;padding-left: 5%;" >
+        To use the log, make entries one or more times a day, using one column for each set of entries.
+        <br>
+        You can use this log to:
+        <br>
+        <ul>
+          <li>Define your overall level of symptoms</li>
+          <li>Determine which symptoms are most important</li>
+          <li>Document daily swings in symptoms</li>
+          <li>Recognize interactions among symptoms</li>
+          <li>Document changes in symptom levels over time</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+    <hr>
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="rating">Over All Rating</label></div>
-      <div class="ui-grid-col-6"><label for="rating">Level: <a style="background-color: white;">{{event.rating}}</a> change:</label></div>
+      <div class="ui-grid-col-4"><label for="rating">Current: <a style="background-color: white;">{{event.rating}}</a> </label></div>
+
 
       <select
         [(ngModel)]="event.rating" name="rating"
@@ -17,31 +43,31 @@
 
       >
         <option *ngFor="let p of rating" [ngValue]="p">{{p}}</option>
-      </select>
+        </select>
 
     </div>
     <hr>
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="vin">Title</label></div>
       <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
     </div>
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4">Date Set</div>
 
       <div class="ui-grid-col-8"><label for="start"><a style="background-color: white;"> {{event.start}}</a></label></div>
     </div>
-      <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
         <div class="ui-grid-col-4"><label for="start">Start Date</label></div>
-        <div class="ui-grid-col-8"><p-calendar name="start"  [(ngModel)]="date6" [showTime]="true"></p-calendar></div>
+        <div class="ui-grid-col-8"><p-calendar name="start"  [(ngModel)]="date6"  [showTime]="true"></p-calendar></div>
       </div>
 
 
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="end">End Date</label></div>
       <div class="ui-grid-col-8"><p-calendar name="end"  [(ngModel)]="date7" [showTime]="true"></p-calendar></div>
     </div>
 
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
           <div class="ui-grid-col-4"><label for="relatedGoal">Related Goal</label></div>
         <select
             required
@@ -52,9 +78,9 @@
           </select>
 
     </div>
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="pain">Pain</label></div>
-      <div class="ui-grid-col-6"><label for="start">Level: <a style="background-color: white;">{{event.pain}}</a> change:</label></div>
+      <div class="ui-grid-col-6"><label for="start">Current: <a style="background-color: white;">{{event.pain}}</a></label></div>
 
       <select
         [(ngModel)]="event.pain" name="pain"
@@ -65,9 +91,9 @@
       </select>
 
     </div>
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="pain">Fatigue</label></div>
-      <div class="ui-grid-col-6"><label for="start">Level: <a style="background-color: white;">{{event.fatigue}}</a> change:</label></div>
+      <div class="ui-grid-col-6"><label for="start">Current: <a style="background-color: white;">{{event.fatigue}}</a></label></div>
 
       <select
         [(ngModel)]="event.fatigue" name="fatigue"
@@ -78,9 +104,9 @@
       </select>
 
     </div>
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="fog">Brain Fog</label></div>
-      <div class="ui-grid-col-6"><label for="fog">Level: <a style="background-color: white;">{{event.fog}}</a> change:</label></div>
+      <div class="ui-grid-col-6"><label for="fog">Current: <a style="background-color: white;">{{event.fog}}</a></label></div>
 
       <select
         [(ngModel)]="event.fog" name="fog"
@@ -92,9 +118,9 @@
 
     </div>
 
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="pain">Duration in min</label></div>
-      <div class="ui-grid-col-6"><label for="start">Current: <a style="background-color: white;">{{event.duration}}</a> change:</label></div>
+      <div class="ui-grid-col-6"><label for="start">Current: <a style="background-color: white;">{{event.duration}}</a></label></div>
 
       <select
         [(ngModel)]="event.duration" name="duration"
@@ -105,7 +131,7 @@
       </select>
 
     </div>
-    <div class="ui-grid-row">
+    <div class="ui-grid-row start-xs" style="padding-left: 5%">
       <div class="ui-grid-col-4"><label for="comments">Comments</label></div>
       <div class="ui-grid-col-8"><textarea pInputTextArea id="comments" [(ngModel)]="event.comments" ></textarea></div>
     </div>
