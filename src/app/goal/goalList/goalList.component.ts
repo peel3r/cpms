@@ -35,12 +35,9 @@ export class DataListDemo {
   constructor(private goalService: GoalService) { }
 
   selectGoal(goal) {
-
     this.selectedGoal = goal;
     this.displayDialog = !this.displayDialog;
   }
-
-
 
   deleteGoal(goal,i) {
     let index: number = this.findEventIndexById(goal._id);
@@ -48,7 +45,6 @@ export class DataListDemo {
 
     this.goalService.deleteGoal(goal)
       .subscribe()
-
 
     this.displayDialog = false;
   }
@@ -61,48 +57,22 @@ export class DataListDemo {
         break;
       }
     }
-
     return index;
   }
 
-
-
   saveEvent() {
-
-    //update
-console.log('this.selectedGoal', this.selectedGoal)
-        this.goalService.completeGoal(this.selectedGoal)
+    this.goalService.completeGoal(this.selectedGoal)
           .subscribe();
-
-
     this.displayDialog = false;
-
   }
 
   closeDialog() {
     this.displayDialog = false;
-
-
   }
 
   onDialogHide() {
     this.selectedGoal = null;
   }
-
-
-
-  // saveGoal(goal,i) {
-  //   console.log(goal)
-  //
-  //   //update
-  //   if(goal) {
-  //     console.log(goal)
-  //     this.goalService.completeGoal(goal)
-  //       .subscribe();
-  //   }
-  //
-  //   this.displayDialog = false;
-  // }
 }
 
 export class MyEvent {

@@ -21,13 +21,9 @@ export class ActivityTable {
   USER_ID = window.localStorage.getItem('cpms_user_id')
 
   displayDialog: boolean;
-
   activity: Activity = new PrimeActivity ();
-
   selectedActivity : Activity ;
-
   newActivity : boolean;
-
   activities: Activity [];
 
 

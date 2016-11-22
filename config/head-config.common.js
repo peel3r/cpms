@@ -27,11 +27,12 @@ module.exports = {
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/icon/apple-icon-180x180.png' },
 
     /** <link> tags for Stylesheets **/
+    { href: "https://fonts.googleapis.com/icon?family=Material+Icons",rel: "stylesheet", inject: true },
+
     { rel: 'stylesheet', href: '/assets/css/global.css' },
     {href:'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css', rel:'stylesheet', type:'text/css'},
     {rel:"stylesheet", href: "https://cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css", type:"text/css"},
 
-    { href: "https://fonts.googleapis.com/icon?family=Material+Icons",rel: "stylesheet", inject: true },
     { href: "/assets/ng2-toastr.min.css", rel:"stylesheet"},
     { href: "/assets/css/primeng.min.css", rel:"stylesheet", inject: true },
     { href: "/assets/css/theme.css", rel:"stylesheet", inject: true },

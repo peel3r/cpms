@@ -86,7 +86,6 @@ export class Activity {
   }
 
 
-
   toggle() {
     this.onLeave = !this.onLeave;
   }

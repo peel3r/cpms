@@ -62,7 +62,6 @@ export class SummaryChartComponent {
       this.goalActivities.forEach((goalActivity,i) => {
 
           goalActivity.forEach((duration, i) => {
-console.log(duration)
             if(duration.rating) {
               this.overAllRating.push(+duration.rating)
             }
