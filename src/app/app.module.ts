@@ -99,6 +99,8 @@ import {FatigueChartComponent} from "./goal/summary/charts/fatigue-chart.compone
 import {DurationChartComponent} from "./goal/summary/charts/duration-chart.component";
 import {ActivityTable} from "./activity/activityList.component";
 import {DataTableModule} from "primeng/components/datatable/datatable";
+import {ActivitySummary} from "./activity/activitySummary.component";
+import {ActivitySummaryCard} from "./activity/activitySummary-card.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -164,7 +166,9 @@ const mapValuesToArray = (obj) => Object.keys(obj).map(key => obj[key]);
     ShowArticle,
     FatigueChartComponent,
     DurationChartComponent,
-    ActivityTable
+    ActivityTable,
+    ActivitySummary,
+    ActivitySummaryCard
 
 
   ],
