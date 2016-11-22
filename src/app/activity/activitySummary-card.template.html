@@ -1,0 +1,22 @@
+<div
+  class="note-card row shadow-1"
+  [ngStyle]="{'background-color': goal.color}"
+
+  (mouseenter)="toggleCheck()"
+  (mouseleave)="toggleCheck()"
+>
+  <div class="icon" *ngIf="showCheck" (click)="onChecked()">
+    <i class="material-icons">check</i>
+  </div>
+  <div class="col-xs-6" >
+    {{ goal.title }} | {{activity.title}}
+  </div>
+  <div class="col-xs-6 value">
+    {{ goal.title }}
+    {{ goal.duration }}
+    {{ goal.type }}
+  </div>
+</div>
+
+
+
