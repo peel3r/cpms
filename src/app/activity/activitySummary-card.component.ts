@@ -1,4 +1,5 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {ActivityService} from "../services/activity.service";
 
 @Component({
   selector: 'activity-summary-card',
@@ -39,12 +40,68 @@ cursor: pointer;
 })
 
 export class ActivitySummaryCard {
-
+  @Input() goals = []
   @Input() goal = {};
-  @Input() activity = {};
+  @Input() activities = [];
   @Output() checked = new EventEmitter();
-
+  goalActivities = []
   showCheck: boolean = false;
+  user_id = window.localStorage.getItem('cpms_user_id')
+  goalActivityDurations = []
+  relatedGoalActivityDurations = []
+  allGoalsActivityRatings = []
+  goalActivitiesDuration = []
+  relatedGoalActivityRatings = []
+  allGoalsActivityDurations = []
+  goalActivitiesRating = []
+  overAllRating = []
+  constructor(public activityService: ActivityService){
+
+  }
+
+  ngOnInit() {
+    this.activityService.getUserActivities(this.user_id)
+      .map(activities => {
+        console.log('goal activities', activities)
+        this.goals.forEach((goal, index) => {
+
+          return this.goalActivities.push(this.activities.filter((activity, i) => activity.relatedGoal === this.goals[index].title))
+
+        })
+        this.goalActivities.forEach((goalActivity, i) => {
+
+          goalActivity.forEach((duration, i) => {
+            if (duration.rating) {
+              this.overAllRating.push(+duration.rating)
+            }
+            this.goalActivitiesRating = this.overAllRating.reduce((prev, cur) => {
+
+              this.relatedGoalActivityRatings = (prev + cur / this.overAllRating.length);
+              return this.relatedGoalActivityRatings
+
+            }, 0)
+
+
+            this.goalActivityDurations.push(+duration.duration)
+            this.goalActivitiesDuration = this.goalActivityDurations.reduce((prev, cur) => {
+
+              this.relatedGoalActivityDurations = (prev + cur / this.goalActivityDurations.length);
+              return this.relatedGoalActivityDurations
+
+            }, 0)
+
+          })
+          this.allGoalsActivityRatings.push(this.relatedGoalActivityRatings)
+
+          this.allGoalsActivityDurations.push(this.relatedGoalActivityDurations)
+          this.relatedGoalActivityDurations = [0]
+          this.goalActivityDurations = []
+
+        })
+
+      }).subscribe()
+
+  }
 
   toggleCheck(){
     this.showCheck = !this.showCheck;
